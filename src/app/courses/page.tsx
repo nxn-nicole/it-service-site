@@ -115,6 +115,15 @@ const courses = [
   },
 ];
 
+const moduleColors = [
+  "bg-pink-400",
+  "bg-emerald-400",
+  "bg-amber-400",
+  "bg-sky-400",
+  "bg-purple-400",
+  "bg-rose-400",
+];
+
 export default function CoursesPage() {
   return (
     <section className="space-y-10">
@@ -123,31 +132,59 @@ export default function CoursesPage() {
           Courses
         </p>
         <h1 className="text-4xl font-semibold md:text-5xl">
-          Master software development, step by step.
+          Track-based learning, module by module.
         </h1>
         <p className="max-w-3xl text-lg text-white/70">
-          Structured paths with focused lessons, hands-on practice, and clean
-          explanations.
+          Each track is broken down into focused modules with clear outcomes and
+          time guidance.
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {courses.map((course) => (
+      <div className="grid gap-6 lg:grid-cols-2">
+        {courses.map((course, courseIndex) => (
           <article
             key={course.title}
-            className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30"
+            className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/30"
           >
-            <div className="flex items-center justify-between text-sm text-white/60">
-              <span>{course.level}</span>
-              <span className="rounded-full bg-white/10 px-3 py-1 font-semibold text-white">
-                {course.duration}
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-1">
+                <h2 className="text-xl font-semibold">{course.title}</h2>
+                <p className="text-sm text-white/60">
+                  {course.modules.length} module
+                  {course.modules.length > 1 ? "s" : ""} · Practical exercises
+                  and demos
+                </p>
+              </div>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                Track {courseIndex + 1}
               </span>
             </div>
-            <h2 className="text-xl font-semibold">{course.title}</h2>
-            <p className="text-sm text-white/70">{course.description}</p>
-            <button className="mt-auto w-fit rounded-full bg-white text-black px-4 py-2 text-sm font-semibold transition hover:bg-white/90">
-              View details
-            </button>
+
+            <div className="space-y-4">
+              {course.modules.map((module, moduleIndex) => (
+                <div
+                  key={module.title}
+                  className="flex gap-3 rounded-xl border border-white/5 bg-black/40 p-4"
+                >
+                  <span
+                    className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${
+                      moduleColors[moduleIndex % moduleColors.length]
+                    }`}
+                  />
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="text-sm font-semibold">{module.title}</p>
+                      <span className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-white/80">
+                        {module.duration}
+                      </span>
+                    </div>
+                    <p className="text-sm text-white/70">
+                      {module.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </article>
         ))}
       </div>
