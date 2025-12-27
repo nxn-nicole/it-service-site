@@ -5,8 +5,15 @@ export default function ProjectsPage() {
         <p className="text-xs uppercase tracking-[0.3em] text-white/50">
           Projects
         </p>
-        <h1 className="text-4xl font-semibold md:text-5xl">
-          Blotz – A Real Full-Stack Product
+        <h1 className="flex items-center gap-3 text-4xl font-semibold md:text-5xl">
+          <Image
+            src="/blotz-icon.png"
+            alt="Blotz"
+            width={60}
+            height={60}
+            className="h-10 w-10 rounded-xl"
+          />
+          <span>– A Real Full-Stack Product</span>
         </h1>
         <p className="max-w-3xl text-lg text-white/70">
           Blotz is a production-level full-stack application built from scratch
@@ -83,3 +90,4 @@ export default function ProjectsPage() {
     </section>
   );
 }
+import Image from "next/image";
