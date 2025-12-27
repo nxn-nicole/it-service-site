@@ -106,10 +106,45 @@ const courses = [
     title: "Cloud Infrastructure",
     modules: [
       {
-        title: "Module 0 - Cloud Basics",
+        title: "Azure Fundamentals - Overview",
+        duration: "1h",
+        description:
+          "Get a high-level overview of Azure services and cloud architecture concepts.",
+      },
+      {
+        title: "Module 0 - Azure Setup",
+        duration: "2h",
+        description:
+          "Set up an Azure account and configure the development environment.",
+      },
+      {
+        title: "Module 1 - Azure Introduction",
+        duration: "3h",
+        description:
+          "Understand core Azure services and how they fit into real-world applications.",
+      },
+      {
+        title: "Module 2 - Deploy to Web App",
         duration: "4h",
         description:
-          "Learn cloud fundamentals including deployment, environments, and scalability concepts.",
+          "Deploy a web application to Azure App Service using best practices.",
+      },
+      {
+        title: "Module 3 - Deploy to SQL Database",
+        duration: "4h",
+        description:
+          "Provision and connect an Azure SQL Database for production workloads.",
+      },
+      {
+        title: "Module 4 - Automate Web App Deployment (CI/CD)",
+        duration: "5h",
+        description:
+          "Automate build and deployment pipelines using Azure CI/CD workflows.",
+      },
+      {
+        title: "Module 5 - Azure Key Vault",
+        duration: "3h",
+        description: "Secure secrets and configuration using Azure Key Vault.",
       },
     ],
   },
