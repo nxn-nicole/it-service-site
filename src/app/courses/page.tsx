@@ -151,12 +151,12 @@ const courses = [
 ];
 
 const moduleColors = [
-  "bg-pink-400",
-  "bg-emerald-400",
-  "bg-amber-400",
-  "bg-sky-400",
-  "bg-purple-400",
-  "bg-rose-400",
+  "bg-pink-600",
+  "bg-emerald-600",
+  "bg-amber-600",
+  "bg-sky-600",
+  "bg-purple-600",
+  "bg-rose-600",
 ];
 
 export default function CoursesPage() {
@@ -175,11 +175,11 @@ export default function CoursesPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="columns-1 gap-6 space-y-6 lg:columns-2">
         {courses.map((course, courseIndex) => (
           <article
             key={course.title}
-            className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/30"
+            className="mb-6 inline-block w-full break-inside-avoid rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/30"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="space-y-1">
