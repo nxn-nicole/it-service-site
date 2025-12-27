@@ -5,13 +5,13 @@ export default function ProjectsPage() {
         <p className="text-xs uppercase tracking-[0.3em] text-white/50">
           Projects
         </p>
-        <h1 className="flex items-center gap-3 text-4xl font-semibold md:text-5xl">
+        <h1 className="flex gap-3 text-4xl font-semibold md:text-5xl items-end">
           <Image
             src="/blotz-icon.png"
             alt="Blotz"
-            width={60}
-            height={60}
-            className="h-10 w-10 rounded-xl"
+            width={80}
+            height={80}
+            className="rounded-xl"
           />
           <span>– A Real Full-Stack Product</span>
         </h1>
