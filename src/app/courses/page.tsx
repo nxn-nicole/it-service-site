@@ -1,21 +1,117 @@
 const courses = [
   {
-    title: "React & TypeScript",
-    duration: "12h",
-    level: "Intermediate",
-    description: "Modern frontend stacks, hooks, and type-safe patterns.",
+    title: "Git",
+    modules: [
+      {
+        title: "Module 0 - Git & GitHub Basics",
+        duration: "3h",
+        description:
+          "Learn essential Git commands and collaborative workflows using GitHub.",
+      },
+    ],
   },
   {
-    title: "Python Foundations",
-    duration: "10h",
-    level: "Beginner",
-    description: "Clean syntax, scripting skills, and automation basics.",
+    title: "Frontend",
+    modules: [
+      {
+        title: "Module 0 - Frontend Basics",
+        duration: "4h",
+        description:
+          "Understand core frontend concepts including HTML, CSS, and basic React fundamentals.",
+      },
+      {
+        title: "Module 1 - Next.js",
+        duration: "6h",
+        description:
+          "Build modern web applications using Next.js with routing, layouts, and static rendering.",
+      },
+      {
+        title: "Module 2 - ShadCN",
+        duration: "3h",
+        description:
+          "Create consistent and accessible UI using ShadCN and Tailwind CSS.",
+      },
+      {
+        title: "Module 3 - React Hook Form",
+        duration: "3h",
+        description:
+          "Handle complex forms with validation and performance optimization.",
+      },
+      {
+        title: "Module 4 - TanStack Query",
+        duration: "4h",
+        description:
+          "Manage server state efficiently with caching, mutations, and async data flows.",
+      },
+    ],
   },
   {
-    title: "AI-Powered Apps",
-    duration: "8h",
-    level: "Advanced",
-    description: "Ship smart features with API-first AI integrations.",
+    title: "Mobile App",
+    modules: [
+      {
+        title: "Module 0 - Basic React Native and Expo",
+        duration: "4h",
+        description:
+          "Learn the fundamentals of building cross-platform mobile apps with Expo.",
+      },
+      {
+        title: "Module 1 - Build a Mobile Todo App",
+        duration: "6h",
+        description:
+          "Apply React Native concepts by building a complete Todo application.",
+      },
+    ],
+  },
+  {
+    title: "Backend",
+    modules: [
+      {
+        title: "Module 0 - Basic C# & .NET",
+        duration: "4h",
+        description:
+          "Understand C# syntax and the fundamentals of the .NET ecosystem.",
+      },
+      {
+        title: "Module 1 - EF Core & Database",
+        duration: "5h",
+        description:
+          "Work with relational databases using Entity Framework Core.",
+      },
+      {
+        title: "Module 2 - Database Communication",
+        duration: "4h",
+        description:
+          "Implement data access patterns and repository-based communication.",
+      },
+      {
+        title: "Module 3 - Frontend Communication",
+        duration: "4h",
+        description: "Expose APIs and handle frontend-backend data exchange.",
+      },
+      {
+        title: "Module 4 - Domain Relation",
+        duration: "4h",
+        description:
+          "Design clean domain models and manage entity relationships.",
+      },
+      {
+        title: "Module 5 - CQRS",
+        duration: "5h",
+        description:
+          "Apply CQRS to separate read and write responsibilities for scalable systems.",
+      },
+    ],
+  },
+  {
+    title: "Cloud Infrastructure",
+    modules: [
+      {
+        title: "Module 0 - Cloud Basics",
+        duration: "4h",
+        description:
+          "Learn cloud fundamentals including deployment, environments, and scalability concepts.",
+      },
+    ],
   },
 ];
 
