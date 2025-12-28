@@ -73,7 +73,7 @@ export default function IntroductionPage() {
             <p className="text-xs uppercase tracking-[0.3em] text-white/60">
               Goal
             </p>
-            <h2 className="text-3xl font-semibold text-white md:text-4xl">
+            <h2 className="text-3xl font-semibold text-white md:text-4xl text-center">
               Goal for my services
             </h2>
             <p className="text-base text-white/80 leading-relaxed">
