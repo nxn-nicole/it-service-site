@@ -21,6 +21,29 @@ const feedbacks = [
   },
 ];
 
+const stats = [
+  {
+    value: "100+",
+    label: "Students taught",
+    gradient: "from-violet-400 to-fuchsia-400",
+  },
+  {
+    value: "1000+",
+    label: "XHS fans",
+    gradient: "from-teal-300 to-emerald-400",
+  },
+  {
+    value: "4+",
+    label: "Years Of experience",
+    gradient: "from-pink-400 to-rose-400",
+  },
+  {
+    value: "5",
+    label: "Tracks Of coding courses",
+    gradient: "from-amber-300 to-orange-400",
+  },
+];
+
 export default function FeedbackPage() {
   return (
     <section className="space-y-10">
@@ -36,6 +59,25 @@ export default function FeedbackPage() {
           learners who turned practical IT skills into confidence, portfolios,
           and career opportunities.
         </p>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {stats.map((item) => (
+          <div
+            key={item.label}
+            className="relative overflow-hidden rounded-2xl border-t p-6 text-center"
+          >
+            <div
+              className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.gradient} opacity-70`}
+            />
+            <div
+              className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${item.gradient}`}
+            >
+              {item.value}
+            </div>
+            <p className="mt-2 text-sm text-white/75">{item.label}</p>
+          </div>
+        ))}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
