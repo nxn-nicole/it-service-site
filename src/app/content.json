@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Introduction",
+    "title": "Build real-world skills.",
+    "subtitle": "Master software development by building real-world projects that prepare you for the job."
+  },
+  "profile": {
+    "title": "澳洲软体工程师",
+    "bullets": [
+      {
+        "color": "bg-pink-600",
+        "text": "UTS graduate with 3+ years of IT consulting experience in Australia"
+      },
+      {
+        "color": "bg-amber-600",
+        "text": "Passionate about teaching, knowledge sharing, and collaborative project development"
+      },
+      {
+        "color": "bg-emerald-600",
+        "text": "Focused on .NET, full-stack engineering, and cloud-based solutions"
+      },
+      {
+        "color": "bg-sky-600",
+        "text": "Actively sharing insights on working in Australia, international student life, and career transitions into tech"
+      }
+    ]
+  },
+  "goal": {
+    "eyebrow": "Goal",
+    "title": "Goal for my services",
+    "description": "Get you closer to the way real teams work: production habits, collaboration patterns, and the core software concepts that make you confident shipping to employers.",
+    "pillars": [
+      {
+        "label": "Workplace readiness",
+        "note": "Code, review, and ship like a team member"
+      },
+      {
+        "label": "Concept mastery",
+        "note": "Patterns, architecture, testing, delivery"
+      },
+      {
+        "label": "Collaboration",
+        "note": "PRs, design docs, async comms"
+      },
+      {
+        "label": "Confidence",
+        "note": "From first commit to production deploys"
+      }
+    ]
+  }
+}

@@ -1,154 +1,4 @@
-const courses = [
-  {
-    title: "Git",
-    modules: [
-      {
-        title: "Module 0 - Git & GitHub Basics",
-        duration: "3h",
-        description:
-          "Learn essential Git commands and collaborative workflows using GitHub.",
-      },
-    ],
-  },
-  {
-    title: "Frontend",
-    modules: [
-      {
-        title: "Module 0 - Frontend Basics",
-        duration: "4h",
-        description:
-          "Understand core frontend concepts including HTML, CSS, and basic React fundamentals.",
-      },
-      {
-        title: "Module 1 - Next.js",
-        duration: "6h",
-        description:
-          "Build modern web applications using Next.js with routing, layouts, and static rendering.",
-      },
-      {
-        title: "Module 2 - ShadCN",
-        duration: "3h",
-        description:
-          "Create consistent and accessible UI using ShadCN and Tailwind CSS.",
-      },
-      {
-        title: "Module 3 - React Hook Form",
-        duration: "3h",
-        description:
-          "Handle complex forms with validation and performance optimization.",
-      },
-      {
-        title: "Module 4 - TanStack Query",
-        duration: "4h",
-        description:
-          "Manage server state efficiently with caching, mutations, and async data flows.",
-      },
-    ],
-  },
-  {
-    title: "Mobile App",
-    modules: [
-      {
-        title: "Module 0 - Basic React Native and Expo",
-        duration: "4h",
-        description:
-          "Learn the fundamentals of building cross-platform mobile apps with Expo.",
-      },
-      {
-        title: "Module 1 - Build a Mobile Todo App",
-        duration: "6h",
-        description:
-          "Apply React Native concepts by building a complete Todo application.",
-      },
-    ],
-  },
-  {
-    title: "Backend",
-    modules: [
-      {
-        title: "Module 0 - Basic C# & .NET",
-        duration: "4h",
-        description:
-          "Understand C# syntax and the fundamentals of the .NET ecosystem.",
-      },
-      {
-        title: "Module 1 - EF Core & Database",
-        duration: "5h",
-        description:
-          "Work with relational databases using Entity Framework Core.",
-      },
-      {
-        title: "Module 2 - Database Communication",
-        duration: "4h",
-        description:
-          "Implement data access patterns and repository-based communication.",
-      },
-      {
-        title: "Module 3 - Frontend Communication",
-        duration: "4h",
-        description: "Expose APIs and handle frontend-backend data exchange.",
-      },
-      {
-        title: "Module 4 - Domain Relation",
-        duration: "4h",
-        description:
-          "Design clean domain models and manage entity relationships.",
-      },
-      {
-        title: "Module 5 - CQRS",
-        duration: "5h",
-        description:
-          "Apply CQRS to separate read and write responsibilities for scalable systems.",
-      },
-    ],
-  },
-  {
-    title: "Cloud Infrastructure",
-    modules: [
-      {
-        title: "Azure Fundamentals - Overview",
-        duration: "1h",
-        description:
-          "Get a high-level overview of Azure services and cloud architecture concepts.",
-      },
-      {
-        title: "Module 0 - Azure Setup",
-        duration: "2h",
-        description:
-          "Set up an Azure account and configure the development environment.",
-      },
-      {
-        title: "Module 1 - Azure Introduction",
-        duration: "3h",
-        description:
-          "Understand core Azure services and how they fit into real-world applications.",
-      },
-      {
-        title: "Module 2 - Deploy to Web App",
-        duration: "4h",
-        description:
-          "Deploy a web application to Azure App Service using best practices.",
-      },
-      {
-        title: "Module 3 - Deploy to SQL Database",
-        duration: "4h",
-        description:
-          "Provision and connect an Azure SQL Database for production workloads.",
-      },
-      {
-        title: "Module 4 - Automate Web App Deployment (CI/CD)",
-        duration: "5h",
-        description:
-          "Automate build and deployment pipelines using Azure CI/CD workflows.",
-      },
-      {
-        title: "Module 5 - Azure Key Vault",
-        duration: "3h",
-        description: "Secure secrets and configuration using Azure Key Vault.",
-      },
-    ],
-  },
-];
+import content from "./content.json";
 
 const moduleColors = [
   "bg-pink-600",
@@ -164,19 +14,18 @@ export default function CoursesPage() {
     <section className="space-y-10">
       <div className="space-y-3">
         <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-          Courses
+          {content.hero.eyebrow}
         </p>
         <h1 className="text-4xl font-semibold md:text-5xl">
-          Track-based learning, module by module.
+          {content.hero.title}
         </h1>
         <p className="max-w-3xl text-lg text-white/70">
-          Each track is broken down into focused modules with clear outcomes and
-          time guidance.
+          {content.hero.subtitle}
         </p>
       </div>
 
       <div className="columns-1 gap-6 space-y-6 lg:columns-2">
-        {courses.map((course, courseIndex) => (
+        {content.courses.map((course, courseIndex) => (
           <article
             key={course.title}
             className="mb-6 inline-block w-full break-inside-avoid rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/30"

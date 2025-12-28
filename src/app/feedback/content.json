@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow": "Feedback",
+    "title": "Why Learners Trust Our IT Programs",
+    "subtitle": "From first lines of code to real job offers — hear directly from learners who turned practical IT skills into confidence, portfolios, and career opportunities."
+  },
+  "stats": [
+    { "value": "100+", "label": "Students taught", "gradient": "from-violet-400 to-fuchsia-400" },
+    { "value": "1000+", "label": "XHS fans", "gradient": "from-teal-300 to-emerald-400" },
+    { "value": "4+ years", "label": "Of experience", "gradient": "from-pink-400 to-rose-400" },
+    { "value": "5 tracks", "label": "Of coding courses", "gradient": "from-amber-300 to-orange-400" }
+  ],
+  "feedbacks": [
+    {
+      "name": "Alice L.",
+      "role": "Frontend Developer",
+      "note": "Landed a React role after shipping the capstone project and polishing the portfolio."
+    },
+    {
+      "name": "David Z.",
+      "role": "Full-stack Engineer",
+      "note": "Understood end-to-end flows from API to UI and can now scope features confidently."
+    },
+    {
+      "name": "Mandy C.",
+      "role": "Mobile Developer",
+      "note": "Expo + React Native stack finally clicked after pairing sessions and code reviews."
+    },
+    {
+      "name": "Leo W.",
+      "role": "Cloud Engineer",
+      "note": "Deploying to Azure with CI/CD went from mystery to a checklist I can repeat at work."
+    }
+  ],
+  "wechat": {
+    "eyebrow": "WeChat",
+    "title": "微信截图预留区",
+    "description": "把聊天反馈截图放到 /public 目录，命名为 wechat-feedback.png 或者你喜欢的文件名，然后用 <Image> 替换下面的占位。",
+    "placeholder": "在这里放微信截图"
+  }
+}
