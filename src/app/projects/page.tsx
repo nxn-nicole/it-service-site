@@ -1,3 +1,36 @@
+import Image from "next/image";
+
+const communityEvents = [
+  {
+    title: "Discord tech shares",
+    cadence: "On-demand · 45 mins",
+    detail:
+      "Live demos on new Blotz features, architecture trade-offs, and debugging war stories. Replays are posted for async catch-up.",
+    badge: "Remote",
+  },
+  {
+    title: "Wednesday in-person project circle",
+    cadence: "Every Wed · 6–8pm",
+    detail:
+      "Hands-on pairing to ship tickets, run design critiques, and unblock gnarly bugs with teammates.",
+    badge: "Sydney",
+  },
+  {
+    title: "Career + interview clinics",
+    cadence: "Monthly · 60 mins",
+    detail:
+      "Resume polish, portfolio walkthroughs, mock system design, and behavioral Q&A with actionable next steps.",
+    badge: "Career",
+  },
+  {
+    title: "Product review hour",
+    cadence: "Weekly · 60 mins",
+    detail:
+      "We measure feature impact, review analytics, and decide next bets—just like a real product council.",
+    badge: "Product",
+  },
+];
+
 export default function ProjectsPage() {
   return (
     <section className="space-y-10">
@@ -87,7 +120,43 @@ export default function ProjectsPage() {
           ))}
         </div>
       </div>
+
+      <div className="rounded-2xl border border-white/10 bg-black/40 p-8 space-y-4">
+        <div className="flex flex-col gap-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/50">
+            Community
+          </p>
+          <h2 className="text-3xl font-semibold text-white">
+            Blotz community rituals
+          </h2>
+          <p className="text-sm text-white/70 max-w-3xl">
+            How we stay connected, swap knowledge, and keep the project moving
+            like a real team. Join the sessions that fit your schedule.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {communityEvents.map((event) => (
+            <article
+              key={event.title}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/20"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold">{event.title}</h3>
+                  <p className="text-sm text-white/60">{event.cadence}</p>
+                </div>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
+                  {event.badge}
+                </span>
+              </div>
+              <p className="mt-3 text-sm text-white/80 leading-relaxed">
+                {event.detail}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
-import Image from "next/image";
