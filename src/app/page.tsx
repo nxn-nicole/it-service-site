@@ -66,14 +66,14 @@ export default function IntroductionPage() {
         </div>
       </a>
 
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-purple-600/20 via-emerald-500/20 to-sky-500/20 p-8 shadow-[0_10px_50px_rgba(0,0,0,0.45)]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.06),transparent_30%)]" />
-        <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-2 md:max-w-xl">
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/60 p-8 shadow-[0_10px_50px_rgba(0,0,0,0.45)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(99,102,241,0.08),transparent_32%),radial-gradient(circle_at_85%_15%,rgba(16,185,129,0.08),transparent_32%),radial-gradient(circle_at_60%_80%,rgba(56,189,248,0.06),transparent_30%)]" />
+        <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-2 md:max-w-xl text-center md:text-left mx-auto md:mx-0">
             <p className="text-xs uppercase tracking-[0.3em] text-white/60">
               Goal
             </p>
-            <h2 className="text-3xl font-semibold text-white md:text-4xl text-center">
+            <h2 className="text-3xl font-semibold text-white md:text-4xl">
               Goal for my services
             </h2>
             <p className="text-base text-white/80 leading-relaxed">
@@ -82,7 +82,7 @@ export default function IntroductionPage() {
               you confident shipping to employers.
             </p>
           </div>
-          <div className="grid w-full max-w-md grid-cols-2 gap-3 rounded-xl  p-4 md:w-auto">
+          <div className="grid w-full max-w-md grid-cols-2 gap-3 rounded-xl p-4 md:w-auto">
             {[
               {
                 label: "Workplace readiness",
