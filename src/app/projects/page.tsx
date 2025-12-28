@@ -1,6 +1,8 @@
 import Image from "next/image";
 import content from "./content.json";
 
+const projectLink = "https://blotztaskapp.webflow.io/#Home";
+
 export default function ProjectsPage() {
   return (
     <section className="space-y-10">
@@ -9,13 +11,21 @@ export default function ProjectsPage() {
           {content.hero.eyebrow}
         </p>
         <h1 className="flex gap-3 text-4xl font-semibold md:text-5xl items-end">
-          <Image
-            src="/blotz-icon.png"
-            alt="Blotz"
-            width={80}
-            height={80}
-            className="rounded-xl"
-          />
+          <a
+            href={projectLink}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative inline-flex rounded-xl transition-transform duration-300"
+          >
+            <div className="pointer-events-none absolute inset-0 rounded-xl bg-[#95CFEA]/25 opacity-0 blur transition duration-300 group-hover:opacity-100" />
+            <Image
+              src="/blotz-icon.png"
+              alt="Blotz"
+              width={80}
+              height={80}
+              className="rounded-xl transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_40px_#95CFEA]"
+            />
+          </a>
           <span>{content.hero.title}</span>
         </h1>
         <p className="max-w-3xl text-lg text-white/70">
