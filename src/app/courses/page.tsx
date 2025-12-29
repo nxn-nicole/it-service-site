@@ -1,13 +1,5 @@
+import Image from "next/image";
 import content from "./content.json";
-
-const moduleColors = [
-  "bg-pink-600",
-  "bg-emerald-600",
-  "bg-amber-600",
-  "bg-sky-600",
-  "bg-purple-600",
-  "bg-rose-600",
-];
 
 export default function CoursesPage() {
   return (
@@ -24,50 +16,34 @@ export default function CoursesPage() {
         </p>
       </div>
 
-      <div className="columns-1 gap-6 space-y-6 lg:columns-2">
-        {content.courses.map((course, courseIndex) => (
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {content.courses.map((course) => (
           <article
             key={course.title}
-            className="mb-6 inline-block w-full break-inside-avoid rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/30"
+            className="group overflow-hidden rounded-[20px] border border-white/10 bg-[#0d0f18] shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition hover:-translate-y-1 hover:border-white/20"
           >
-            <div className="flex items-start justify-between gap-3">
-              <div className="space-y-1">
-                <h2 className="text-xl font-semibold">{course.title}</h2>
-                <p className="text-sm text-white/60">
-                  {course.modules.length} module
-                  {course.modules.length > 1 ? "s" : ""} · Practical exercises
-                  and demos
-                </p>
-              </div>
-              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
-                Track {courseIndex + 1}
-              </span>
+            <div className="relative h-48 w-full overflow-hidden">
+              <Image
+                src={course.image}
+                alt={course.title}
+                fill
+                className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                sizes="(min-width: 1280px) 400px, (min-width: 640px) 50vw, 100vw"
+              />
             </div>
 
-            <div className="space-y-4">
-              {course.modules.map((module, moduleIndex) => (
-                <div
-                  key={module.title}
-                  className="flex gap-3 rounded-xl border border-white/5 bg-black/40 p-4"
-                >
-                  <span
-                    className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${
-                      moduleColors[moduleIndex % moduleColors.length]
-                    }`}
-                  />
-                  <div className="space-y-2">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <p className="text-sm font-semibold">{module.title}</p>
-                      <span className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-white/80">
-                        {module.duration}
-                      </span>
-                    </div>
-                    <p className="text-sm text-white/70">
-                      {module.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="space-y-3 p-5">
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="text-lg font-semibold text-white">
+                  {course.title}
+                </h2>
+                {course.duration && (
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                    {course.duration}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-white/75">{course.description}</p>
             </div>
           </article>
         ))}
