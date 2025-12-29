@@ -108,18 +108,28 @@
       "description": "Messages from students sharing progress, questions, and breakthroughs throughout their learning journey.",
       "gallery": [
         {
-          "src": "/placeholder-pic.jpg",
+          "src": "/feedback1.jpg",
           "title": "Student 1",
           "caption": "★★★★★"
         },
         {
-          "src": "/placeholder-pic.jpg",
+          "src": "/feedback2.jpg",
           "title": "Student 2",
           "caption": "★★★★★"
         },
         {
-          "src": "/placeholder-pic.jpg",
+          "src": "/feedback3.jpg",
           "title": "Student 3",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback4.jpg",
+          "title": "Student 4",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback6.jpg",
+          "title": "Student 5",
           "caption": "★★★★★"
         }
       ]
