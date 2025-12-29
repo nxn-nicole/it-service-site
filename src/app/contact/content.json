@@ -6,24 +6,14 @@
   },
   "contactMethods": [
     {
-      "label": "Email",
-      "value": "hello@example.com",
-      "hint": "Best for sharing resumes, project details, or course partnerships"
-    },
-    {
       "label": "WeChat",
-      "value": "WeChatID: TTE77A (August)",
-      "hint": "Project assistant account — add a note like “Course inquiry” or “Project chat.”"
+      "value": "WeChatID: Azdev0189",
+      "hint": "Add a note like “Course inquiry” or “Project chat.”"
     },
     {
       "label": "Xiaohongshu",
       "value": "Search: 澳洲软体工程师",
       "hint": "Find me on Xiaohongshu and DM for course or project questions"
-    },
-    {
-      "label": "Discord",
-      "value": "15-30 min voice call",
-      "hint": "Quick calls to plan learning paths or discuss career moves"
     }
   ],
   "tips": [

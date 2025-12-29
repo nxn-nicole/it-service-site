@@ -41,10 +41,26 @@ export default function FeedbackPage() {
             className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/20"
           >
             <div className="flex items-start justify-between gap-3">
-              <div>
-                <h3 className="text-lg font-semibold text-white">
-                  {item.name}
-                </h3>
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.name}
+                  </h3>
+                  <div
+                    className="flex gap-1"
+                    aria-label="5-star rating"
+                    role="img"
+                  >
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <span
+                        key={idx}
+                        className="flex h-5 w-5 items-center justify-center rounded-[2px] bg-emerald-500 text-[11px] text-white leading-none"
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                </div>
                 <p className="text-sm text-emerald-300/90">{item.role}</p>
               </div>
               <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-200">
