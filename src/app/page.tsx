@@ -6,6 +6,7 @@ import {
   Users,
 } from "lucide-react";
 import content from "./content.json";
+import Gallery from "./projects/Gallery";
 
 export default function IntroductionPage() {
   const goalIcons = [Users, BadgeDollarSign, GraduationCap, ShieldCheck];
@@ -111,6 +112,105 @@ export default function IntroductionPage() {
               );
             })}
           </div>
+        </div>
+      </div>
+
+      <div className="space-y-10 rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+        <div className="space-y-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+            {content.feedback.hero.eyebrow}
+          </p>
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-semibold md:text-4xl">
+                {content.feedback.hero.title}
+              </h2>
+              <p className="max-w-3xl text-base text-white/75 md:text-lg">
+                {content.feedback.hero.subtitle}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {content.feedback.stats.map((item) => (
+            <div
+              key={item.label}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
+            >
+              <div
+                className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.gradient} opacity-80`}
+              />
+              <div
+                className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${item.gradient}`}
+              >
+                {item.value}
+              </div>
+              <p className="mt-2 text-sm text-white/75">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {content.feedback.feedbacks.map((item) => (
+            <article
+              key={item.name}
+              className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/20"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.name}
+                    </h3>
+                    <div
+                      className="flex gap-1"
+                      aria-label="5-star rating"
+                      role="img"
+                    >
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <span
+                          key={idx}
+                          className="flex h-5 w-5 items-center justify-center rounded-[2px] bg-emerald-500 text-[11px] text-white leading-none"
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-emerald-300/90">{item.role}</p>
+                </div>
+                <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-200">
+                  Student
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-white/80">
+                {item.note}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="space-y-4 rounded-2xl border border-white/10 bg-black/40 p-6">
+          <div className="flex flex-col gap-2">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+              {content.feedback.wechat.eyebrow}
+            </p>
+            <h3 className="text-2xl font-semibold text-white">
+              {content.feedback.wechat.title}
+            </h3>
+            <p className="text-sm text-white/70 max-w-3xl">
+              {content.feedback.wechat.description}
+            </p>
+          </div>
+
+          <Gallery
+            items={content.feedback.wechat.gallery.map((item) => ({
+              src: item.src,
+              title: item.title,
+              caption: item.caption,
+            }))}
+          />
         </div>
       </div>
     </section>
