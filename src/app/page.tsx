@@ -9,12 +9,6 @@ import content from "./content.json";
 
 export default function IntroductionPage() {
   const goalIcons = [Users, BadgeDollarSign, GraduationCap, ShieldCheck];
-  const iconColors = [
-    "text-amber-300",
-    "text-emerald-300",
-    "text-sky-300",
-    "text-pink-300",
-  ];
 
   return (
     <section className="space-y-10">
@@ -98,7 +92,7 @@ export default function IntroductionPage() {
           <div className="grid gap-12 text-left md:grid-cols-2">
             {content.goal.pillars.map((item, index) => {
               const Icon = goalIcons[index % goalIcons.length];
-              const color = iconColors[index % iconColors.length];
+              const color = item.color ?? "text-white";
 
               return (
                 <div key={item.label} className="flex gap-5">

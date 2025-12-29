@@ -32,19 +32,23 @@
     "pillars": [
       {
         "label": "Workplace readiness",
-        "note": "Code, review, and ship like a team member"
+        "note": "Code, review, and ship like a team member",
+        "color": "text-amber-300"
       },
       {
         "label": "Concept mastery",
-        "note": "Patterns, architecture, testing, delivery"
+        "note": "Patterns, architecture, testing, delivery",
+        "color": "text-emerald-300"
       },
       {
         "label": "Collaboration",
-        "note": "PRs, design docs, async comms"
+        "note": "PRs, design docs, async comms",
+        "color": "text-sky-300"
       },
       {
         "label": "Confidence",
-        "note": "From first commit to production deploys"
+        "note": "From first commit to production deploys",
+        "color": "text-pink-300"
       }
     ]
   }
