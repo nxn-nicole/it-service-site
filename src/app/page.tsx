@@ -34,31 +34,48 @@ export default function IntroductionPage() {
         href="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7?xsec_token=ABfwKVM6jH222sFPOPxFMLO4t1WgO79rOnQKRJGj4UmOE%3D&xsec_source=pc_search"
         target="_blank"
         rel="noreferrer"
-        className="group block w-8/9 rounded-2xl border border-white/15 bg-white/5 p-6 transition-colors hover:border-white focus-visible:border-white active:border-white"
+        className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-white/10 via-white/5 to-white/10 p-8 shadow-[0_15px_60px_rgba(0,0,0,0.45)] backdrop-blur-sm transition hover:border-white/25 hover:shadow-[0_22px_70px_rgba(0,0,0,0.6)]"
       >
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
-          <Image
-            src="/profile-photo.webp"
-            alt="Profile photo"
-            width={120}
-            height={120}
-            className="h-28 w-28 rounded-full object-cover border border-white/15"
-          />
-          <div className="space-y-3">
-            <p className="text-lg font-semibold">{content.profile.title}</p>
-            <div className="space-y-3 text-sm text-white/80">
-              {content.profile.bullets.map((item) => (
-                <div
-                  key={item.text}
-                  className="flex items-start gap-3 rounded-lg"
-                >
-                  <span
-                    className={`mt-1 h-2.5 w-2.5 rounded-full ${item.color}`}
-                  />
-                  <p className="leading-relaxed">{item.text}</p>
-                </div>
-              ))}
+        <div className="pointer-events-none absolute inset-0 opacity-70 blur-3xl bg-[radial-gradient(circle_at_10%_20%,rgba(99,102,241,0.4),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.35),transparent_32%),radial-gradient(circle_at_60%_80%,rgba(251,191,36,0.35),transparent_28%)]" />
+        <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-5 md:gap-6">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/35 to-transparent opacity-70 blur-xl transition duration-500 group-hover:opacity-100" />
+              <Image
+                src="/profile-photo.webp"
+                alt="Profile photo"
+                width={128}
+                height={128}
+                className="relative h-32 w-32 rounded-2xl border border-white/15 object-cover shadow-[0_10px_30px_rgba(0,0,0,0.45)]"
+              />
             </div>
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+                Profile
+              </p>
+              <p className="text-2xl font-semibold leading-tight">
+                {content.profile.title}
+              </p>
+              <p className="text-sm text-white/70">
+                IT Consulting & Mentorship
+              </p>
+            </div>
+          </div>
+
+          <div className="relative w-full max-w-xl space-y-3 md:w-auto">
+            {content.profile.bullets.map((item) => (
+              <div
+                key={item.text}
+                className="relative flex gap-4 rounded-lg border border-white/5 bg-white/5 px-4 py-3 shadow-sm shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-white/20"
+              >
+                <span
+                  className={`relative mt-1 h-2.5 w-2.5 rounded-full ring-4 ring-white/10 ${item.color}`}
+                />
+                <p className="text-sm leading-relaxed text-white/80">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </a>
@@ -100,7 +117,6 @@ export default function IntroductionPage() {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>
