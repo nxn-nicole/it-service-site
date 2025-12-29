@@ -1,4 +1,5 @@
 import content from "./content.json";
+import Gallery from "../projects/Gallery";
 
 export default function FeedbackPage() {
   return (
@@ -87,15 +88,13 @@ export default function FeedbackPage() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 rounded-xl border border-dashed border-emerald-400/60 bg-emerald-500/5 p-4">
-          <div className="flex items-center justify-between gap-3 text-sm text-emerald-100">
-            <span>Screenshot placeholder</span>
-            <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold">Drop-in ready</span>
-          </div>
-          <div className="flex h-64 items-center justify-center rounded-lg border border-white/10 bg-black/60 text-sm text-white/50">
-            {content.wechat.placeholder}
-          </div>
-        </div>
+        <Gallery
+          items={content.wechat.gallery.map((item) => ({
+            src: item.src,
+            title: item.title,
+            caption: item.caption,
+          }))}
+        />
       </div>
     </section>
   );

@@ -53,19 +53,19 @@
   ],
   "gallery": [
     {
-      "src": "/blotz-sharing_1.png",
+      "src": "/placeholder-pic.jpg",
       "title": "Live debugging",
       "caption": "Pairing session to trace a flaky SignalR reconnect."
+    },
+    {
+      "src": "/blotz-sharing-3.jpg",
+      "title": "Developer Community Shares",
+      "caption": "Community-driven discussions on projects, career paths, and growing as an engineer."
     },
     {
       "src": "/blotz-sharing-2.png",
       "title": "Engineering Notes",
       "caption": "Practical notes and resources distilled from real development work and problem-solving."
-    },
-    {
-      "src": "/blotz-sharing-1.png",
-      "title": "Developer Community Shares",
-      "caption": "Community-driven discussions on projects, career paths, and growing as an engineer."
     }
   ]
 }
