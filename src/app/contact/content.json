@@ -2,28 +2,28 @@
   "hero": {
     "eyebrow": "Contact",
     "title": "Let’s talk about your next step.",
-    "subtitle": "课程咨询、项目辅导或职业规划都可以通过以下方式联系。根据场景挑选最方便的渠道即可。"
+    "subtitle": "Reach out for course questions, project mentoring, or career planning. Pick the channel that works best for you."
   },
   "contactMethods": [
     {
       "label": "Email",
       "value": "hello@example.com",
-      "hint": "适合发送简历、项目资料或课程合作"
+      "hint": "Best for sharing resumes, project details, or course partnerships"
     },
     {
       "label": "WeChat",
-      "value": "wechat-id-here",
-      "hint": "加好友备注“课程咨询”或“项目讨论”"
+      "value": "WeChatID: TTE77A",
+      "hint": "Project assistant account — add a note like “Course inquiry” or “Project chat.”"
     },
     {
-      "label": "Calendly",
-      "value": "15-30 min 聊天",
-      "hint": "用于规划学习路径或职业建议的简短会谈"
+      "label": "Discord",
+      "value": "15-30 min voice call",
+      "hint": "Quick calls to plan learning paths or discuss career moves"
     }
   ],
   "tips": [
-    "发送消息时简单介绍背景和目标，方便快速给出建议。",
-    "如需微信二维码，可把图片放在 /public，然后用 <Image> 插入到这里。",
-    "需要一对一辅导或 mock interview，也可以在邮件里直接约时间。"
+    "When you reach out, include a short intro and your goal so we can help faster.",
+    "If you need a WeChat QR, drop the image into /public and render it here with <Image>.",
+    "For 1:1 coaching or mock interviews, feel free to propose a time in your message."
   ]
 }
