@@ -12,8 +12,13 @@
     },
     {
       "label": "WeChat",
-      "value": "WeChatID: TTE77A",
+      "value": "WeChatID: TTE77A (August)",
       "hint": "Project assistant account — add a note like “Course inquiry” or “Project chat.”"
+    },
+    {
+      "label": "Xiaohongshu",
+      "value": "Search: 澳洲软体工程师",
+      "hint": "Find me on Xiaohongshu and DM for course or project questions"
     },
     {
       "label": "Discord",
@@ -23,7 +28,6 @@
   ],
   "tips": [
     "When you reach out, include a short intro and your goal so we can help faster.",
-    "If you need a WeChat QR, drop the image into /public and render it here with <Image>.",
     "For 1:1 coaching or mock interviews, feel free to propose a time in your message."
   ]
 }
