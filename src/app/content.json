@@ -28,26 +28,26 @@
   "goal": {
     "eyebrow": "Goal",
     "title": "Goal for my services",
-    "description": "Get you closer to the way real teams work: production habits, collaboration patterns, and the core software concepts that make you confident shipping to employers.",
+    "description": "Deliver job-ready skills with guided, hands-on practice instead of theory-only tutorials—simple for beginners to follow, with 1v1 support when you get stuck.",
     "pillars": [
       {
-        "label": "Workplace readiness",
-        "note": "Code, review, and ship like a team member",
+        "label": "Step-by-step builds",
+        "note": "Follow clear, linear tasks that mirror real delivery work",
         "color": "text-amber-300"
       },
       {
-        "label": "Concept mastery",
-        "note": "Patterns, architecture, testing, delivery",
+        "label": "Hands-on over theory",
+        "note": "Ship working features before deep dives into concepts",
         "color": "text-emerald-300"
       },
       {
-        "label": "Collaboration",
-        "note": "PRs, design docs, async comms",
+        "label": "Guided tutorials",
+        "note": "Hand-holding walkthroughs that are beginner-friendly",
         "color": "text-sky-300"
       },
       {
-        "label": "Confidence",
-        "note": "From first commit to production deploys",
+        "label": "1v1 support",
+        "note": "Direct help to unblock you quickly and keep momentum",
         "color": "text-pink-300"
       }
     ]
