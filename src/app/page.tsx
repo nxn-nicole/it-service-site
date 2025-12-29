@@ -9,6 +9,12 @@ import content from "./content.json";
 
 export default function IntroductionPage() {
   const goalIcons = [Users, BadgeDollarSign, GraduationCap, ShieldCheck];
+  const iconColors = [
+    "text-amber-300",
+    "text-emerald-300",
+    "text-sky-300",
+    "text-pink-300",
+  ];
 
   return (
     <section className="space-y-10">
@@ -57,8 +63,8 @@ export default function IntroductionPage() {
         </div>
       </a>
 
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#2b2d40] px-6 py-12 shadow-[0_10px_50px_rgba(0,0,0,0.45)]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(99,102,241,0.08),transparent_32%),radial-gradient(circle_at_85%_15%,rgba(16,185,129,0.08),transparent_32%),radial-gradient(circle_at_60%_80%,rgba(56,189,248,0.06),transparent_30%)]" />
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black px-6 py-12 shadow-[0_10px_50px_rgba(0,0,0,0.45)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.04),transparent_32%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.03),transparent_32%),radial-gradient(circle_at_60%_80%,rgba(255,255,255,0.04),transparent_30%)]" />
         <div className="relative mx-auto max-w-5xl space-y-10 text-center">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.3em] text-white/60">
@@ -75,11 +81,12 @@ export default function IntroductionPage() {
           <div className="grid gap-12 text-left md:grid-cols-2">
             {content.goal.pillars.map((item, index) => {
               const Icon = goalIcons[index % goalIcons.length];
+              const color = iconColors[index % iconColors.length];
 
               return (
                 <div key={item.label} className="flex gap-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white">
-                    <Icon className="h-6 w-6" strokeWidth={1.5} />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10">
+                    <Icon className={`h-6 w-6 ${color}`} strokeWidth={1.5} />
                   </div>
                   <div className="space-y-1.5">
                     <p className="text-lg font-semibold text-white">
@@ -94,14 +101,6 @@ export default function IntroductionPage() {
             })}
           </div>
 
-          <div>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 px-8 py-3 text-base font-semibold text-amber-950 shadow-lg shadow-amber-950/30 transition hover:shadow-amber-950/50"
-            >
-              Start Learning Now (it&apos;s free)
-            </a>
-          </div>
         </div>
       </div>
     </section>
