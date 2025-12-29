@@ -1,5 +1,6 @@
 import Image from "next/image";
 import content from "./content.json";
+import Gallery from "./Gallery";
 
 const projectLink = "https://blotztaskapp.webflow.io/#Home";
 
@@ -116,6 +117,21 @@ export default function ProjectsPage() {
             </article>
           ))}
         </div>
+      </div>
+
+      <div className="space-y-4 rounded-2xl border border-white/10 bg-black/40 p-6">
+        <div className="flex flex-col gap-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/50">
+            Gallery
+          </p>
+          <h2 className="text-3xl font-semibold text-white">Project moments</h2>
+          <p className="text-sm text-white/70">
+            Drop your activity shots into <code className="rounded bg-white/10 px-1">/public</code> with the names
+            below, then swipe to browse highlights.
+          </p>
+        </div>
+
+        <Gallery items={content.gallery} />
       </div>
     </section>
   );

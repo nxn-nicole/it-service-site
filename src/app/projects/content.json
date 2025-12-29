@@ -50,5 +50,22 @@
       "detail": "We measure feature impact, review analytics, and decide next bets—just like a real product council.",
       "badge": "Product"
     }
+  ],
+  "gallery": [
+    {
+      "src": "/blotz-sharing_1.png",
+      "title": "Live debugging",
+      "caption": "Pairing session to trace a flaky SignalR reconnect."
+    },
+    {
+      "src": "/blotz-sharing-2.png",
+      "title": "Engineering Notes",
+      "caption": "Practical notes and resources distilled from real development work and problem-solving."
+    },
+    {
+      "src": "/blotz-sharing-1.png",
+      "title": "Developer Community Shares",
+      "caption": "Community-driven discussions on projects, career paths, and growing as an engineer."
+    }
   ]
 }
