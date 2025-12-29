@@ -169,7 +169,7 @@ export default function IntroductionPage() {
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <span
                           key={idx}
-                          className="flex h-5 w-5 items-center justify-center rounded-[2px] bg-emerald-500 text-[11px] text-white leading-none"
+                          className="flex h-5 w-5 items-center justify-center rounded-[2px] bg-amber-400 text-[11px] text-amber-950 leading-none"
                         >
                           ★
                         </span>
