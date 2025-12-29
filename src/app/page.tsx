@@ -115,28 +115,26 @@ export default function IntroductionPage() {
         </div>
       </div>
 
-      <div className="space-y-10 rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+      <div className="space-y-10 rounded-2xl p-8">
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60 text-center">
             {content.feedback.hero.eyebrow}
           </p>
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-semibold md:text-4xl">
-                {content.feedback.hero.title}
-              </h2>
-              <p className="max-w-3xl text-base text-white/75 md:text-lg">
-                {content.feedback.hero.subtitle}
-              </p>
-            </div>
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between text-center">
+            <h2 className="text-4xl font-semibold md:text-4xl">
+              {content.feedback.hero.title}
+            </h2>
+            <p className="max-w-3xl text-base text-white/75 md:text-lg">
+              {content.feedback.hero.subtitle}
+            </p>
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 my-20">
           {content.feedback.stats.map((item) => (
             <div
               key={item.label}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
+              className="relative overflow-hidden rounded-2xl bg-black/40 p-5 text-center"
             >
               <div
                 className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.gradient} opacity-80`}

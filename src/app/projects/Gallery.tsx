@@ -24,7 +24,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
 
   return (
     <div className="relative">
-      <div className="overflow-hidden rounded-xl border border-white/10">
+      <div className="overflow-hidden rounded-xl ">
         <div className="relative">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
