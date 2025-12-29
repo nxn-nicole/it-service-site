@@ -34,7 +34,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
           >
             {items.map((item) => (
               <div
-                key={item.src}
+                key={item.title}
                 className="w-72 flex-shrink-0 snap-start overflow-hidden rounded-xl border border-white/10 bg-white/5"
               >
                 <div className="relative h-40 w-full overflow-hidden">
