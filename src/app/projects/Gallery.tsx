@@ -30,7 +30,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
           <div
             ref={trackRef}
-            className="flex gap-4 overflow-x-auto pb-4 pl-12 pr-12 snap-x snap-mandatory"
+            className="flex gap-4 overflow-x-auto pb-4 pl-12 pr-12 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {items.map((item) => (
               <div
