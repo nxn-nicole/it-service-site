@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "课程",
+    "title": "按路线学习，模块化推进。",
+    "subtitle": "通过清晰的学习路线，边做边学，容易上手。"
+  },
+  "courses": [
+    {
+      "title": "Git 与 GitHub",
+      "description": "适合新手的版本控制基础与团队协作流程。",
+      "image": "/git.png",
+      "duration": "3 小时"
+    },
+    {
+      "title": "Next.js 前端",
+      "description": "用 React + Next.js 构建现代 Web 应用与常见 UI 模式。",
+      "image": "/nextjs.webp",
+      "duration": "8 小时"
+    },
+    {
+      "title": "React Native 移动端",
+      "description": "用 React Native 与 Expo 开发跨平台应用。",
+      "image": "/react-native.png",
+      "duration": "7 小时"
+    },
+    {
+      "title": "ASP.NET 后端",
+      "description": "使用 C#、.NET、EF Core 与整洁架构交付 API。",
+      "image": "/aspnet.png",
+      "duration": "10 小时"
+    },
+    {
+      "title": "Azure 云端",
+      "description": "在 Azure 上部署并自动化交付应用，打好 CI/CD 基础。",
+      "image": "/azure.png",
+      "duration": "9 小时"
+    }
+  ]
+}

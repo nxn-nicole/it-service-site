@@ -1,0 +1,203 @@
+{
+  "hero": {
+    "eyebrow": "简介",
+    "title": "掌握真实项目能力。",
+    "subtitle": "通过构建真实项目掌握软件开发技能，为求职做好准备。"
+  },
+  "profile": {
+    "title": "澳洲全栈工程师",
+    "specialize": "Azure & .NET",
+    "summary": "4 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发。擅长将工业级工程标准带入教学，助你掌握从云端部署到核心业务逻辑的全链路技能。",
+    "highlights": [
+      { "label": "经验", "value": "4 年澳洲咨询" },
+      { "label": "背景", "value": "UTS 毕业" },
+      { "label": "专长", "value": "Azure / .NET" },
+      { "label": "成果", "value": "100+ 学员辅导" }
+    ],
+    "techStack": [".NET", "Azure", "React", "Next.js", "SQL"]
+  },
+  "goal": {
+    "eyebrow": "教学",
+    "title": "我的教学方式",
+    "description": "用“引导式、动手做”为核心，替代只讲理论的教程；对新手友好，卡住时提供 1v1 支持，帮你练出可就业能力。",
+    "pillars": [
+      {
+        "label": "小班 & 1v1",
+        "note": "小班制授课深度结合 1v1 支持，确保每一位学员都能跟上进度并解决卡点。",
+        "color": "text-amber-300"
+      },
+      {
+        "label": "定制化成长路线",
+        "note": "根据学员不同背景量身定制学习 Roadmap，提供清晰、阶梯式的职业成长路径规划。",
+        "color": "text-emerald-300"
+      },
+      {
+        "label": "零基础友好讲解",
+        "note": "擅长用绘图、大白话和生活案例拆解硬核概念，让复杂的技术逻辑直观且易于理解。",
+        "color": "text-sky-300"
+      },
+      {
+        "label": "实战项目驱动",
+        "note": "模拟真实工业界开发流程，从零开始搭建生产级全栈应用，积累可就业的硬核作品集。",
+        "color": "text-pink-300"
+      }
+    ]
+  },
+  "feedback": {
+    "hero": {
+      "eyebrow": "口碑",
+      "title": "学员为什么信任我们的 IT学习项目",
+      "subtitle": "从第一行代码到拿到真实 offer —— 听听学员如何用实用 IT 技能获得自信、作品集与职业机会。"
+    },
+    "stats": [
+      {
+        "value": "4+ 年",
+        "label": "项目开发经验",
+        "gradient": "from-pink-400 to-rose-400"
+      },
+      {
+        "value": "100+",
+        "label": "已辅导学员",
+        "gradient": "from-violet-400 to-fuchsia-400",
+        "link": "#feedback"
+      },
+      {
+        "value": "1500+",
+        "label": "小红书粉丝",
+        "gradient": "from-teal-300 to-emerald-400",
+        "link": "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
+      },
+      {
+        "value": "500+",
+        "label": "小时深度辅导",
+        "gradient": "from-amber-300 to-orange-400"
+      }
+    ],
+    "feedbacks": [
+      {
+        "name": "Alice L.",
+        "role": "前端开发工程师",
+        "note": "完成结业项目并打磨作品集后，成功拿到 React 岗位。"
+      },
+      {
+        "name": "David Z.",
+        "role": "全栈工程师",
+        "note": "从 API 到 UI 的端到端流程终于打通，现在能更自信地拆解与评估功能。"
+      },
+      {
+        "name": "Mandy C.",
+        "role": "移动端开发工程师",
+        "note": "通过结对编程与代码评审，Expo + React Native 技术栈终于真正上手。"
+      },
+      {
+        "name": "Leo W.",
+        "role": "云工程师",
+        "note": "把 CI/CD 部署到 Azure 从“玄学”变成了一套在工作里可重复的清单流程。"
+      }
+    ],
+    "wechat": {
+      "eyebrow": "微信",
+      "title": "持续陪跑，收获结果",
+      "description": "学员在学习过程中分享进展、提问与突破的聊天记录。",
+      "gallery": [
+        {
+          "src": "/feedback1.jpg",
+          "title": "学员 1",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback2.jpg",
+          "title": "学员 2",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback3.jpg",
+          "title": "学员 3",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback4.jpg",
+          "title": "学员 4",
+          "caption": "★★★★★"
+        },
+        {
+          "src": "/feedback6.jpg",
+          "title": "学员 5",
+          "caption": "★★★★★"
+        }
+      ]
+    }
+  },
+  "journey": {
+    "title": "实战背景与经历",
+    "eyebrow": "Experience & Background",
+    "items": [
+      {
+        "year": "2026.01",
+        "category": "Mentoring",
+        "title": "🚀 Blotz App V1.0 正式发布",
+        "desc": "Blotz 全栈 App 终于迎来正式发布。这是我和学员们共同开发并交付的成果。",
+        "tags": ["Release", "V1.0"],
+        "gradient": "from-violet-500/40",
+        "link": "/projects"
+      },
+      {
+        "year": "2025.07",
+        "category": "Work",
+        "title": "💼 美国 500 强企业顾问",
+        "desc": "受聘成为美国 500 强企业核心咨询顾问，深耕 Azure 云架构。在处理全球化大规模系统过程中，沉淀了极具价值的高可用架构实战方案。",
+        "tags": ["Fortune 500", "Azure Lead"],
+        "gradient": "from-blue-500/40"
+      },
+      {
+        "year": "2024.05",
+        "category": "Mentoring",
+        "title": "Blotz 实战项目启动",
+        "desc": "启动 Blotz 实战项目。在带学员实战的同时，我们共同打造一款真正能为社区用户创造价值的产品，让他们在真实的项目交付中积累工业级开发经验。",
+        "tags": ["Blotz", "Standard"],
+        "gradient": "from-violet-500/40",
+        "link": "/projects"
+      },
+      {
+        "year": "2024.01",
+        "category": "Work",
+        "title": "Azure 云架构顾问",
+        "desc": "职业生涯的重要跨越。专注于云安全、IaC 自动化与云网络架构，为企业客户提供稳健的云原生架构方案与生产级运维支持。",
+        "tags": ["Azure", "IaC", "Security"],
+        "gradient": "from-blue-500/40"
+      },
+      {
+        "year": "2023.05",
+        "category": "Mentoring",
+        "title": "👨‍🏫 开启首个技术教学班级",
+        "desc": "开启技术教学之旅。我深感大学课程与工业界实战需求存在巨大断层，因此决定将我掌握的实战经验转化为教学内容，帮助学员填补从校园到职场的技能鸿沟。",
+        "tags": ["Mentoring", "Teaching"],
+        "gradient": "from-violet-500/40"
+      },
+      {
+        "year": "2023.03",
+        "category": "Work",
+        "title": "实习生导师 & Tech Lead",
+        "desc": "被委任为公司实习生团队的技术负责人。这是我教学热情的起点——通过指导新人攻克技术难题，我意识到将复杂逻辑讲透的巨大价值。",
+        "tags": ["Tech Lead", "Mentor"],
+        "gradient": "from-blue-500/40"
+      },
+      {
+        "year": "2022.08",
+        "category": "Work",
+        "title": "全栈软件工程师 (正式转正)",
+        "desc": "顺利通过实习考核并留任，开启了全栈工程师的正式探索。在真实项目的磨练下，我开始深入理解生产环境对代码质量与稳定性的实际要求。",
+        "tags": [".NET", "React"],
+        "gradient": "from-blue-500/40"
+      },
+      {
+        "year": "2022.05",
+        "category": "Work",
+        "title": "🎓 咨询公司全栈实习生",
+        "desc": "在澳洲 IT 咨询公司开启职业生涯。从第一天起就接受专业团队的指导，初步建立了对商业化代码标准与工程化开发流程的系统认知。",
+        "tags": ["Consulting", "Intern"],
+        "gradient": "from-blue-500/40"
+      }
+    ]
+  }
+}

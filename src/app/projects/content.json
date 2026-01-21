@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "项目",
+    "title": "— 一个真实的全栈产品",
+    "description": "Blotz 是一个从零构建并持续迭代的生产级全栈应用，体现真实团队中现代应用的架构、开发与扩展方式。"
+  },
+  "learn": [
+    "真实的前端架构与状态管理",
+    "清晰的后端 API 设计与业务逻辑",
+    "数据库建模与迁移",
+    "认证、授权与用户管理",
+    "云端部署与环境配置",
+    "线上调试、监控与持续迭代"
+  ],
+  "audience": [
+    "希望获得真实项目经验的开发者",
+    "准备进入行业岗位的转行者",
+    "想超越课堂理论、真正动手做的学生"
+  ],
+  "stackSummary": [
+    { "label": "前端", "value": "React / React Native" },
+    { "label": "后端", "value": ".NET / .NET Core" },
+    { "label": "数据库", "value": "基于 SQL 的关系型数据库" },
+    { "label": "云平台", "value": "Microsoft Azure" },
+    { "label": "重点", "value": "生产级 · 持续迭代" },
+    { "label": "模式", "value": "全栈 · 端到端" }
+  ],
+  "communityEvents": [
+    {
+      "title": "Discord 技术分享",
+      "cadence": "每周 · 45 分钟",
+      "detail": "直播演示 Blotz 新功能、架构取舍与真实线上调试经验。回放会上传，方便你异步补课。",
+      "badge": "线上"
+    },
+    {
+      "title": "周三线下项目共创",
+      "cadence": "每周三 · 18:00–20:00",
+      "detail": "结对编程交付任务、做设计评审，与队友一起解决棘手 bug。",
+      "badge": "悉尼"
+    },
+    {
+      "title": "求职与面试诊所",
+      "cadence": "双周 · 60 分钟",
+      "detail": "简历打磨、作品集走查、系统设计模拟与行为面试 Q&A，并给到可执行的下一步建议。",
+      "badge": "职业"
+    },
+    {
+      "title": "产品复盘会",
+      "cadence": "每月 · 60 分钟",
+      "detail": "评估功能影响、查看数据分析、决定下一步方向——就像真实产品评审会一样。",
+      "badge": "产品"
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/placeholder-pic.jpg",
+      "title": "线上调试",
+      "caption": "结对排查不稳定的 SignalR 重连问题。"
+    },
+    {
+      "src": "/blotz-sharing-3.jpg",
+      "title": "开发者社区分享",
+      "caption": "围绕项目、职业路径与成长的社区讨论。"
+    },
+    {
+      "src": "/blotz-sharing-2.png",
+      "title": "工程笔记",
+      "caption": "从真实开发与问题解决中沉淀的实用笔记与资源。"
+    }
+  ]
+}
