@@ -38,7 +38,7 @@ export default function ProjectsPage() {
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2 rounded-2xl border border-white/10 bg-black/40 p-4">
             <h3 className="text-sm uppercase tracking-[0.2em] text-white/60">
-              What you can learn
+              你将学到什么
             </h3>
             <ul className="space-y-2 text-sm text-white/80">
               {content.learn.map((item) => (
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
 
           <div className="space-y-2 rounded-2xl border border-white/10 bg-black/40 p-4">
             <h3 className="text-sm uppercase tracking-[0.2em] text-white/60">
-              Who this is for
+              适合谁
             </h3>
             <ul className="space-y-2 text-sm text-white/80">
               {content.audience.map((item) => (
@@ -85,14 +85,14 @@ export default function ProjectsPage() {
       <div className="rounded-2xl border border-white/10 bg-black/40 p-8 space-y-4">
         <div className="flex flex-col gap-2">
           <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-            Community
+            社区
           </p>
           <h2 className="text-3xl font-semibold text-white">
-            Blotz community rituals
+            Blotz 社区固定活动
           </h2>
           <p className="text-sm text-white/70 max-w-3xl">
-            How we stay connected, swap knowledge, and keep the project moving
-            like a real team. Join the sessions that fit your schedule.
+            我们如何保持联系、分享知识，并像真实团队一样推进项目。
+            选择适合你时间的活动参与即可。
           </p>
         </div>
 
@@ -122,12 +122,13 @@ export default function ProjectsPage() {
       <div className="space-y-4 rounded-2xl border border-white/10 bg-black/40 p-6">
         <div className="flex flex-col gap-2">
           <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-            Gallery
+            图集
           </p>
-          <h2 className="text-3xl font-semibold text-white">Project moments</h2>
+          <h2 className="text-3xl font-semibold text-white">项目瞬间</h2>
           <p className="text-sm text-white/70">
-            Drop your activity shots into <code className="rounded bg-white/10 px-1">/public</code> with the names
-            below, then swipe to browse highlights.
+            把你的活动照片放到{" "}
+            <code className="rounded bg-white/10 px-1">/public</code>{" "}
+            并使用下方的文件名，然后左右滑动浏览精彩瞬间。
           </p>
         </div>
 

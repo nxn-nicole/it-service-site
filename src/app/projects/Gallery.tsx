@@ -26,8 +26,8 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
     <div className="relative">
       <div className="overflow-hidden rounded-xl ">
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-linear-to-r from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l from-black to-transparent" />
           <div
             ref={trackRef}
             className="flex gap-4 overflow-x-auto pb-4 pl-12 pr-12 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -35,7 +35,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
             {items.map((item) => (
               <div
                 key={item.title}
-                className="w-72 flex-shrink-0 snap-start overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                className="w-72 shrink-0 snap-start overflow-hidden rounded-xl border border-white/10 bg-white/5"
               >
                 <div className="relative h-40 w-full overflow-hidden">
                   <Image
@@ -62,7 +62,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
           type="button"
           onClick={() => scrollByCard("left")}
           className="pointer-events-auto flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg shadow-black/40 transition hover:border-white/40 hover:bg-white/10"
-          aria-label="Scroll left"
+          aria-label="向左滚动"
         >
           ←
         </button>
@@ -72,7 +72,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
           type="button"
           onClick={() => scrollByCard("right")}
           className="pointer-events-auto flex h-10 w-10 translate-x-1/2 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg shadow-black/40 transition hover:border-white/40 hover:bg-white/10"
-          aria-label="Scroll right"
+          aria-label="向右滚动"
         >
           →
         </button>

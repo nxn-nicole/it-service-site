@@ -19,12 +19,12 @@ export default function ContactPage() {
         {content.contactMethods.map((method) => (
           <div
             key={method.label}
-            className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-6 shadow-lg shadow-black/25"
+            className="rounded-2xl border border-white/10 bg-linear-to-b from-white/5 to-white/3 p-6 shadow-lg shadow-black/25"
           >
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-lg font-semibold">{method.label}</h2>
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
-                Preferred
+                推荐
               </span>
             </div>
             <p className="mt-2 text-xl font-semibold text-white">
@@ -36,7 +36,7 @@ export default function ContactPage() {
       </div>
 
       <div className="rounded-2xl border border-white/10 bg-black/40 p-6">
-        <h2 className="text-2xl font-semibold text-white">Quick tips</h2>
+        <h2 className="text-2xl font-semibold text-white">小贴士</h2>
         <ul className="mt-4 space-y-2 text-sm text-white/75">
           {content.tips.map((tip) => (
             <li key={tip} className="flex gap-2">
