@@ -6,20 +6,26 @@
   },
   "profile": {
     "title": "澳洲全栈工程师",
-    "specialize": "Azure & .NET",
-    "summary": "4 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发。擅长将工业级工程标准带入教学，助你掌握从云端部署到核心业务逻辑的全链路技能。",
+    "specialize": "Azure & .NET Expert",
+    "summary": "4 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发，擅长将工业级工程标准带入教学；用绘图与大白话拆解硬核概念，让零基础初学者也能轻松掌握复杂的技术逻辑。",
     "highlights": [
       { "label": "经验", "value": "4 年澳洲咨询" },
       { "label": "背景", "value": "UTS 毕业" },
-      { "label": "专长", "value": "Azure / .NET" },
+      { "label": "证书", "value": "Microsoft Certified" },
       { "label": "成果", "value": "100+ 学员辅导" }
+    ],
+    "certifications": [
+      { "code": "DP-300", "url": "https://learn.microsoft.com/credentials/certifications/exams/dp-300/" },
+      { "code": "AI-102", "url": "https://learn.microsoft.com/credentials/certifications/exams/ai-102/" },
+      { "code": "PL-400", "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-400/" },
+      { "code": "PL-200", "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-200/" }
     ],
     "techStack": [".NET", "Azure", "React", "Next.js", "SQL"]
   },
   "goal": {
     "eyebrow": "教学",
-    "title": "我的教学方式",
-    "description": "用“引导式、动手做”为核心，替代只讲理论的教程；对新手友好，卡住时提供 1v1 支持，帮你练出可就业能力。",
+    "title": "教学理念",
+    "description": "以“引导式、动手做”为核心，替代纯理论教程；对新手友好，卡点时提供 1v1 支持，助力培养可就业能力。",
     "pillars": [
       {
         "label": "小班 & 1v1",
@@ -59,7 +65,7 @@
         "value": "100+",
         "label": "已辅导学员",
         "gradient": "from-violet-400 to-fuchsia-400",
-        "link": "#feedback"
+        "link": "/courses"
       },
       {
         "value": "1500+",
@@ -136,7 +142,7 @@
         "year": "2026.01",
         "category": "Mentoring",
         "title": "🚀 Blotz App V1.0 正式发布",
-        "desc": "Blotz 全栈 App 终于迎来正式发布。这是我和学员们共同开发并交付的成果。",
+        "desc": "Blotz 全栈 App 迎来正式发布。这是与学员们共同开发并交付的成果。",
         "tags": ["Release", "V1.0"],
         "gradient": "from-violet-500/40",
         "link": "/projects"
@@ -144,16 +150,16 @@
       {
         "year": "2025.07",
         "category": "Work",
-        "title": "💼 美国 500 强企业顾问",
-        "desc": "受聘成为美国 500 强企业核心咨询顾问，深耕 Azure 云架构。在处理全球化大规模系统过程中，沉淀了极具价值的高可用架构实战方案。",
-        "tags": ["Fortune 500", "Azure Lead"],
+        "title": "💼 咨询顾问 (服务于美国 500 强)",
+        "desc": "作为咨询公司委派的主要顾问为美国 500 强企业提供深度的 Azure 云架构咨询。专注于云安全架构设计、网络自动化与 IaC 落地，沉淀了极具价值的高可用架构方案。",
+        "tags": ["Consulting", "Cloud Security", "Networking", "IaC"],
         "gradient": "from-blue-500/40"
       },
       {
         "year": "2024.05",
         "category": "Mentoring",
         "title": "Blotz 实战项目启动",
-        "desc": "启动 Blotz 实战项目。在带学员实战的同时，我们共同打造一款真正能为社区用户创造价值的产品，让他们在真实的项目交付中积累工业级开发经验。",
+        "desc": "启动 Blotz 实战项目。在带学员实战的同时，共同打造一款能为社区用户创造价值的产品，在真实的项目交付中积累工业级开发经验。",
         "tags": ["Blotz", "Standard"],
         "gradient": "from-violet-500/40",
         "link": "/projects"
@@ -170,7 +176,7 @@
         "year": "2023.05",
         "category": "Mentoring",
         "title": "👨‍🏫 开启首个技术教学班级",
-        "desc": "开启技术教学之旅。我深感大学课程与工业界实战需求存在巨大断层，因此决定将我掌握的实战经验转化为教学内容，帮助学员填补从校园到职场的技能鸿沟。",
+        "desc": "开启技术教学之旅。深感大学课程与工业界实战需求存在巨大断层，因此决定将实战经验转化为教学内容，帮助学员填补从校园到职场的技能鸿沟。",
         "tags": ["Mentoring", "Teaching"],
         "gradient": "from-violet-500/40"
       },
@@ -178,7 +184,7 @@
         "year": "2023.03",
         "category": "Work",
         "title": "实习生导师 & Tech Lead",
-        "desc": "被委任为公司实习生团队的技术负责人。这是我教学热情的起点——通过指导新人攻克技术难题，我意识到将复杂逻辑讲透的巨大价值。",
+        "desc": "被委任为公司实习生团队的技术负责人。这是教学热情的起点——通过指导新人攻克技术难题，意识到将复杂逻辑讲透的巨大价值。",
         "tags": ["Tech Lead", "Mentor"],
         "gradient": "from-blue-500/40"
       },
@@ -186,14 +192,14 @@
         "year": "2022.08",
         "category": "Work",
         "title": "全栈软件工程师 (正式转正)",
-        "desc": "顺利通过实习考核并留任，开启了全栈工程师的正式探索。在真实项目的磨练下，我开始深入理解生产环境对代码质量与稳定性的实际要求。",
+        "desc": "顺利通过实习考核并留任，开启了全栈工程师的正式探索。在真实项目的磨练下，开始深入理解生产环境对代码质量与稳定性的实际要求。",
         "tags": [".NET", "React"],
         "gradient": "from-blue-500/40"
       },
       {
         "year": "2022.05",
         "category": "Work",
-        "title": "🎓 咨询公司全栈实习生",
+        "title": "🎓 咨询公司实习生",
         "desc": "在澳洲 IT 咨询公司开启职业生涯。从第一天起就接受专业团队的指导，初步建立了对商业化代码标准与工程化开发流程的系统认知。",
         "tags": ["Consulting", "Intern"],
         "gradient": "from-blue-500/40"

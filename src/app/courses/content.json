@@ -1,39 +1,75 @@
 {
   "hero": {
-    "eyebrow": "课程",
-    "title": "按路线学习，模块化推进。",
-    "subtitle": "通过清晰的学习路线，边做边学，容易上手。"
+    "eyebrow": "服务方案",
+    "title": "如何帮到你？",
+    "subtitle": "针对不同阶段的同学，提供差异化的支持方案，助力精准提升技术能力与职业竞争力。"
   },
-  "courses": [
+  "services": [
     {
-      "title": "Git 与 GitHub",
-      "description": "适合新手的版本控制基础与团队协作流程。",
-      "image": "/git.png",
-      "duration": "3 小时"
+      "title": "20分钟 1v1 免费咨询",
+      "tag": "真诚分享",
+      "description": "了解现状，进行深度分析并提供最真诚的个人建议，助力明确改进方向。",
+      "image": "/career-planning.webp",
+      "helpPoints": [
+        "深度了解现状与背景诊断",
+        "真诚分析澳洲求职之路",
+        "给出具体可执行的改进建议",
+        "分享在职工程师的实战视角"
+      ]
     },
     {
-      "title": "Next.js 前端",
-      "description": "用 React + Next.js 构建现代 Web 应用与常见 UI 模式。",
-      "image": "/nextjs.webp",
-      "duration": "8 小时"
+      "title": "初学者全栈开发手册",
+      "tag": "新手指南",
+      "description": "一份专为零基础与初学者设计的系统化学习手册，带你快速建立全栈开发的技术全景图。",
+      "image": "/mentorship.webp",
+      "helpPoints": [
+        "Next.js & React 入门指南",
+        "ASP.NET Core 核心基础",
+        "实战项目开发全流程解析",
+        "AI 辅助编程的高效入门技巧"
+      ]
     },
     {
-      "title": "React Native 移动端",
-      "description": "用 React Native 与 Expo 开发跨平台应用。",
-      "image": "/react-native.png",
-      "duration": "7 小时"
+      "title": "参与工业项目",
+      "tag": "实战背书",
+      "isHot": true,
+      "description": "加入 Blotz 团队，在真实的项目环境下磨练交付能力，积累可验证的实战经验。",
+      "image": "/industry-standards.webp",
+      "helpPoints": [
+        "参与 1500+ 用户项目",
+        "Scrum 流程与团队协作",
+        "CI/CD 与 Azure 云端技术",
+        "线下面对面讨论支持"
+      ]
     },
     {
-      "title": "ASP.NET 后端",
-      "description": "使用 C#、.NET、EF Core 与整洁架构交付 API。",
-      "image": "/aspnet.png",
-      "duration": "10 小时"
-    },
-    {
-      "title": "Azure 云端",
-      "description": "在 Azure 上部署并自动化交付应用，打好 CI/CD 基础。",
-      "image": "/azure.png",
-      "duration": "9 小时"
+      "title": "1v1 客制化辅导",
+      "tag": "顶级陪跑",
+      "description": "极致的个人关注度，通过线下共创与优先支持，以最快速度突破学习瓶颈。",
+      "image": "/interview.webp",
+      "helpPoints": [
+        "每周 1 天线下小班办公",
+        "技术问题优先响应解答",
+        "个人定制 Roadmap",
+        "手把手攻克最棘手难点"
+      ]
     }
-  ]
+  ],
+  "howIHelp": {
+    "title": "能解决哪些核心痛点？",
+    "points": [
+      {
+        "title": "消除求职焦虑",
+        "desc": "通过清晰的阶段性目标和及时的反馈，让成长变得可量化，不再为未知感到恐慌。"
+      },
+      {
+        "title": "补齐实战短板",
+        "desc": "面试被问项目经验没底气？实战中开发的每一个功能都直指真实的面试提问。"
+      },
+      {
+        "title": "建立工程师思维",
+        "desc": "不仅仅是跑通代码，更助力建立在职工程师思维，深度思考安全性与扩展性。"
+      }
+    ]
+  }
 }

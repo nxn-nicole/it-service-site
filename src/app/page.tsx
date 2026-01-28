@@ -1,22 +1,16 @@
 import Image from "next/image";
 import {
-  Cloud,
   Code2,
   Database,
   GraduationCap,
-  Layers,
   Users,
-  Workflow,
   BrainCircuit,
   RefreshCcw,
   Infinity as DevOpsIcon,
-  ShieldCheck,
-  Target,
   Rocket,
-  ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import content from "./content.json";
-import Gallery from "./projects/Gallery";
 import { Timeline } from "@/components/Timeline";
 
 export default function IntroductionPage() {
@@ -65,6 +59,32 @@ export default function IntroductionPage() {
             <p className="max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl font-medium">
               {content.profile.summary}
             </p>
+            
+            {/* Microsoft Certification Section */}
+            <div className="flex flex-wrap items-center gap-3 pt-4">
+              <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/20 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                <svg className="h-4 w-4 text-blue-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zM24 11.4H12.6V0H24v11.4z" />
+                </svg>
+                <span className="text-[11px] font-black uppercase tracking-wider text-blue-400">Microsoft Certified Developer</span>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                {content.profile.certifications.map((cert: { code: string; url: string }) => (
+                  <a 
+                    key={cert.code}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-[11px] font-bold text-white/80 transition-all duration-500 hover:bg-blue-500/20 hover:border-blue-500/40 hover:text-blue-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(59,130,246,0.2)]"
+                  >
+                    <span className="relative z-10">{cert.code === 'AI-102' ? 'AI-102' : cert.code}</span>
+                    <ExternalLink className="h-3 w-3 opacity-30 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100" />
+                    <div className="absolute inset-0 rounded-xl bg-blue-500/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -94,7 +114,7 @@ export default function IntroductionPage() {
                 >
                   {item.value}
                 </div>
-                <p className="mt-3 text-sm font-bold uppercase tracking-[0.1em] text-white/40 group-hover:text-white/80 transition-colors duration-500">
+                <p className="mt-3 text-sm font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
                   {item.label}
                   {item.link && <span className="inline-block ml-2 opacity-0 group-hover:opacity-100 transition-opacity">↗</span>}
                 </p>
@@ -105,7 +125,7 @@ export default function IntroductionPage() {
 
         {/* Technical Expertise - Refined Heading */}
         <div className="space-y-12 px-2 relative">
-          <div className="absolute top-0 right-0 h-64 w-64 bg-cyan-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 h-64 w-64 bg-cyan-500/3 blur-[100px] rounded-full pointer-events-none" />
           <div className="space-y-4 px-4 relative z-10">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-white/20" />
@@ -121,7 +141,7 @@ export default function IntroductionPage() {
             </div>
           </div>
 
-          <div className="relative flex overflow-x-hidden group/marquee rounded-3xl border border-white/5 bg-white/[0.01] py-8 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          <div className="relative flex overflow-x-hidden group/marquee rounded-3xl border border-white/5 bg-white/1 py-8 mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
             <div className="flex animate-marquee whitespace-nowrap py-6">
               {[...techLogos, ...techLogos].map((tech, idx) => {
                 const Icon = tech.icon;
@@ -133,8 +153,8 @@ export default function IntroductionPage() {
                     rel="noopener noreferrer"
                     className="group mx-10 flex flex-col items-center gap-4 transition-all duration-500 hover:scale-110"
                   >
-                    <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-2xl border border-white/10 bg-white/[0.04] flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                    <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-2xl border border-white/10 bg-white/4 flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden">
+                      <div className={`absolute inset-0 bg-linear-to-br ${tech.color} to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
                       {tech.logo ? (
                         <img 
                           src={tech.logo} 
@@ -148,7 +168,7 @@ export default function IntroductionPage() {
                         />
                       )}
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white/40 group-hover:text-white/80 transition-colors duration-500">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
                       {tech.name}
                     </span>
                   </a>
@@ -160,7 +180,7 @@ export default function IntroductionPage() {
 
         {/* Teaching Method - Refined Heading */}
         <div className="space-y-12 px-2 relative">
-          <div className="absolute top-1/2 left-0 h-80 w-80 bg-emerald-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-0 h-80 w-80 bg-emerald-500/3 blur-[100px] rounded-full pointer-events-none" />
           <div className="space-y-4 px-4 relative z-10">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-white/20" />
@@ -185,7 +205,7 @@ export default function IntroductionPage() {
               return (
                 <div 
                   key={item.label} 
-                  className="group relative flex gap-8 p-8 rounded-3xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:bg-white/[0.06] hover:border-white/20 hover:shadow-[0_20px_50px_rgba(255,255,255,0.03)] hover:-translate-y-2 overflow-hidden"
+                  className="group relative flex gap-8 p-8 rounded-3xl border border-white/5 bg-white/2 transition-all duration-500 hover:bg-white/6 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(255,255,255,0.03)] hover:-translate-y-2 overflow-hidden"
                 >
                   <div className={`absolute -right-16 -top-16 h-48 w-48 bg-linear-to-br ${color.replace('text-', 'from-')}/10 to-transparent blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
                   
@@ -209,8 +229,8 @@ export default function IntroductionPage() {
         {/* About Me / Journey Section - Clean Architectural Heading */}
         <div id="journey" className="space-y-16 px-2 relative scroll-mt-32">
           {/* Section Ambient Glows */}
-          <div className="absolute top-1/4 -left-20 h-96 w-96 bg-blue-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-1/4 -right-20 h-96 w-96 bg-purple-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/4 -left-20 h-96 w-96 bg-blue-500/3 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-1/4 -right-20 h-96 w-96 bg-purple-500/3 blur-[120px] rounded-full pointer-events-none" />
 
           <div className="space-y-4 px-4 relative z-10">
             <div className="flex items-center gap-3">
