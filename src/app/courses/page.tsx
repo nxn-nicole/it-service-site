@@ -12,6 +12,7 @@ interface Service {
   isHot?: boolean;
   description: string;
   helpPoints: string[];
+  suitableFor?: string[];
 }
 
 export default function ServicesPage() {
@@ -134,6 +135,28 @@ export default function ServicesPage() {
                   <p className="text-sm leading-relaxed text-white/60 group-hover:text-white/80 transition-colors">
                     {service.description}
                   </p>
+                  {service.suitableFor && service.suitableFor.length > 0 && (
+                    <div className="pt-3 space-y-2">
+                      <p className={`text-xs font-bold uppercase tracking-widest ${isHot ? 'text-orange-400/70' : 'text-white/30'}`}>
+                        适合人群
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.suitableFor.map((item: string) => (
+                          <span
+                            key={item}
+                            className={`inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg ${
+                              isHot
+                                ? 'bg-orange-500/15 text-orange-200'
+                                : 'bg-white/8 text-white/70'
+                            }`}
+                          >
+                            <Users2 className="h-3.5 w-3.5 shrink-0" />
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-white/5">
@@ -191,7 +214,7 @@ export default function ServicesPage() {
       </div>
 
       {/* Testimonials - Scrolling Reviews */}
-      <div className="space-y-10">
+      <div id="feedback" className="space-y-10 scroll-mt-32">
         <div className="text-center space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
             {homeContent.feedback.hero.eyebrow}

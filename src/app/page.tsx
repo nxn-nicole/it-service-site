@@ -97,10 +97,9 @@ export default function IntroductionPage() {
             return (
               <Container
                 key={item.label}
-                {...(item.link ? { 
-                  href: item.link, 
-                  target: "_blank", 
-                  rel: "noopener noreferrer",
+                {...(item.link ? {
+                  href: item.link,
+                  ...(item.link.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {}),
                   className: "group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 text-center transition-all duration-500 hover:bg-white/[0.08] hover:border-white/30 hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] hover:-translate-y-2 cursor-pointer"
                 } : {
                   className: "group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 text-center transition-all duration-500 hover:bg-white/[0.08] hover:border-white/30 hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] hover:-translate-y-2"

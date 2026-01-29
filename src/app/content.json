@@ -65,7 +65,7 @@
         "value": "100+",
         "label": "已辅导学员",
         "gradient": "from-violet-400 to-fuchsia-400",
-        "link": "/courses"
+        "link": "/courses#feedback"
       },
       {
         "value": "1500+",
@@ -239,7 +239,7 @@
         "desc": "Blotz 全栈 App 迎来正式发布。这是与学员们共同开发并交付的成果。",
         "tags": ["Release", "V1.0"],
         "gradient": "from-violet-500/40",
-        "link": "/projects"
+        "link": "https://blotz-website.vercel.app/"
       },
       {
         "year": "2025.07",
@@ -256,7 +256,7 @@
         "desc": "启动 Blotz 实战项目。在带学员实战的同时，共同打造一款能为社区用户创造价值的产品，在真实的项目交付中积累工业级开发经验。",
         "tags": ["Blotz", "Standard"],
         "gradient": "from-violet-500/40",
-        "link": "/projects"
+        "link": "https://blotz-website.vercel.app/"
       },
       {
         "year": "2024.01",

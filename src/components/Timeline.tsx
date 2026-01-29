@@ -54,11 +54,21 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 <div className={`w-full lg:w-1/2 ${isEven ? 'lg:pl-12' : 'lg:pr-12'} relative z-20`}>
                   <div className="relative">
                     {item.link && (
-                      <Link 
-                        href={item.link}
-                        className="absolute inset-0 z-30 cursor-pointer"
-                        aria-label={`View details for ${item.title}`}
-                      />
+                      item.link.startsWith('http') ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 z-30 cursor-pointer"
+                          aria-label={`View details for ${item.title}`}
+                        />
+                      ) : (
+                        <Link
+                          href={item.link}
+                          className="absolute inset-0 z-30 cursor-pointer"
+                          aria-label={`View details for ${item.title}`}
+                        />
+                      )
                     )}
                     <div className={`group relative p-8 rounded-[32px] border backdrop-blur-xl transition-all duration-700 hover:-translate-y-2 overflow-hidden shadow-2xl ${
                       isWork 
