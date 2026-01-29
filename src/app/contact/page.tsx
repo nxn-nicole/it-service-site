@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import WeChatModal from "@/components/WeChatModal";
 import XhsModal from "@/components/XhsModal";
 
@@ -39,9 +40,7 @@ export default function ContactPage() {
         <XhsModal profileUrl="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7">
           <div className="group relative rounded-3xl border border-rose-500/20 bg-rose-500/5 p-8 space-y-5 hover:bg-rose-500/10 hover:border-rose-500/40 transition-all duration-300 cursor-pointer">
             <div className="h-12 w-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center">
-              <svg className="h-6 w-6 text-rose-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.8 7.5h-1.2c-.1-.6-.4-1-1-1-.7 0-1.2.5-1.2 1.5v.5h2l-.3 2h-1.7v5h-2v-5H9.8v-2h1.6v-.7c0-1.8 1-2.8 2.7-2.8.8 0 1.4.1 1.7.1v1.4z"/>
-              </svg>
+              <Image src="/xhs.png" alt="小红书" width={24} height={24} />
             </div>
             <div className="space-y-1">
               <h2 className="text-xl font-bold text-white">小红书私信</h2>
