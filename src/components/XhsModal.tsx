@@ -1,15 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { X, ArrowUpRight, Search } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+
+interface XhsStep {
+  heading: string;
+  detail: string;
+}
 
 interface XhsModalProps {
   children: React.ReactNode;
   profileUrl: string;
+  title?: string;
+  subtitle?: string;
+  steps?: XhsStep[];
+  ctaText?: string;
 }
 
-export default function XhsModal({ children, profileUrl }: XhsModalProps) {
+const DEFAULT_STEPS: XhsStep[] = [
+  { heading: "打开小红书主页", detail: "点击下方按钮进入「马农不卷大厂」主页" },
+  { heading: "找到评价帖子", detail: "在主页中找到标题为「学生真实反馈大公开」的帖子" },
+  { heading: "查看评论区", detail: "滑到评论区即可看到所有学员的真实评价" },
+];
+
+export default function XhsModal({
+  children,
+  profileUrl,
+  title = "查看小红书真实评价",
+  subtitle = "48 条学员真实反馈",
+  steps = DEFAULT_STEPS,
+  ctaText = "前往小红书主页",
+}: XhsModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -45,45 +67,26 @@ export default function XhsModal({ children, profileUrl }: XhsModalProps) {
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 mx-auto">
                   <Image src="/xhs.png" alt="小红书" width={24} height={24} />
                 </div>
-                <h3 className="text-xl font-bold text-white">查看小红书真实评价</h3>
-                <p className="text-sm text-white/50">48 条学员真实反馈</p>
+                <h3 className="text-xl font-bold text-white">{title}</h3>
+                <p className="text-sm text-white/50">{subtitle}</p>
               </div>
 
               {/* Steps */}
               <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 text-sm font-bold text-rose-400">
-                    1
+                {steps.map((step, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5"
+                  >
+                    <div className="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 text-sm font-bold text-rose-400">
+                      {i + 1}
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-sm font-bold text-white">{step.heading}</p>
+                      <p className="text-xs text-white/40">{step.detail}</p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-white">打开小红书主页</p>
-                    <p className="text-xs text-white/40">点击下方按钮进入「马农不卷大厂」主页</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 text-sm font-bold text-rose-400">
-                    2
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-white">找到评价帖子</p>
-                    <p className="text-xs text-white/40">
-                      在主页中找到标题为
-                      <span className="text-rose-400 font-bold">「学生真实反馈大公开」</span>
-                      的帖子
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <div className="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 text-sm font-bold text-rose-400">
-                    3
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-white">查看评论区</p>
-                    <p className="text-xs text-white/40">滑到评论区即可看到所有学员的真实评价</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* CTA Button */}
@@ -91,9 +94,9 @@ export default function XhsModal({ children, profileUrl }: XhsModalProps) {
                 href={profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 text-white text-sm font-bold hover:opacity-90 transition-opacity"
+                className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-linear-to-r from-rose-500 to-pink-600 text-white text-sm font-bold hover:opacity-90 transition-opacity"
               >
-                前往小红书主页 <ArrowUpRight className="h-4 w-4" />
+                {ctaText} <ArrowUpRight className="h-4 w-4" />
               </a>
 
               <p className="text-[11px] text-white/25 text-center">

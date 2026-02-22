@@ -1,0 +1,232 @@
+{
+  "hero": {
+    "eyebrow": "新手指南",
+    "title": "全栈学习手册",
+    "tagline": "专为初学者精心设计",
+    "subtitle": "专为零基础设计的系统化全栈学习手册，结合精选资源、实战代码示范与 1v1 代码审查。",
+    "badges": ["零基础可上手", "前后端移动端全覆盖", "AI 辅助学习", "1v1 PR 代码审查"],
+    "cta": "立即咨询获取"
+  },
+  "painPoints": {
+    "eyebrow": "痛点",
+    "hook": "你是不是也有这些困惑？",
+    "subtitle": "自学全栈的路上，大多数人都卡在同一些地方",
+    "items": [
+      {
+        "title": "用 AI 学习，却没有方向",
+        "description": "知道 AI 可以帮你写代码、解释概念，却不知道该用它学什么、怎么提问、怎么系统进步——工具有了，路还是迷的。"
+      },
+      {
+        "title": "学了不少，却和工作脱节",
+        "description": "跟着教程能跑通代码，一到真实项目就不知所措。Git 协作、API 规范、CI/CD、Code Review——这些职场必用的知识，教程从来不教。"
+      },
+      {
+        "title": "资源太多太乱，不知从哪开始",
+        "description": "YouTube、Udemy、博客到处都是学习资料，花了大量时间选课换教程，真正掌握的反而越来越少。"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "学习体系",
+    "title": "这份手册的独特之处",
+    "subtitle": "不只是一本文档，而是一套完整的学习系统",
+    "pillars": [
+      {
+        "title": "精选学习资源",
+        "description": "为每个技术模块精心筛选最适合初学者的学习材料——告别资源焦虑，每一步都有最优路径。",
+        "color": "violet"
+      },
+      {
+        "title": "实战代码示范",
+        "description": "完整的配套代码仓库，每个模块都有最佳实践示例代码。你可以随时对比学习，清楚地看到「正确写法」是什么样的。",
+        "color": "blue"
+      },
+      {
+        "title": "AI 辅助学习法",
+        "description": "手册教你如何把 AI 当作高效学习伙伴——怎么提问、怎么验证答案、怎么用 AI 加速每个模块的掌握速度。",
+        "color": "cyan"
+      },
+      {
+        "title": "1v1 PR 代码审查",
+        "description": "每个模块完成后，导师亲自审查你的 Pull Request，像真实公司的 Tech Lead 一样给出反馈，帮你养成工业级代码习惯。",
+        "color": "emerald"
+      }
+    ]
+  },
+  "curriculum": {
+    "eyebrow": "课程内容",
+    "title": "GitBook 手册内容一览",
+    "categories": [
+      {
+        "id": "ai",
+        "label": "AI",
+        "color": "cyan",
+        "modules": [
+          "AI Recommendation",
+          "Setup Coding Agent",
+          "How to use AI in Blotz"
+        ]
+      },
+      {
+        "id": "git",
+        "label": "GIT",
+        "color": "orange",
+        "modules": [
+          "Module 0 - Git & GitHub Basics"
+        ]
+      },
+      {
+        "id": "frontend",
+        "label": "FRONTEND",
+        "color": "blue",
+        "modules": [
+          "Module 0 - Basic",
+          "Module 1 - Next.js",
+          "Module 2 - ShadCN",
+          "Module 3 - React Hook Form",
+          "Module 4 - Tanstack Query",
+          "Module 5 - Review and Refactor"
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "MOBILE APP",
+        "color": "pink",
+        "modules": [
+          "Module 0 - Basic React Native and Expo",
+          "Module 1 - Todo App Initial Setup",
+          "Module 2 - Feature Based Folder",
+          "Module 3 - Protected Routes"
+        ]
+      },
+      {
+        "id": "basic-backend",
+        "label": "BASIC BACKEND",
+        "color": "violet",
+        "modules": [
+          "Module 0 - Basic C#, .NET",
+          "Module 1 - EF Core & Database",
+          "Module 2 - Database Communication",
+          "Module 3 - Frontend Communication",
+          "Module 4 - Domain Relation",
+          "Module 5 - CQRS"
+        ]
+      },
+      {
+        "id": "backend-advanced",
+        "label": "BACKEND ADVANCED",
+        "color": "rose",
+        "modules": [
+          "Overview - Production Grade Backend Architecture",
+          "Module 0 - EF Core"
+        ]
+      }
+    ],
+    "azureCategories": [
+      {
+        "id": "azure",
+        "label": "AZURE FUNDAMENTAL",
+        "color": "blue",
+        "modules": [
+          "Module - Overview",
+          "Module 0 - Azure Setup",
+          "Module 1 - Azure Introduction",
+          "Module 2 - Deploy To Web App",
+          "Module 3 - Deploy to SQL Database",
+          "Module 4 - Automate Deploy Web App (CI/CD)",
+          "Module 5 - Azure Key Vault"
+        ]
+      }
+    ],
+    "azureNote": "🎬 Azure 模块附含自录中文教学视频",
+    "lockedLabel": "联系我获取完整访问权限",
+    "lockedSublabel": "获取后即可访问完整 GitBook 文档与配套代码仓库"
+  },
+  "audience": {
+    "eyebrow": "适合人群",
+    "title": "适合你吗？",
+    "items": [
+      {
+        "title": "零基础编程小白",
+        "description": "从未写过代码，或只学过一点基础语法，想从头系统建立全栈开发能力的你。"
+      },
+      {
+        "title": "不知道从哪开始学全栈",
+        "description": "学过一些零散知识但缺乏系统规划，不知道正确学习路径是什么的你。"
+      }
+    ]
+  },
+  "socialProof": {
+    "eyebrow": "学员评价",
+    "title": "来自真实学员的反馈",
+    "count": "54+ 条真实小红书评价"
+  },
+  "faq": {
+    "eyebrow": "常见问题",
+    "title": "常见疑问",
+    "items": [
+      {
+        "question": "我完全没有编程基础，也合适吗？",
+        "answer": "完全合适。这份手册从第一个概念开始讲起，不预设任何编程经验。每个模块都配有精选的入门资源、最佳实践示例代码，以及 AI 辅助学习方法——让你在没有老师的情况下也能高效进步。只要你有学习的意愿，这份手册就是为你设计的。"
+      },
+      {
+        "question": "手册是什么形式？我怎么获取？",
+        "answer": "手册是一份在线 GitBook 文档，购买后通过微信发送访问链接，随时随地都可以查阅，内容会持续更新。"
+      },
+      {
+        "question": "和普通网上教程有什么不同？",
+        "answer": "普通教程只教你「怎么写」，这份手册更注重「为什么这样写」和「真实工作中怎么用」。配套代码仓库提供最佳实践示例，1v1 PR 审查模拟真实公司 Code Review 流程，让你从第一天就养成工程师思维。"
+      },
+      {
+        "question": "1v1 代码审查是怎么运作的？",
+        "answer": "每个模块学完后，你在 GitHub 上提交 Pull Request，导师会像真实 Tech Lead 一样给你留下代码评论和改进建议，帮你在实践中养成良好的工程习惯。"
+      },
+      {
+        "question": "买了之后可以永久访问吗？",
+        "answer": "是的，购买后永久有效，内容更新后无需额外付费，直接访问最新版本即可。"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "选择方案",
+    "title": "选择适合你的学习方案",
+    "subtitle": "所有方案均通过微信咨询定价",
+    "tiers": [
+      {
+        "name": "自学版",
+        "highlight": false,
+        "features": [
+          "手册完整模块内容",
+          "精选学习资源推荐"
+        ],
+        "cta": "微信咨询定价"
+      },
+      {
+        "name": "辅导版",
+        "tag": "辅助支持",
+        "highlight": true,
+        "badge": "最受欢迎",
+        "features": [
+          "自学版全部内容",
+          "配套演示代码仓库",
+          "消息问答 + 小额 1v1 支持",
+          "每个模块 PR 代码审查",
+          "结课后 1v1 全代码库综合审查"
+        ],
+        "cta": "微信咨询定价"
+      },
+      {
+        "name": "全配版",
+        "tag": "全程支持",
+        "highlight": false,
+        "features": [
+          "辅导版全部内容",
+          "语音通话 1v1 支持（按需）",
+          "每个模块 PR 代码审查",
+          "优先回复支持"
+        ],
+        "cta": "微信咨询定价"
+      }
+    ]
+  }
+}

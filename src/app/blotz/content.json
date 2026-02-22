@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "eyebrow": "工业实战项目",
+    "title": "参与 Blotz",
+    "tagline": "在真实团队中积累可验证的全栈经验",
+    "subtitle": "加入一个测试期已积累 2000+ 候补用户的生产级项目，用真实代码、真实 PR、真实上线经历打造你的技术作品集。",
+    "stats": [
+      { "value": "70+", "label": "学员已参与获得实战经验" },
+      { "value": "全栈技术栈", "label": "Next.js · .NET · Azure · OpenAI" },
+      { "value": "每周活跃", "label": "Discord + 线下共创" }
+    ]
+  },
+  "pillars": [
+    {
+      "icon": "Code2",
+      "title": "真实代码库",
+      "desc": "不是教学演示项目 — Blotz 是一个测试期已积累 2000+ 候补用户的 AI 生产力应用，你提交的每一行代码都会真正上线。"
+    },
+    {
+      "icon": "GitPullRequest",
+      "title": "PR 代码审查",
+      "desc": "每个功能都通过 GitHub Pull Request 提交，像真实公司一样经历代码审查与改进反馈。"
+    },
+    {
+      "icon": "Users2",
+      "title": "Scrum 团队协作",
+      "desc": "参与真正的 Sprint 规划、每日站会与 Retrospective，体验完整的敏捷开发工作流。"
+    },
+    {
+      "icon": "Cloud",
+      "title": "Azure 云端部署",
+      "desc": "亲手将功能部署到 Azure，配置 CI/CD 流水线，积累云端运维与上线经验。"
+    }
+  ],
+  "techStack": [
+    { "category": "前端", "color": "blue", "items": ["Next.js 14", "TypeScript", "Tailwind CSS", "Shadcn UI", "Zustand", "NextAuth.js"] },
+    { "category": "移动端", "color": "pink", "items": ["React Native (Expo)", "Expo Router", "NativeWind", "React Query", "Auth0", "Sentry"] },
+    { "category": "后端", "color": "violet", "items": [".NET 8", "C#", "REST API", "SignalR", "EF Core", "Azure OpenAI", "Semantic Kernel"] },
+    { "category": "数据库", "color": "orange", "items": ["SQL Server", "Azure SQL Database", "EF Core Migrations"] },
+    { "category": "云平台 & DevOps", "color": "cyan", "items": ["Microsoft Azure", "Azure App Service", "Azure Key Vault", "Azure Functions", "Application Insights", "GitHub Actions (CI/CD)", "Bicep (IaC)"] }
+  ],
+  "events": [
+    {
+      "title": "Discord 技术频道",
+      "cadence": "全天候 · 随时在线",
+      "detail": "频道永远在线，随时可以发问。无论遇到任何技术难题，团队成员与 Tech Lead 都会在频道内讨论、引导，帮你找到解决思路。",
+      "badge": "线上"
+    },
+    {
+      "title": "线下共创工作坊",
+      "cadence": "每周 · 悉尼线下",
+      "detail": "每周一次线下团队集合，一起结对编程、代码审查，共同解决手头的技术难题，在真实协作氛围中推进项目进展。",
+      "badge": "悉尼"
+    },
+    {
+      "title": "每周 Scrum 会议",
+      "cadence": "每周 · 全员参与",
+      "detail": "每周召开 Scrum 会议，用英语汇报进度、规划 Sprint、进行回顾复盘——完全模拟真实软件团队管理流程，同步锻炼英文表达与沟通能力。",
+      "badge": "团队"
+    },
+    {
+      "title": "每周任务认领",
+      "cadence": "每周 · 按节奏贡献",
+      "detail": "任务会根据你的时间安排与当前技术水平量身分配——既不会给你压力，也不会浪费你的潜力。完成后直接合并进主线代码库，你的成果将被真实用户使用。",
+      "badge": "贡献"
+    }
+  ],
+  "faq": {
+    "title": "常见疑问",
+    "items": [
+      {
+        "question": "我需要有多少经验才能加入？",
+        "answer": "有基础的全栈学习经验即可，不需要是专业工程师。如果你已经完成了入门手册或有一些自学基础，基本上就满足条件了。不确定的话可以先预约一次免费咨询聊聊。"
+      },
+      {
+        "question": "每周需要投入多少时间？",
+        "answer": "建议每周至少 5–10 小时，包括完成分配任务、参与 PR 审查和团队活动。这个节奏模拟了真实兼职工程师的工作强度。"
+      },
+      {
+        "question": "项目是远程参与还是必须在悉尼？",
+        "answer": "两者都可以。Discord 技术分享和日常协作完全线上，每周三线下共创活动在悉尼，线上成员可以通过录播异步参与。"
+      },
+      {
+        "question": "参与之后我会有什么可以放在简历上？",
+        "answer": "你将拥有真实的 GitHub 贡献记录、已合并的 Pull Request 历史、可以展示的功能模块，以及参与生产级项目的实战经验，这些都是面试时有力的谈资。"
+      },
+      {
+        "question": "费用是怎么收的？",
+        "answer": "通过微信咨询定价，根据你选择的参与层级而定。可以先预约免费咨询了解详情。"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "参与方案",
+    "title": "选择你的参与方式",
+    "subtitle": "旁听完全免费，加入方案通过微信咨询定价",
+    "tiers": [
+      {
+        "name": "旁听",
+        "tag": "完全免费",
+        "highlight": false,
+        "badge": "免费",
+        "features": [
+          "免费 30 分钟 1v1 咨询",
+          "旁听每周 Scrum 会议",
+          "会议期间可随时提问 Q&A",
+          "了解真实团队工作流程与节奏"
+        ],
+        "cta": "免费预约"
+      },
+      {
+        "name": "加入",
+        "tag": "实战贡献",
+        "highlight": true,
+        "badge": "最受欢迎",
+        "features": [
+          "旁听全部内容",
+          "加入 Sprint 并领取真实开发任务",
+          "提交 PR 并获得 Tech Lead 代码审查",
+          "参与线下项目共创（悉尼）",
+          "双周求职 & 面试诊所",
+          "每月 1v1 架构 & 职业发展对话"
+        ],
+        "cta": "微信咨询定价"
+      }
+    ]
+  }
+}

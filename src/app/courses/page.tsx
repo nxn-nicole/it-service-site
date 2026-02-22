@@ -4,6 +4,7 @@ import { CheckCircle2, MessageSquare, GraduationCap, Users2, Rocket, ArrowUpRigh
 import WeChatModal from "@/components/WeChatModal";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import XhsModal from "@/components/XhsModal";
+import Link from "next/link";
 
 
 interface Service {
@@ -88,9 +89,13 @@ export default function ServicesPage() {
           const Icon = icons[index + 1];
           const isHot = service.isHot;
 
+          const isHandbook = index === 0;
+
           const cardClassName = `group relative flex flex-col overflow-hidden rounded-[40px] border transition-all duration-700 p-8 md:p-10 hover:-translate-y-2
             ${isHot
               ? "bg-linear-to-b from-orange-500/10 to-transparent border-orange-500/40 hover:border-orange-500/60 shadow-[0_0_80px_rgba(249,115,22,0.1)] ring-1 ring-orange-500/20"
+              : isHandbook
+              ? "bg-linear-to-b from-violet-500/10 to-transparent border-violet-500/30 hover:border-violet-500/50 shadow-[0_0_80px_rgba(139,92,246,0.08)] ring-1 ring-violet-500/15"
               : "bg-white/2 border-white/5 hover:bg-white/4 hover:border-white/20"
             }`;
 
@@ -104,40 +109,53 @@ export default function ServicesPage() {
                 </>
               )}
 
-              {/* Hot Pick Badge */}
-              {isHot && (
-                <div className="absolute right-6 top-6 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-linear-to-r from-orange-500 to-rose-600 shadow-[0_4px_16px_rgba(249,115,22,0.4)]">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-white">TOP PICK</span>
-                </div>
+              {/* Special effects for Handbook Card */}
+              {isHandbook && (
+                <>
+                  <div className="absolute -right-20 -top-20 h-64 w-64 bg-violet-500/15 blur-[100px] pointer-events-none group-hover:bg-violet-500/25 transition-colors duration-700" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-violet-400 to-transparent opacity-50" />
+                </>
               )}
 
-              <div className="space-y-10 flex-1 relative z-10">
-                <div className="flex items-start justify-between">
-                  <div className={`h-14 w-14 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110 group-hover:rotate-3
-                    ${isHot
-                      ? "bg-linear-to-br from-orange-400 to-rose-500 border-orange-400/40 text-white shadow-[0_0_25px_rgba(249,115,22,0.4)]"
-                      : "bg-white/5 border-white/10 text-white/60"}
-                  `}>
-                    <Icon className="h-7 w-7" />
-                  </div>
 
-                  {!isHot && (
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border bg-white/5 border-white/10 text-white/60">
-                      {service.tag}
-                    </span>
-                  )}
+              <div className="space-y-8 flex-1 relative z-10">
+                {/* Icon — standalone on top */}
+                <div className={`h-14 w-14 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110 group-hover:rotate-3
+                  ${isHot
+                    ? "bg-linear-to-br from-orange-400 to-rose-500 border-orange-400/40 text-white shadow-[0_0_25px_rgba(249,115,22,0.4)]"
+                    : isHandbook
+                    ? "bg-linear-to-br from-violet-500 to-indigo-600 border-violet-400/40 text-white shadow-[0_0_25px_rgba(139,92,246,0.4)]"
+                    : "bg-white/5 border-white/10 text-white/60"}
+                `}>
+                  <Icon className="h-7 w-7" />
                 </div>
 
                 <div className="space-y-3">
-                  <h2 className="text-xl font-bold text-white tracking-tight">
-                    {service.title}
-                  </h2>
+                  {/* Title + badge inline */}
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <h2 className="text-xl font-bold text-white tracking-tight">
+                      {service.title}
+                    </h2>
+                    {isHot ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide text-white bg-linear-to-r from-orange-500 to-rose-600 shadow-[0_2px_10px_rgba(249,115,22,0.35)]">
+                        强烈推荐
+                      </span>
+                    ) : isHandbook ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide text-white bg-linear-to-r from-violet-500 to-indigo-600 shadow-[0_2px_10px_rgba(139,92,246,0.35)]">
+                        零基础入门
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-widest border bg-white/5 border-white/10 text-white/50">
+                        {service.tag}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-sm leading-relaxed text-white/60 group-hover:text-white/80 transition-colors">
                     {service.description}
                   </p>
                   {service.suitableFor && service.suitableFor.length > 0 && (
                     <div className="pt-3 space-y-2">
-                      <p className={`text-xs font-bold uppercase tracking-widest ${isHot ? 'text-orange-400/70' : 'text-white/30'}`}>
+                      <p className={`text-xs font-bold uppercase tracking-widest ${isHot ? 'text-orange-400/70' : isHandbook ? 'text-violet-400/70' : 'text-white/30'}`}>
                         适合人群
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -147,6 +165,8 @@ export default function ServicesPage() {
                             className={`inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg ${
                               isHot
                                 ? 'bg-orange-500/15 text-orange-200'
+                                : isHandbook
+                                ? 'bg-violet-500/15 text-violet-200'
                                 : 'bg-white/8 text-white/70'
                             }`}
                           >
@@ -159,16 +179,18 @@ export default function ServicesPage() {
                   )}
                 </div>
 
-                <div className="space-y-4 pt-6 border-t border-white/5">
+                <div className="space-y-3 pt-3 border-t border-white/5">
                   <ul className="space-y-3">
                     {service.helpPoints.map((point: string) => (
                       <li key={point} className="flex items-start gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors">
                         <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 transition-colors
                           ${isHot
                             ? "text-orange-400 group-hover:text-orange-300"
+                            : isHandbook
+                            ? "text-violet-400 group-hover:text-violet-300"
                             : "text-white/30 group-hover:text-white/50"}
                         `} />
-                        <span className={isHot ? "group-hover:text-white/80" : ""}>{point}</span>
+                        <span className={isHot || isHandbook ? "group-hover:text-white/80" : ""}>{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -176,30 +198,34 @@ export default function ServicesPage() {
               </div>
 
               <div className="mt-10">
-                <div className={`flex items-center justify-center gap-2 w-full py-4 rounded-[20px] text-[11px] font-black uppercase tracking-widest transition-all duration-500
+                <div className={`flex items-center justify-center gap-2 w-full py-4 rounded-[20px] text-sm font-black tracking-wide transition-all duration-500
                   ${isHot
                     ? "bg-linear-to-r from-orange-500 to-rose-600 text-white shadow-[0_10px_30px_rgba(249,115,22,0.3)] hover:shadow-[0_15px_40px_rgba(249,115,22,0.5)] group-hover:scale-[1.02]"
+                    : isHandbook
+                    ? "bg-linear-to-r from-violet-500 to-indigo-600 text-white shadow-[0_10px_30px_rgba(139,92,246,0.3)] hover:shadow-[0_15px_40px_rgba(139,92,246,0.5)] group-hover:scale-[1.02]"
                     : "bg-white/5 text-white/60 group-hover:bg-white group-hover:text-black"
                   }
                 `}>
-                  {isHot ? "查看项目" : "联系咨询"} <ArrowUpRight className="h-4 w-4" />
+                  {isHot ? "查看项目" : isHandbook ? "查看手册" : "联系咨询"} <ArrowUpRight className="h-4 w-4" />
                 </div>
               </div>
             </>
           );
 
-          // Hot card links to Blotz website, others open WeChat modal
+          // Hot card links to /blotz, handbook links to /handbook, others open WeChat modal
           if (isHot) {
             return (
-              <a
-                key={service.title}
-                href="https://blotz-website.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cardClassName}
-              >
+              <Link key={service.title} href="/blotz" className={cardClassName}>
                 {CardContent}
-              </a>
+              </Link>
+            );
+          }
+
+          if (isHandbook) {
+            return (
+              <Link key={service.title} href="/handbook" className={cardClassName}>
+                {CardContent}
+              </Link>
             );
           }
 
@@ -224,7 +250,7 @@ export default function ServicesPage() {
           </h2>
           <div className="flex items-center justify-center gap-3">
             <span className="text-sm text-white/50">小红书累计</span>
-            <span className="text-sm font-bold text-white/80">48+ 条真实评价</span>
+            <span className="text-sm font-bold text-white/80">54+ 条真实评价</span>
           </div>
         </div>
 
