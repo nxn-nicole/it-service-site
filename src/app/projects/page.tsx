@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import content from "./content.json";
 import Gallery from "./Gallery";
 
@@ -32,6 +33,12 @@ export default function ProjectsPage() {
         <p className="max-w-3xl text-lg text-white/70">
           {content.hero.description}
         </p>
+        <Link
+          href="/blotz"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[14px] bg-emerald-600 hover:bg-emerald-500 text-sm font-bold text-white transition-all duration-300 shadow-[0_4px_20px_rgba(16,185,129,0.25)]"
+        >
+          了解如何加入 Blotz →
+        </Link>
       </div>
 
       <div className="flex flex-col gap-6 border border-white/10 p-8 rounded-2xl">

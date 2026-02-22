@@ -60,17 +60,9 @@ export default function RootLayout({
             <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-base">©</span>
-                <span>澳洲软件工程师</span>
+                <span>马农不卷大厂</span>
               </div>
 
-              <div className="flex items-center gap-6">
-                <a className="hover:text-white" href="#">
-                  使用条款
-                </a>
-                <a className="hover:text-white" href="#">
-                  隐私政策
-                </a>
-              </div>
             </div>
           </footer>
         </div>
