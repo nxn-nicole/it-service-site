@@ -23,7 +23,7 @@ const previews = [
   },
 ];
 
-export default function HandbookPreviewModal() {
+export default function HandbookPreviewModal({ children }: { children?: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -95,13 +95,19 @@ export default function HandbookPreviewModal() {
 
   return (
     <>
-      <button
-        onClick={() => { setOpen(true); setIndex(0); }}
-        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-[14px] border border-violet-500/30 bg-violet-500/10 text-sm font-bold text-violet-300 hover:bg-violet-500/20 hover:border-violet-500/50 transition-all duration-300 cursor-pointer"
-      >
-        <BookOpen className="h-4 w-4" />
-        查看手册内页
-      </button>
+      {children ? (
+        <div onClick={() => { setOpen(true); setIndex(0); }} className="cursor-pointer">
+          {children}
+        </div>
+      ) : (
+        <button
+          onClick={() => { setOpen(true); setIndex(0); }}
+          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-[14px] border border-violet-500/30 bg-violet-500/10 text-sm font-bold text-violet-300 hover:bg-violet-500/20 hover:border-violet-500/50 transition-all duration-300 cursor-pointer"
+        >
+          <BookOpen className="h-4 w-4" />
+          查看手册内页
+        </button>
+      )}
 
       {mounted && open && createPortal(modal, document.body)}
     </>

@@ -20,6 +20,7 @@ import {
   TrendingUp,
   UserRound,
   Linkedin,
+  MessageSquare,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -42,12 +43,13 @@ const techLogos = [
   { name: "Bicep",          icon: Cloud,                                             color: "from-cyan-500/40",    url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep", invert: false },
 ];
 
-const pillarIcons = [Code2, GitPullRequest, Users2, Cloud];
+const pillarIcons = [Code2, GitPullRequest, Users2, Cloud, MessageSquare];
 const pillarColors = [
   { icon: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
   { icon: "text-violet-400",  bg: "bg-violet-500/10",  border: "border-violet-500/20" },
   { icon: "text-blue-400",    bg: "bg-blue-500/10",    border: "border-blue-500/20" },
   { icon: "text-cyan-400",    bg: "bg-cyan-500/10",    border: "border-cyan-500/20" },
+  { icon: "text-amber-400",   bg: "bg-amber-500/10",   border: "border-amber-500/20" },
 ];
 
 const eventBadgeColors: Record<string, string> = {
@@ -91,6 +93,53 @@ export default function BlotzPage() {
             <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-lg">
               {content.hero.subtitle}
             </p>
+
+            <div className="flex items-center gap-2 pt-1">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-xs font-semibold text-emerald-400">真实产品，持续迭代中</span>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://blotz-website.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-emerald-500/25 bg-emerald-500/8 text-sm font-bold text-emerald-300 hover:bg-emerald-500/15 hover:border-emerald-500/40 transition-all duration-300"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Blotz 官网
+              </a>
+              <a
+                href="https://www.linkedin.com/company/blotz-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-blue-500/25 bg-blue-500/8 text-sm font-bold text-blue-300 hover:bg-blue-500/15 hover:border-blue-500/40 transition-all duration-300"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/sol-wizard/Blotz-Task-App"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-white/8 bg-white/3 text-sm font-bold text-white/60 hover:bg-white/6 hover:border-white/15 hover:text-white/80 transition-all duration-300"
+              >
+                <ExternalLink className="h-4 w-4" />
+                GitHub
+              </a>
+              <a
+                href="https://www.xiaohongshu.com/user/profile/67bc12d6000000000e01f09a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-rose-500/25 bg-rose-500/8 text-sm font-bold text-rose-300 hover:bg-rose-500/15 hover:border-rose-500/40 transition-all duration-300"
+              >
+                <Image src="/xhs.png" alt="小红书" width={16} height={16} className="opacity-90" />
+                小红书
+              </a>
+            </div>
           </div>
 
           {/* Right: stats card */}
@@ -120,8 +169,49 @@ export default function BlotzPage() {
         </div>
       </div>
 
+      {/* ── 1b. TECH STACK MARQUEE ──────────────────────────── */}
+      <div className="space-y-8">
+        <div className="space-y-3">
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">技术栈</span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">项目用到的技术</h2>
+        </div>
+
+        <div className="relative flex overflow-x-hidden group/marquee rounded-3xl border border-white/5 bg-white/1 py-8 mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          <div className="flex animate-marquee whitespace-nowrap py-6">
+            {[...techLogos, ...techLogos].map((tech, idx) => {
+              const Icon = tech.icon;
+              return (
+                <a
+                  key={`${tech.name}-${idx}`}
+                  href={tech.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mx-10 flex flex-col items-center gap-4 transition-all duration-500 hover:scale-110"
+                >
+                  <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-2xl border border-white/10 bg-white/4 flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden">
+                    <div className={`absolute inset-0 bg-linear-to-br ${tech.color} to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                    {tech.logo ? (
+                      <img
+                        src={tech.logo}
+                        alt={tech.name}
+                        className={`relative z-10 h-10 w-10 md:h-12 md:w-12 object-contain transition-all duration-500 ${tech.invert ? "brightness-0 invert scale-95" : ""} opacity-100`}
+                      />
+                    ) : Icon && (
+                      <Icon size={32} className="relative z-10 text-white/90 group-hover:text-white transition-all duration-500" />
+                    )}
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
+                    {tech.name}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* ── 2. PILLARS ──────────────────────────────────────── */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {content.pillars.map((pillar, i) => {
           const Icon = pillarIcons[i];
           const colors = pillarColors[i];
@@ -206,7 +296,7 @@ export default function BlotzPage() {
           </div>
 
           <p className="text-sm text-white/45 text-center">
-            Nicole 从零基础加入 Blotz，一路成长为 Tech Lead，最终成为项目联合创始人——这条路，认真参与的你同样可以走。
+            我们有学员从<span className="text-white/70 font-semibold">零编程经验</span>加入，逐步成长为 <span className="text-white/70 font-semibold">Tech Lead</span>，最终成为<span className="text-white/70 font-semibold">项目负责人之一</span>
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-6 p-7 rounded-[28px] border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/8 hover:border-amber-500/30 transition-all duration-300">
@@ -216,9 +306,9 @@ export default function BlotzPage() {
             <div className="space-y-2 flex-1">
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400/70">学员案例</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 border border-amber-500/25 text-amber-300">零基础 → 联合创始人</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 border border-amber-500/25 text-amber-300">零经验 → Tech Lead → 项目负责人</span>
               </div>
-              <h3 className="text-lg font-bold text-white">Nicole Nan — 从零开始，成为 Blotz 联合创始人</h3>
+              <h3 className="text-lg font-bold text-white">零编程经验入门，成长为 Tech Lead，晋升项目负责人之一</h3>
               <p className="text-sm text-white/55 leading-relaxed">完全没有编程基础加入 Blotz，通过真实项目的持续贡献，一步步成长为 Tech Lead，最终成为项目联合创始人，现已独立负责团队协调与产品方向。</p>
               <a
                 href="https://www.linkedin.com/in/nicole-nan-501a6831b/"
@@ -227,53 +317,12 @@ export default function BlotzPage() {
                 className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-amber-300 hover:text-amber-200 transition-colors"
               >
                 <Linkedin className="h-4 w-4" />
-                查看 Nicole 的 LinkedIn →
+                查看 LinkedIn →
               </a>
             </div>
           </div>
         </div>
 
-      </div>
-
-      {/* ── 4. TECH STACK MARQUEE ───────────────────────────── */}
-      <div className="space-y-8">
-        <div className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">技术栈</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">项目用到的技术</h2>
-        </div>
-
-        <div className="relative flex overflow-x-hidden group/marquee rounded-3xl border border-white/5 bg-white/1 py-8 mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-          <div className="flex animate-marquee whitespace-nowrap py-6">
-            {[...techLogos, ...techLogos].map((tech, idx) => {
-              const Icon = tech.icon;
-              return (
-                <a
-                  key={`${tech.name}-${idx}`}
-                  href={tech.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mx-10 flex flex-col items-center gap-4 transition-all duration-500 hover:scale-110"
-                >
-                  <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-2xl border border-white/10 bg-white/4 flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden">
-                    <div className={`absolute inset-0 bg-linear-to-br ${tech.color} to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-                    {tech.logo ? (
-                      <img
-                        src={tech.logo}
-                        alt={tech.name}
-                        className={`relative z-10 h-10 w-10 md:h-12 md:w-12 object-contain transition-all duration-500 ${tech.invert ? "brightness-0 invert scale-95" : ""} opacity-100`}
-                      />
-                    ) : Icon && (
-                      <Icon size={32} className="relative z-10 text-white/90 group-hover:text-white transition-all duration-500" />
-                    )}
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
-                    {tech.name}
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-        </div>
       </div>
 
       {/* ── 4. COMMUNITY EVENTS ─────────────────────────────── */}
@@ -288,7 +337,7 @@ export default function BlotzPage() {
         <div className="flex items-center gap-4 px-6 py-4 rounded-[18px] border border-emerald-500/20 bg-emerald-500/5">
           <Users2 className="h-5 w-5 text-emerald-400 shrink-0" />
           <p className="text-sm font-semibold text-white/70">
-            你将直接参与<span className="text-emerald-300 font-bold"> 真实世界的软件开发 </span>——真实代码库、真实用户、真实团队。
+            直接与<span className="text-emerald-300 font-bold"> 真实软件工程师 </span>并肩工作
           </p>
         </div>
 
@@ -311,50 +360,13 @@ export default function BlotzPage() {
         </div>
       </div>
 
-      {/* ── 5. LINKS ────────────────────────────────────────── */}
-      <div className="space-y-6">
-        <div className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">了解更多</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Blotz 在哪里</h2>
-        </div>
-
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="https://blotz-website.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-[14px] border border-emerald-500/25 bg-emerald-500/8 text-sm font-bold text-emerald-300 hover:bg-emerald-500/15 hover:border-emerald-500/40 transition-all duration-300"
-          >
-            <ExternalLink className="h-4 w-4" />
-            Blotz 官网
-          </a>
-          <a
-            href="https://www.linkedin.com/company/blotz-app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-[14px] border border-blue-500/25 bg-blue-500/8 text-sm font-bold text-blue-300 hover:bg-blue-500/15 hover:border-blue-500/40 transition-all duration-300"
-          >
-            <Linkedin className="h-4 w-4" />
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/sol-wizard/Blotz-Task-App"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-[14px] border border-white/8 bg-white/3 text-sm font-bold text-white/60 hover:bg-white/6 hover:border-white/15 hover:text-white/80 transition-all duration-300"
-          >
-            <ExternalLink className="h-4 w-4" />
-            GitHub 代码库
-          </a>
-        </div>
-      </div>
 
       {/* ── 5b. XHS PROJECT SERIES ──────────────────────────── */}
       <div className="space-y-8">
         <div className="space-y-3">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">项目记录</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">真实记录，公开成长</h2>
-          <p className="text-white/50">项目的每一步都记录在小红书上——从组建团队、分配职责，到踩坑复盘、功能上线。加入后你也可以用同样的方式记录自己的成长。</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">了解更多项目历史和详情</h2>
+          <p className="text-white/50">项目的每一步都记录在小红书上——从组建团队、分配职责，到踩坑复盘、功能上线</p>
         </div>
 
         {/* Green series callout */}
@@ -482,12 +494,21 @@ export default function BlotzPage() {
                 </div>
 
                 <ul className="flex-1 space-y-3">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm text-white/60">
-                      <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 ${tier.highlight ? "text-emerald-400" : "text-white/30"}`} />
-                      {feature}
-                    </li>
-                  ))}
+                  {tier.features.map((feature, fi) => {
+                    const isCourseFeature = (tier as { courseFeature?: boolean }).courseFeature && fi === tier.features.length - 1;
+                    return (
+                      <li key={feature} className="flex items-start gap-3 text-sm">
+                        <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 ${isCourseFeature ? "text-amber-400" : tier.highlight ? "text-emerald-400" : "text-white/30"}`} />
+                        {isCourseFeature ? (
+                          <a href="/handbook" className="font-bold text-amber-300 hover:text-amber-200 underline underline-offset-2 transition-colors">
+                            {feature} →
+                          </a>
+                        ) : (
+                          <span className="text-white/60">{feature}</span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <WeChatModal wechatId="Azdev0189">

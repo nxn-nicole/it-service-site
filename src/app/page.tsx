@@ -10,6 +10,7 @@ import {
   Rocket,
   ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 import content from "./content.json";
 import { Timeline } from "@/components/Timeline";
 
@@ -197,17 +198,17 @@ export default function IntroductionPage() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {content.goal.pillars.map((item, index) => {
-              const icons = [Users, Rocket, GraduationCap, Code2]; 
+              const icons = [Users, Rocket, GraduationCap, Code2];
               const Icon = icons[index % icons.length] || Users;
               const color = item.color ?? "text-white";
 
-              return (
-                <div 
-                  key={item.label} 
+              const cardContent = (
+                <div
+                  key={item.label}
                   className="group relative flex gap-8 p-8 rounded-3xl border border-white/5 bg-white/2 transition-all duration-500 hover:bg-white/6 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(255,255,255,0.03)] hover:-translate-y-2 overflow-hidden"
                 >
                   <div className={`absolute -right-16 -top-16 h-48 w-48 bg-linear-to-br ${color.replace('text-', 'from-')}/10 to-transparent blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
-                  
+
                   <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-black/40 border border-white/5 group-hover:border-white/30 group-hover:bg-black/60 transition-all duration-500 shadow-xl">
                     <Icon className={`h-8 w-8 ${color} opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`} strokeWidth={1.5} />
                   </div>
@@ -220,6 +221,13 @@ export default function IntroductionPage() {
                     </p>
                   </div>
                 </div>
+              );
+
+              const href = index === 2 ? "/handbook" : index === 3 ? "/blotz" : "/courses";
+              return (
+                <Link key={item.label} href={href}>
+                  {cardContent}
+                </Link>
               );
             })}
           </div>
