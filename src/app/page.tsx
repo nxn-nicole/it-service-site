@@ -57,8 +57,16 @@ export default function IntroductionPage() {
                 </span>
               </h1>
             </a>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl font-medium">
-              {content.profile.summary}
+            <p className="max-w-2xl text-lg leading-relaxed md:text-xl font-medium">
+              {(() => {
+                const [first, ...rest] = content.profile.summary.split("。").filter(Boolean);
+                return (
+                  <>
+                    <span className="text-white/80">{first}。</span>
+                    <span className="text-white/45">{rest.join("。")}。</span>
+                  </>
+                );
+              })()}
             </p>
             
             {/* Microsoft Certification Section */}

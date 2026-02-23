@@ -94,7 +94,7 @@ export default function HandbookPage() {
               <span className="text-sm text-white/40">份</span>
             </div>
             <div className="pt-4 border-t border-white/8">
-              <WeChatModal wechatId="Azdev0189">
+              <WeChatModal wechatId="Azdev0189" source="handbook">
                 <div className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[12px] bg-violet-600 hover:bg-violet-500 text-sm font-bold text-white transition-all duration-300 cursor-pointer shadow-[0_4px_20px_rgba(139,92,246,0.25)]">
                   立即咨询购买 <ArrowUpRight className="h-4 w-4" />
                 </div>
@@ -165,7 +165,7 @@ export default function HandbookPage() {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-5 flex-1">
+            <div className="p-6 space-y-5 max-h-64 overflow-hidden relative">
               {content.curriculum.categories.map((cat) => {
                 const colors = colorMap[cat.color] ?? colorMap.violet;
                 return (
@@ -184,6 +184,7 @@ export default function HandbookPage() {
                   </div>
                 );
               })}
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#0e0e11] to-transparent pointer-events-none" />
             </div>
 
             {/* Hover preview overlay */}
@@ -192,8 +193,6 @@ export default function HandbookPage() {
               <HandbookPreviewModal />
             </div>
 
-            {/* Lock overlay */}
-            <div className="absolute bottom-[100px] left-0 right-0 h-20 bg-linear-to-t from-[#0e0e11] to-transparent pointer-events-none" />
             <div className="flex flex-col items-center pb-6 pt-3 gap-2.5 bg-[#0e0e11] border-t border-violet-500/10">
               <div className="flex items-center justify-center h-9 w-9 rounded-full border border-white/10 bg-white/5">
                 <Lock className="h-3.5 w-3.5 text-white/40" />
@@ -201,7 +200,7 @@ export default function HandbookPage() {
               <p className="text-sm font-bold text-white/60 text-center px-4">
                 {content.curriculum.lockedLabel}
               </p>
-              <WeChatModal wechatId="Azdev0189">
+              <WeChatModal wechatId="Azdev0189" source="handbook">
                 <div className="mt-1 inline-flex items-center gap-2 px-5 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-sm font-bold text-violet-300 hover:bg-violet-500/20 hover:border-violet-500/50 transition-all duration-300 cursor-pointer">
                   立即咨询 <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>
@@ -224,7 +223,7 @@ export default function HandbookPage() {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-5 flex-1">
+            <div className="p-6 space-y-5 max-h-64 overflow-hidden relative">
               {content.curriculum.azureCategories.map((cat) => {
                 const colors = colorMap[cat.color] ?? colorMap.blue;
                 return (
@@ -243,6 +242,7 @@ export default function HandbookPage() {
                   </div>
                 );
               })}
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#0e0e11] to-transparent pointer-events-none" />
 
               {/* Azure video badge */}
               <div className="pt-2">
@@ -266,7 +266,7 @@ export default function HandbookPage() {
               <p className="text-sm font-bold text-white/60 text-center px-4">
                 {content.curriculum.lockedLabel}
               </p>
-              <WeChatModal wechatId="Azdev0189">
+              <WeChatModal wechatId="Azdev0189" source="handbook">
                 <div className="mt-1 inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-300 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all duration-300 cursor-pointer">
                   立即咨询 <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>
@@ -385,7 +385,7 @@ export default function HandbookPage() {
                 ))}
               </ul>
 
-              <WeChatModal wechatId="Azdev0189">
+              <WeChatModal wechatId="Azdev0189" source="handbook">
                 <div
                   className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[14px] font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer ${
                     tier.highlight

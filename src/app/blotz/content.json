@@ -1,4 +1,9 @@
 {
+  "enrollment": {
+    "status": "limited",
+    "spots": "2",
+    "date": "2026-03-01"
+  },
   "hero": {
     "eyebrow": "工业实战项目",
     "title": "参与 Blotz",
@@ -6,8 +11,7 @@
     "subtitle": "加入一个测试期已积累 2000+ 候补用户的生产级项目，用真实代码、真实 PR、真实上线经历打造你的技术作品集。",
     "stats": [
       { "value": "70+", "label": "学员已参与获得实战经验" },
-      { "value": "全栈技术栈", "label": "Next.js · .NET · Azure · OpenAI" },
-      { "value": "每周活跃", "label": "Discord + 线下共创" }
+      { "value": "全栈技术栈", "label": "Next.js · .NET · Azure · OpenAI" }
     ]
   },
   "pillars": [
@@ -122,7 +126,7 @@
           "加入 Sprint 并领取真实开发任务",
           "提交 PR 并获得 Tech Lead 代码审查",
           "参与线下项目共创（悉尼）",
-          "双周求职 & 面试诊所",
+          "表现优秀可获免费简历精修 & 求职 1v1 咨询",
           "每月 1v1 架构 & 职业发展对话",
           "免费解锁完整全栈教程课程"
         ],
