@@ -89,17 +89,6 @@
         ]
       },
       {
-        "id": "mobile",
-        "label": "MOBILE APP",
-        "color": "pink",
-        "modules": [
-          "Module 0 - Basic React Native and Expo",
-          "Module 1 - Todo App Initial Setup",
-          "Module 2 - Feature Based Folder",
-          "Module 3 - Protected Routes"
-        ]
-      },
-      {
         "id": "basic-backend",
         "label": "BASIC BACKEND",
         "color": "violet",
@@ -119,6 +108,17 @@
         "modules": [
           "Overview - Production Grade Backend Architecture",
           "Module 0 - EF Core"
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "MOBILE APP",
+        "color": "pink",
+        "modules": [
+          "Module 0 - Basic React Native and Expo",
+          "Module 1 - Todo App Initial Setup",
+          "Module 2 - Feature Based Folder",
+          "Module 3 - Protected Routes"
         ]
       }
     ],

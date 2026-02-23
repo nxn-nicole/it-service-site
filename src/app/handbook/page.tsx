@@ -165,7 +165,7 @@ export default function HandbookPage() {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-5 max-h-64 overflow-hidden relative">
+            <div className="p-6 space-y-5 max-h-[680px] overflow-hidden relative">
               {content.curriculum.categories.map((cat) => {
                 const colors = colorMap[cat.color] ?? colorMap.violet;
                 return (
@@ -184,7 +184,11 @@ export default function HandbookPage() {
                   </div>
                 );
               })}
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#0e0e11] to-transparent pointer-events-none" />
+              <div className="pl-2 space-y-1.5 pt-1">
+                <p className="text-sm text-white/20 italic">更多模块持续更新中...</p>
+                <p className="text-sm text-white/10 italic">· · ·</p>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[#0e0e11] to-transparent pointer-events-none" />
             </div>
 
             {/* Hover preview overlay */}
