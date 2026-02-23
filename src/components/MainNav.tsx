@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/", label: "简介" },
   { href: "/courses", label: "服务" },
+  { href: "/handbook", label: "入门手册" },
   { href: "/#journey", label: "个人经验" },
   { href: "/contact", label: "联系" },
 ];
@@ -14,9 +15,8 @@ export default function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-10 px-10 py-4 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+    <nav className="flex items-center gap-8 px-8 py-4 rounded-full bg-white/3 border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
       {links.map((link) => {
-        // Fix: Simplified active logic to avoid multiple active items
         const isActive = pathname === link.href;
 
         return (
@@ -24,8 +24,8 @@ export default function MainNav() {
             key={link.href}
             href={link.href}
             className={`relative text-base font-bold transition-all duration-300 ${
-              isActive 
-                ? "text-white" 
+              isActive
+                ? "text-white"
                 : "text-white/40 hover:text-white/80"
             }`}
           >
@@ -36,6 +36,18 @@ export default function MainNav() {
           </Link>
         );
       })}
+
+      {/* Blotz CTA button */}
+      <Link
+        href="/blotz"
+        className={`relative px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ${
+          pathname === "/blotz"
+            ? "bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+            : "bg-emerald-600/80 text-white hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+        }`}
+      >
+        参与 Blotz
+      </Link>
     </nav>
   );
 }

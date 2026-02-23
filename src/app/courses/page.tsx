@@ -36,7 +36,7 @@ export default function ServicesPage() {
 
       {/* Free Consultation Bar - Redesigned for clarity & trust */}
       <div className="max-w-5xl mx-auto px-4 md:px-0">
-        <WeChatModal wechatId="Azdev0189">
+        <WeChatModal wechatId="Azdev0189" source="consulting">
           <div className="group relative flex flex-col md:flex-row items-stretch gap-0 overflow-hidden rounded-[32px] border border-emerald-500/20 bg-emerald-500/2 transition-all duration-500 hover:bg-emerald-500/4 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.1)]">
           {/* Content Side */}
           <div className="flex-1 p-8 md:p-10 space-y-6">
@@ -239,6 +239,33 @@ export default function ServicesPage() {
         })}
       </div>
 
+      {/* XHS Free Content Banner */}
+      <a
+        href="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 px-8 py-6 rounded-[24px] border border-rose-500/20 bg-rose-500/5 hover:bg-rose-500/8 hover:border-rose-500/35 transition-all duration-300"
+      >
+        <div className="flex items-start gap-4">
+          <img src="/xhs.png" alt="小红书" width={28} height={28} className="shrink-0 mt-0.5 opacity-80 group-hover:opacity-100 transition-opacity" />
+          <div className="space-y-2">
+            <p className="text-sm font-bold text-white/80 group-hover:text-white transition-colors">
+              小红书上有大量免费干货
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["面试准备", "自学路线", "找工作", "留学生转码", "简历技巧", "行业经验"].map((tag) => (
+                <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300/80">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="shrink-0 inline-flex items-center gap-2 text-sm font-bold text-rose-300 group-hover:text-rose-200 transition-colors whitespace-nowrap">
+          免费查看 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+      </a>
+
       {/* Testimonials - Scrolling Reviews */}
       <div id="feedback" className="space-y-10 scroll-mt-32">
         <div className="text-center space-y-4">
@@ -250,7 +277,7 @@ export default function ServicesPage() {
           </h2>
           <div className="flex items-center justify-center gap-3">
             <span className="text-sm text-white/50">小红书累计</span>
-            <span className="text-sm font-bold text-white/80">54+ 条真实评价</span>
+            <span className="text-sm font-bold text-white/80">56+ 条真实评价</span>
           </div>
         </div>
 
