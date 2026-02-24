@@ -143,7 +143,7 @@ export default function BlotzPage() {
           </div>
 
           {/* Right: stats card */}
-          <div className="w-full md:w-80 shrink-0 rounded-[28px] border border-white/8 bg-white/3 p-8 space-y-5">
+          <div className="w-full md:w-80 shrink-0 rounded-[28px] border border-white/8 bg-white/3 p-8 space-y-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
               项目概况
             </p>
@@ -156,62 +156,50 @@ export default function BlotzPage() {
                   </div>
                 </li>
               ))}
-
-              {/* ── Enrollment status row ── */}
-              {content.enrollment.status === "open" && (
-                <li className="flex items-center gap-4">
-                  <div className="text-left">
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2 shrink-0">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                      </span>
-                      <div className="text-xl font-bold text-emerald-300">{content.enrollment.spots} 个名额开放中</div>
-                    </div>
-                  </div>
-                </li>
-              )}
-
-              {content.enrollment.status === "limited" && (
-                <li className="flex items-center gap-4">
-                  <div className="text-left">
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2 shrink-0">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
-                      </span>
-                      <div className="text-xl font-bold text-amber-300">{content.enrollment.spots} 个名额开放中</div>
-                    </div>
-                  </div>
-                </li>
-              )}
-
-              {content.enrollment.status === "closed" && (
-                <li className="flex items-center gap-4">
-                  <div className="text-left">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-red-400 shrink-0" />
-                      <div className="text-xl font-bold text-red-300">当前已满员</div>
-                    </div>
-                    <div className="text-xs text-white/40">微信联系预约下一期</div>
-                  </div>
-                </li>
-              )}
-
-              {content.enrollment.status === "soon" && (
-                <WeChatModal wechatId="Azdev0189" source="blotz">
-                  <li className="flex items-center gap-4 cursor-pointer">
-                    <div className="text-left">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-                        <div className="text-xl font-bold text-blue-300">{content.enrollment.date} 开放</div>
-                      </div>
-                      <div className="text-xs text-white/40">点击预约通知</div>
-                    </div>
-                  </li>
-                </WeChatModal>
-              )}
             </ul>
+
+            {/* ── Enrollment status ── */}
+            {content.enrollment.status === "open" && (
+              <div className="pt-4 border-t border-white/8 flex items-center gap-2">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                </span>
+                <span className="text-2xl font-bold text-emerald-300">{content.enrollment.spots} 个名额开放中</span>
+              </div>
+            )}
+
+            {content.enrollment.status === "limited" && (
+              <div className="pt-4 border-t border-white/8 flex items-center gap-2">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
+                </span>
+                <span className="text-2xl font-bold text-amber-300">{content.enrollment.spots} 个名额开放中</span>
+              </div>
+            )}
+
+            {content.enrollment.status === "closed" && (
+              <div className="pt-4 border-t border-white/8">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-red-400 shrink-0" />
+                  <span className="text-2xl font-bold text-red-300">当前已满员</span>
+                </div>
+                <p className="text-xs text-white/40 mt-1">微信联系预约下一期</p>
+              </div>
+            )}
+
+            {content.enrollment.status === "soon" && (
+              <WeChatModal wechatId="Azdev0189" source="blotz">
+                <div className="pt-4 border-t border-white/8 cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-blue-400 shrink-0" />
+                    <span className="text-2xl font-bold text-blue-300">{content.enrollment.date} 开放</span>
+                  </div>
+                  <p className="text-xs text-white/40 mt-1">点击预约通知</p>
+                </div>
+              </WeChatModal>
+            )}
 
             <div className="pt-4 border-t border-white/8">
               <WeChatModal wechatId="Azdev0189" source="blotz">
