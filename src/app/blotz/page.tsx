@@ -18,7 +18,7 @@ import {
   BrainCircuit,
   Wifi,
   TrendingUp,
-  UserRound,
+
   Linkedin,
   MessageSquare,
 } from "lucide-react";
@@ -72,7 +72,7 @@ export default function BlotzPage() {
       <div className="relative pt-4">
         <div className="absolute left-1/4 top-0 h-96 w-96 bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none -translate-x-1/2" />
 
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <div className="flex flex-col md:flex-row items-start gap-12 md:gap-16">
 
           {/* Left: text */}
           <div className="flex-1 space-y-6 text-left">
@@ -82,7 +82,7 @@ export default function BlotzPage() {
                 </span>
               </div>
 
-            <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight text-white leading-[1.05]">
+            <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-bold tracking-tight text-white leading-[1.1]">
               {content.hero.title}
             </h1>
 
@@ -102,109 +102,100 @@ export default function BlotzPage() {
               <span className="text-xs font-semibold text-emerald-400">真实产品，持续迭代中</span>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 pt-1">
               <a
                 href="https://blotz-website.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-emerald-500/25 bg-emerald-500/8 text-sm font-bold text-emerald-300 hover:bg-emerald-500/15 hover:border-emerald-500/40 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-[10px] border border-emerald-500/25 bg-emerald-500/8 hover:bg-emerald-500/15 hover:border-emerald-500/40 transition-all duration-300"
               >
-                <ExternalLink className="h-4 w-4" />
-                Blotz 官网
+                <ExternalLink className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                <span className="text-sm font-bold text-emerald-300">Blotz 官网</span>
               </a>
               <a
                 href="https://www.linkedin.com/company/blotz-app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-blue-500/25 bg-blue-500/8 text-sm font-bold text-blue-300 hover:bg-blue-500/15 hover:border-blue-500/40 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-[10px] border border-blue-500/25 bg-blue-500/8 hover:bg-blue-500/15 hover:border-blue-500/40 transition-all duration-300"
               >
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
+                <Linkedin className="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                <span className="text-sm font-bold text-blue-300">LinkedIn</span>
               </a>
               <a
                 href="https://github.com/sol-wizard/Blotz-Task-App"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-white/8 bg-white/3 text-sm font-bold text-white/60 hover:bg-white/6 hover:border-white/15 hover:text-white/80 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-[10px] border border-white/8 bg-white/3 hover:bg-white/6 hover:border-white/15 transition-all duration-300"
               >
-                <ExternalLink className="h-4 w-4" />
-                GitHub
+                <ExternalLink className="h-3.5 w-3.5 text-white/50 shrink-0" />
+                <span className="text-sm font-bold text-white/65">GitHub</span>
               </a>
               <a
                 href="https://www.xiaohongshu.com/user/profile/67bc12d6000000000e01f09a"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] border border-rose-500/25 bg-rose-500/8 text-sm font-bold text-rose-300 hover:bg-rose-500/15 hover:border-rose-500/40 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-[10px] border border-rose-500/25 bg-rose-500/8 hover:bg-rose-500/15 hover:border-rose-500/40 transition-all duration-300"
               >
-                <Image src="/xhs.png" alt="小红书" width={16} height={16} className="opacity-90" />
-                小红书
+                <Image src="/xhs.png" alt="小红书" width={14} height={14} className="opacity-90 shrink-0" />
+                <span className="text-sm font-bold text-rose-300">小红书</span>
               </a>
             </div>
           </div>
 
           {/* Right: stats card */}
-          <div className="w-full md:w-80 shrink-0 rounded-[28px] border border-white/8 bg-white/3 p-8 space-y-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
-              项目概况
-            </p>
-            <ul className="space-y-4">
-              {content.hero.stats.map((stat) => (
-                <li key={stat.label} className="flex items-center gap-4">
-                  <div className="text-left">
-                    <div className="text-xl font-bold text-white">{stat.value}</div>
-                    <div className="text-xs text-white/40">{stat.label}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div className="w-full md:w-80 shrink-0 self-stretch rounded-[28px] border border-white/8 bg-white/3 p-8 flex flex-col justify-between gap-6">
 
-            {/* ── Enrollment status ── */}
-            {content.enrollment.status === "open" && (
-              <div className="pt-4 border-t border-white/8 flex items-center gap-2">
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                <span className="text-2xl font-bold text-emerald-300">{content.enrollment.spots} 个名额开放中</span>
-              </div>
-            )}
+            {/* Hero number */}
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-3">项目概况</p>
+              <div className="text-5xl font-black text-white leading-none tracking-tight">70+</div>
+              <div className="text-sm text-white/50 mt-2">学员已参与获得实战经验</div>
+            </div>
 
-            {content.enrollment.status === "limited" && (
-              <div className="pt-4 border-t border-white/8 flex items-center gap-2">
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
-                </span>
-                <span className="text-2xl font-bold text-amber-300">{content.enrollment.spots} 个名额开放中</span>
-              </div>
-            )}
-
-            {content.enrollment.status === "closed" && (
-              <div className="pt-4 border-t border-white/8">
+            {/* Enrollment status */}
+            <div className="border-t border-white/8 pt-5 space-y-4">
+              {content.enrollment.status === "open" && (
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-red-400 shrink-0" />
-                  <span className="text-2xl font-bold text-red-300">当前已满员</span>
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  </span>
+                  <span className="text-xl font-bold text-emerald-300">{content.enrollment.spots} 个名额开放中</span>
                 </div>
-                <p className="text-xs text-white/40 mt-1">微信联系预约下一期</p>
-              </div>
-            )}
-
-            {content.enrollment.status === "soon" && (
-              <WeChatModal wechatId="Azdev0189" source="blotz">
-                <div className="pt-4 border-t border-white/8 cursor-pointer">
+              )}
+              {content.enrollment.status === "limited" && (
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
+                  </span>
+                  <span className="text-xl font-bold text-amber-300">{content.enrollment.spots} 个名额开放中</span>
+                </div>
+              )}
+              {content.enrollment.status === "closed" && (
+                <div>
                   <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-                    <span className="text-2xl font-bold text-blue-300">{content.enrollment.date} 开放</span>
+                    <span className="h-2 w-2 rounded-full bg-red-400 shrink-0" />
+                    <span className="text-xl font-bold text-red-300">当前已满员</span>
                   </div>
-                  <p className="text-xs text-white/40 mt-1">点击预约通知</p>
+                  <p className="text-xs text-white/40 mt-1">微信联系预约下一期</p>
                 </div>
-              </WeChatModal>
-            )}
+              )}
+              {content.enrollment.status === "soon" && (
+                <WeChatModal wechatId="Azdev0189" source="blotz">
+                  <div className="cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-blue-400 shrink-0" />
+                      <span className="text-xl font-bold text-blue-300">{content.enrollment.date} 开放</span>
+                    </div>
+                    <p className="text-xs text-white/40 mt-1">点击预约通知</p>
+                  </div>
+                </WeChatModal>
+              )}
 
-            <div className="pt-4 border-t border-white/8">
               <WeChatModal wechatId="Azdev0189" source="blotz">
-                <div className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[12px] bg-emerald-600 hover:bg-emerald-500 text-sm font-bold text-white transition-all duration-300 cursor-pointer shadow-[0_4px_20px_rgba(16,185,129,0.25)]">
-                  了解如何加入 <ArrowUpRight className="h-4 w-4" />
+                <div className="w-full inline-flex items-center justify-center gap-2 px-5 py-4 rounded-[16px] bg-emerald-600 hover:bg-emerald-500 text-base font-bold text-white transition-all duration-300 cursor-pointer shadow-[0_6px_30px_rgba(16,185,129,0.35)] hover:shadow-[0_10px_40px_rgba(16,185,129,0.5)] hover:-translate-y-0.5">
+                  了解如何加入 <ArrowUpRight className="h-5 w-5" />
                 </div>
               </WeChatModal>
             </div>
@@ -213,7 +204,200 @@ export default function BlotzPage() {
         </div>
       </div>
 
-      {/* ── 1b. TECH STACK MARQUEE ──────────────────────────── */}
+      {/* ── 2. GROWTH PATH ──────────────────────────────────── */}
+      <div className="space-y-12">
+
+        {/* Header — centered */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-white/30">个人成长</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">6个月，从零基础到具备求职能力</h2>
+          <p className="text-white/50 text-lg leading-relaxed">这不是一个普通的练习项目。你会加入一个真实的开发团队，一边学习，一边参与真实任务。在这个过程中，你会慢慢积累项目经验、GitHub 记录和工程协作经验。</p>
+          <p className="text-white/25 text-sm">以上时间只是预计，实际进度取决于你的投入程度、学习节奏和参与表现。</p>
+        </div>
+
+        {/* Growth steps — centered timeline */}
+        <div className="max-w-3xl mx-auto">
+          {([
+            {
+              num: "01", title: "加入团队，先旁听",
+              desc: "不需要任何基础。先了解产品目标、团队怎么开会、任务怎么分配、工程师之间如何协作——感受真实软件团队的日常节奏。",
+              timeMain: "第 1 天", timeSub: "入门旁听",
+              timeMainCls: "text-white/50", timeSubCls: "text-white/25",
+              lineCls: "from-white/15 to-white/8",
+              circle: "border-white/20 bg-white/[0.03]", numColor: "text-white/40", titleColor: "text-white/70",
+              badge: "免费", badgeCls: "bg-white/8 text-white/50 border-white/15", docLink: { text: "查看旁听方案 →", href: "#pricing" },
+            },
+            {
+              num: "02", title: "跟着文档学，边看边做",
+              desc: "有一份专为新手设计的系统学习文档，内容清晰、结构完整，学习路径已经帮你规划好了。",
+              timeMain: "第 1 个月", timeSub: "第 2–3 周",
+              timeMainCls: "text-white/50", timeSubCls: "text-white/25",
+              lineCls: "from-white/15 to-white/8",
+              circle: "border-white/20 bg-white/[0.03]", numColor: "text-white/40", titleColor: "text-white/70",
+              badge: "", badgeCls: "", docLink: { text: "查看学习手册 →", href: "/handbook" },
+            },
+            {
+              num: "03", title: "提交代码，等待审核",
+              desc: "完成练习任务后提交代码，Tech Lead 会逐行 review。达到团队标准后，才正式进入下一阶段。",
+              timeMain: "第 1 个月", timeSub: "第 4 周",
+              timeMainCls: "text-white/50", timeSubCls: "text-white/25",
+              lineCls: "from-white/15 to-emerald-500/20",
+              circle: "border-white/20 bg-white/[0.03]", numColor: "text-white/40", titleColor: "text-white/70",
+              badge: "", badgeCls: "", docLink: null,
+            },
+            {
+              num: "04", title: "进入项目，开始提 PR",
+              desc: "领取真实任务，参与产品讨论，提交 Pull Request，代码被 review 后真正合并上线。",
+              timeMain: "第 2–3 个月", timeSub: "约 2 个月",
+              timeMainCls: "text-emerald-400", timeSubCls: "text-emerald-400/40",
+              lineCls: "from-emerald-500/30 to-violet-500/20",
+              circle: "border-emerald-500/50 bg-emerald-500/10", numColor: "text-emerald-400", titleColor: "text-emerald-300",
+              badge: "开始贡献", badgeCls: "bg-emerald-500/15 text-emerald-400 border-emerald-500/25", docLink: null,
+            },
+            {
+              num: "05", title: "晋升 Tech Lead，带新人",
+              desc: "对整个项目越来越熟悉之后，开始接更复杂的任务，主导功能模块，带带新人，慢慢承担起 Tech Lead 的角色。",
+              timeMain: "第 4–6 个月", timeSub: "约 3 个月",
+              timeMainCls: "text-violet-400", timeSubCls: "text-violet-400/40",
+              lineCls: "from-violet-500/30 to-amber-500/20",
+              circle: "border-violet-500/50 bg-violet-500/10", numColor: "text-violet-400", titleColor: "text-violet-300",
+              badge: "Tech Lead", badgeCls: "bg-violet-500/15 text-violet-400 border-violet-500/25", docLink: null,
+            },
+            {
+              num: "06", title: "整理经历，准备求职",
+              desc: "真实 PR 记录、上线功能、团队经历都齐了。Tech Lead 会全力支持——分享求职技巧、推荐资源、帮你看简历，一起冲刺。",
+              timeMain: "第 6 个月+", timeSub: "求职就绪",
+              timeMainCls: "text-amber-400", timeSubCls: "text-amber-400/40",
+              lineCls: "from-amber-500/30 to-yellow-500/20",
+              circle: "border-amber-500/50 bg-amber-500/10", numColor: "text-amber-400", titleColor: "text-amber-300",
+              badge: "冲刺", badgeCls: "bg-amber-500/15 text-amber-400 border-amber-500/25", docLink: null,
+            },
+            {
+              num: "07", title: "拿到全栈工程师工作",
+              desc: "凭着真实的项目经历和 GitHub 贡献记录，在澳洲本地找到一份全栈工程师工作。",
+              timeMain: "目标达成", timeSub: "全栈工程师",
+              timeMainCls: "text-yellow-300", timeSubCls: "text-yellow-400/40",
+              lineCls: "",
+              circle: "border-yellow-400/70 bg-yellow-500/15 shadow-[0_0_32px_rgba(234,179,8,0.3)]", numColor: "text-yellow-300", titleColor: "text-yellow-100",
+              badge: "目标达成", badgeCls: "bg-yellow-500/15 text-yellow-400 border-yellow-500/25", docLink: null,
+            },
+          ] as Array<{
+            num: string; title: string; desc: string;
+            timeMain: string; timeSub: string; timeMainCls: string; timeSubCls: string;
+            lineCls: string; circle: string; numColor: string; titleColor: string;
+            badge: string; badgeCls: string; docLink: { text: string; href: string } | null;
+          }>).map((step, i, arr) => (
+            <div key={step.num} className="flex items-start">
+
+              {/* Left: time display */}
+              <div className="w-36 shrink-0 text-right pr-6 pt-3">
+                <p className={`text-lg font-black leading-none tracking-tight ${step.timeMainCls}`}>{step.timeMain}</p>
+                <p className={`text-xs mt-1 font-medium ${step.timeSubCls}`}>{step.timeSub}</p>
+              </div>
+
+              {/* Center: circle + connecting line */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 ${step.circle}`}>
+                  <span className={`text-sm font-black ${step.numColor}`}>{step.num}</span>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className={`w-0.5 flex-1 min-h-[4rem] bg-gradient-to-b ${step.lineCls}`} />
+                )}
+              </div>
+
+              {/* Right: content */}
+              <div className={`flex-1 pl-6 pt-3 ${i < arr.length - 1 ? "pb-10" : ""}`}>
+                <div className="flex items-center gap-3 flex-wrap mb-2">
+                  <span className={`text-xl font-bold leading-snug ${step.titleColor}`}>{step.title}</span>
+                  {step.badge && (
+                    <span className={`px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider border ${step.badgeCls}`}>
+                      {step.badge}
+                    </span>
+                  )}
+                </div>
+                <p className="text-base text-white/45 leading-relaxed">
+                  {step.desc}
+                  {step.docLink && (
+                    <a href={step.docLink.href} className="ml-2 text-sm font-bold text-sky-400 hover:text-sky-300 transition-colors underline underline-offset-2 whitespace-nowrap">
+                      {step.docLink.text}
+                    </a>
+                  )}
+                </p>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+        {/* Student success */}
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">学员成长</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">学生成功案例</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+            {/* Card 1 — anonymous */}
+            <div className="relative flex flex-col gap-5 p-8 rounded-[28px] border border-amber-500/20 bg-linear-to-br from-amber-500/6 via-transparent to-transparent overflow-hidden">
+              <div className="absolute -bottom-4 -right-2 text-[140px] font-black text-amber-500/5 leading-none select-none pointer-events-none">01</div>
+
+              <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[11px] font-bold bg-amber-500/10 border border-amber-500/20 text-amber-300">
+                零经验 → Tech Lead → 项目联合创始人
+              </span>
+
+              <p className="text-lg font-bold text-white leading-snug flex-1">
+                完全零基础加入，一步步成长为 Tech Lead，现在已经是项目联合创始人，独立负责团队协调与产品方向。
+              </p>
+
+              <div className="h-px bg-amber-500/10" />
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-bold text-white/80">匿名学员</p>
+                  <p className="text-xs text-white/35 mt-0.5">Blotz 联合创始人 · Tech Lead</p>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/nicole-nan-501a6831b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-8 w-8 rounded-full border border-amber-500/25 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-colors"
+                >
+                  <Linkedin className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2 — anonymous, XHS story coming */}
+            <div className="relative flex flex-col gap-5 p-8 rounded-[28px] border border-sky-500/20 bg-linear-to-br from-sky-500/6 via-transparent to-transparent overflow-hidden">
+              <div className="absolute -bottom-4 -right-2 text-[140px] font-black text-sky-500/5 leading-none select-none pointer-events-none">02</div>
+
+              <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[11px] font-bold bg-sky-500/10 border border-sky-500/20 text-sky-300">
+                UNSW 在读 → 学 .NET → Tech Lead → 拿到 offer
+              </span>
+
+              <p className="text-lg font-bold text-white leading-snug flex-1">
+                加入之后 .NET 进步很快，也慢慢搞懂了怎么在团队里配合——开会、沟通、汇报都练到了。简历加上真实项目经验之后，得到了好几个面试，最后拿到了 offer。
+              </p>
+
+              <div className="h-px bg-sky-500/10" />
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-bold text-white/80">匿名学员</p>
+                </div>
+                <div className="inline-flex items-center justify-center h-8 w-8 rounded-full border border-rose-500/25 bg-rose-500/10">
+                  <Image src="/xhs.png" alt="小红书" width={14} height={14} />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── 3. TECH STACK MARQUEE ──────────────────────────── */}
       <div className="space-y-8">
         <div className="space-y-3">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">技术栈</span>
@@ -254,122 +438,7 @@ export default function BlotzPage() {
         </div>
       </div>
 
-      {/* ── 2. PILLARS ──────────────────────────────────────── */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {content.pillars.map((pillar, i) => {
-          const Icon = pillarIcons[i];
-          const colors = pillarColors[i];
-          return (
-            <div
-              key={pillar.title}
-              className="group relative flex flex-col gap-6 p-7 rounded-[28px] border border-white/5 bg-white/2 hover:border-white/10 hover:-translate-y-1 transition-all duration-500"
-            >
-              <div className={`h-12 w-12 rounded-2xl border flex items-center justify-center ${colors.bg} ${colors.border}`}>
-                <Icon className={`h-6 w-6 ${colors.icon}`} />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-lg font-bold text-white">{pillar.title}</h3>
-                <p className="text-sm leading-relaxed text-white/50">{pillar.desc}</p>
-              </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-1/2 bg-linear-to-r from-transparent via-white/10 to-transparent" />
-            </div>
-          );
-        })}
-      </div>
-
-      {/* ── 3. GROWTH PATH ──────────────────────────────────── */}
-      <div className="space-y-10">
-
-        {/* Header */}
-        <div className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">个人成长</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">不只学技术，学如何在团队中成长</h2>
-          <p className="text-white/50 max-w-2xl">这不只是一个实战项目——它是一条真实的职业成长路径。从旁观者到 Tech Lead，优秀的成员甚至可以成为项目合伙人，免参与费、参与产品决策、培养领导力。</p>
-        </div>
-
-        {/* Growth steps — improved hover */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          {[
-            {
-              step: "01", title: "零基础入门",
-              desc: "旁听会议，了解真实团队节奏，无需任何经验",
-              color: "text-white/70", glow: "group-hover:shadow-[0_0_40px_rgba(255,255,255,0.04)]",
-              border: "border-white/8 group-hover:border-white/20", dot: "bg-white/30",
-            },
-            {
-              step: "02", title: "开发贡献者",
-              desc: "领取真实任务，提交 PR，积累可验证的工程经验",
-              color: "text-emerald-400", glow: "group-hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]",
-              border: "border-white/8 group-hover:border-emerald-500/40", dot: "bg-emerald-400",
-            },
-            {
-              step: "03", title: "Tech Lead",
-              desc: "主导功能模块，带领新成员，锻炼技术领导力",
-              color: "text-violet-400", glow: "group-hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]",
-              border: "border-white/8 group-hover:border-violet-500/40", dot: "bg-violet-400",
-            },
-            {
-              step: "04", title: "项目合伙人",
-              desc: "免参与费，参与产品决策与项目管理，共同推动 Blotz 成长",
-              color: "text-amber-400", glow: "group-hover:shadow-[0_0_40px_rgba(245,158,11,0.15)]",
-              border: "border-white/8 group-hover:border-amber-500/40", dot: "bg-amber-400",
-            },
-          ].map((item, i) => (
-            <div key={item.step} className={`group relative flex flex-col gap-4 p-6 rounded-[24px] border bg-white/2 hover:bg-white/4 hover:-translate-y-1 transition-all duration-400 ${item.border} ${item.glow}`}>
-              {i < 3 && (
-                <div className="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                  <ArrowUpRight className="h-4 w-4 text-white/15 group-hover:text-white/30 transition-colors duration-300" />
-                </div>
-              )}
-              <div className="flex items-center gap-2">
-                <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
-                <span className="text-[10px] font-black tracking-[0.3em] text-white/25">{item.step}</span>
-              </div>
-              <h3 className={`text-lg font-bold transition-colors duration-300 ${item.color}`}>{item.title}</h3>
-              <p className="text-sm text-white/45 leading-relaxed group-hover:text-white/60 transition-colors duration-300">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Student success — social proof + Nicole */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="h-px flex-1 bg-white/6" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/25">真实学员成长</span>
-            <div className="h-px flex-1 bg-white/6" />
-          </div>
-
-          <p className="text-sm text-white/45 text-center">
-            我们有学员从<span className="text-white/70 font-semibold">零编程经验</span>加入，逐步成长为 <span className="text-white/70 font-semibold">Tech Lead</span>，最终成为<span className="text-white/70 font-semibold">项目负责人之一</span>
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-start gap-6 p-7 rounded-[28px] border border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/8 hover:border-amber-500/30 transition-all duration-300">
-            <div className="shrink-0 flex items-center justify-center h-14 w-14 rounded-2xl bg-amber-500/15 border border-amber-500/25">
-              <UserRound className="h-6 w-6 text-amber-400" />
-            </div>
-            <div className="space-y-2 flex-1">
-              <div className="flex items-center gap-3 flex-wrap">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400/70">学员案例</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 border border-amber-500/25 text-amber-300">零经验 → Tech Lead → 项目负责人</span>
-              </div>
-              <h3 className="text-lg font-bold text-white">零编程经验入门，成长为 Tech Lead，晋升项目负责人之一</h3>
-              <p className="text-sm text-white/55 leading-relaxed">完全没有编程基础加入 Blotz，通过真实项目的持续贡献，一步步成长为 Tech Lead，最终成为项目联合创始人，现已独立负责团队协调与产品方向。</p>
-              <a
-                href="https://www.linkedin.com/in/nicole-nan-501a6831b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-amber-300 hover:text-amber-200 transition-colors"
-              >
-                <Linkedin className="h-4 w-4" />
-                查看 LinkedIn →
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ── 4. COMMUNITY EVENTS ─────────────────────────────── */}
+      {/* ── 4. PILLARS ──────────────────────────────────────── */}
       <div className="space-y-8">
         <div className="space-y-3">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">项目运作</span>
@@ -377,72 +446,27 @@ export default function BlotzPage() {
           <p className="text-white/50">Blotz 按照工业标准的 Scrum 流程运作。加入后你将直接与真实软件工程师并肩工作，参与每周 Sprint 规划、代码审查、产品讨论——和正式在职的工程师没有区别。</p>
         </div>
 
-        {/* "Work with real engineers" highlight */}
-        <div className="flex items-center gap-4 px-6 py-4 rounded-[18px] border border-emerald-500/20 bg-emerald-500/5">
-          <Users2 className="h-5 w-5 text-emerald-400 shrink-0" />
-          <p className="text-sm font-semibold text-white/70">
-            直接与<span className="text-emerald-300 font-bold"> 真实软件工程师 </span>并肩工作
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          {content.events.map((event) => (
-            <div
-              key={event.title}
-              className="flex flex-col gap-3 p-6 rounded-[24px] border border-white/5 bg-white/2 hover:border-white/10 hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-base font-bold text-white">{event.title}</h3>
-                <span className={`shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${eventBadgeColors[event.badge] ?? "bg-white/5 text-white/40 border-white/10"}`}>
-                  {event.badge}
-                </span>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {content.pillars.map((pillar, i) => {
+            const Icon = pillarIcons[i];
+            const colors = pillarColors[i];
+            return (
+              <div
+                key={pillar.title}
+                className="group relative flex flex-col gap-6 p-7 rounded-[28px] border border-white/5 bg-white/2 hover:border-white/10 hover:-translate-y-1 transition-all duration-500"
+              >
+                <div className={`h-12 w-12 rounded-2xl border flex items-center justify-center ${colors.bg} ${colors.border}`}>
+                  <Icon className={`h-6 w-6 ${colors.icon}`} />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-white">{pillar.title}</h3>
+                  <p className="text-sm leading-relaxed text-white/50">{pillar.desc}</p>
+                </div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-1/2 bg-linear-to-r from-transparent via-white/10 to-transparent" />
               </div>
-              <p className="text-xs font-semibold text-white/35 uppercase tracking-wider">{event.cadence}</p>
-              <p className="text-sm text-white/50 leading-relaxed">{event.detail}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      </div>
-
-
-      {/* ── 5b. XHS PROJECT SERIES ──────────────────────────── */}
-      <div className="space-y-8">
-        <div className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">项目记录</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">了解更多项目历史和详情</h2>
-          <p className="text-white/50">项目的每一步都记录在小红书上——从组建团队、分配职责，到踩坑复盘、功能上线</p>
-        </div>
-
-        {/* Green series callout */}
-        <div className="flex items-start gap-5 p-6 rounded-[22px] border border-emerald-500/20 bg-emerald-500/5">
-          <div className="shrink-0 h-10 w-10 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center">
-            <Image src="/xhs.png" alt="小红书" width={20} height={20} />
-          </div>
-          <div className="space-y-1.5">
-            <p className="text-sm font-bold text-white/90">
-              在小红书搜寻「<span className="text-emerald-300">项目</span>」系列笔记
-            </p>
-            <p className="text-sm text-white/45">
-              进入主页后，找到<span className="text-emerald-400 font-semibold">绿色封面主题</span>的「项目」系列——那里记录着 Blotz 从第一天至今的每一个里程碑：组队、版本发布、架构演进、踩坑复盘，一篇不落。
-            </p>
-          </div>
-        </div>
-
-        <XhsModal
-          profileUrl="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
-          title="查看 Blotz 项目历史"
-          subtitle="在主页找到绿色主题的「项目」系列笔记"
-          steps={[
-            { heading: "打开小红书主页", detail: "点击下方按钮进入「马农不卷大厂」主页" },
-            { heading: "找到「项目」系列", detail: "在主页中找到绿色封面主题的「项目」系列笔记" },
-            { heading: "追踪完整项目历程", detail: "从第一天到今天，Blotz 每一个里程碑都在这里" },
-          ]}
-          ctaText="前往小红书查看项目系列"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-rose-500/20 bg-rose-500/5 text-sm font-bold text-white/70 hover:bg-rose-500/10 hover:text-white hover:border-rose-500/40 transition-all duration-300 cursor-pointer">
-            查看小红书项目记录系列 <ArrowUpRight className="h-4 w-4" />
-          </div>
-        </XhsModal>
       </div>
 
       {/* ── 6. FAQ ──────────────────────────────────────────── */}
@@ -494,7 +518,7 @@ export default function BlotzPage() {
       </div>
 
       {/* ── 8. PRICING ──────────────────────────────────────── */}
-      <div className="space-y-8">
+      <div id="pricing" className="space-y-8">
         <div className="space-y-3">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
             {content.pricing.eyebrow}

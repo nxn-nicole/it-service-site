@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/", label: "简介" },
   { href: "/courses", label: "服务" },
-  { href: "/handbook", label: "入门手册" },
   { href: "/#journey", label: "个人经验" },
   { href: "/contact", label: "联系" },
 ];
@@ -46,7 +45,7 @@ export default function MainNav() {
             : "bg-emerald-600/80 text-white hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
         }`}
       >
-        参与 Blotz
+        6 个月就业计划
       </Link>
     </nav>
   );

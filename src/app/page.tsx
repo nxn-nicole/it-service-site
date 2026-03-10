@@ -8,7 +8,6 @@ import {
   RefreshCcw,
   Infinity as DevOpsIcon,
   Rocket,
-  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 import content from "./content.json";
@@ -29,6 +28,7 @@ export default function IntroductionPage() {
 
   return (
     <section className="space-y-24 pb-12">
+
       {/* Profile Section */}
       <div className="flex flex-col items-center gap-12 md:flex-row md:items-center md:gap-16 px-4">
         <div className="relative shrink-0">
@@ -44,7 +44,8 @@ export default function IntroductionPage() {
 
         <div className="flex flex-col items-center space-y-6 text-center md:items-start md:text-left flex-1 relative z-10">
           <div className="space-y-4">
-            <a 
+
+            <a
               href="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -63,37 +64,19 @@ export default function IntroductionPage() {
                 return (
                   <>
                     <span className="text-white/80">{first}。</span>
-                    <span className="text-white/45">{rest.join("。")}。</span>
+                    <span className="text-white/45">{rest.join("。")}。{" "}</span>
+                    <Link
+                      href="/blotz"
+                      className="group inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
+                    >
+                      <span className="underline underline-offset-4 decoration-emerald-400/40 group-hover:decoration-emerald-300/60 transition-colors">6 个月全栈就业计划</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform inline-block">→</span>
+                    </Link>
                   </>
                 );
               })()}
             </p>
-            
-            {/* Microsoft Certification Section */}
-            <div className="flex flex-wrap items-center gap-3 pt-4">
-              <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/20 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
-                <svg className="h-4 w-4 text-blue-400 fill-current" viewBox="0 0 24 24">
-                  <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zM24 11.4H12.6V0H24v11.4z" />
-                </svg>
-                <span className="text-[11px] font-black uppercase tracking-wider text-blue-400">Microsoft Certified Developer</span>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {content.profile.certifications.map((cert: { code: string; url: string }) => (
-                  <a 
-                    key={cert.code}
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-[11px] font-bold text-white/80 transition-all duration-500 hover:bg-blue-500/20 hover:border-blue-500/40 hover:text-blue-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(59,130,246,0.2)]"
-                  >
-                    <span className="relative z-10">{cert.code === 'AI-102' ? 'AI-102' : cert.code}</span>
-                    <ExternalLink className="h-3 w-3 opacity-30 group-hover:opacity-100 transition-all duration-500 transform scale-75 group-hover:scale-100" />
-                    <div className="absolute inset-0 rounded-xl bg-blue-500/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
-                  </a>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
