@@ -69,7 +69,7 @@ export default function IntroductionPage() {
                       href="/blotz"
                       className="group inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
                     >
-                      <span className="underline underline-offset-4 decoration-emerald-400/40 group-hover:decoration-emerald-300/60 transition-colors">6 个月全栈就业计划</span>
+                      <span className="underline underline-offset-4 decoration-emerald-400/40 group-hover:decoration-emerald-300/60 transition-colors">企业级项目经验</span>
                       <span className="group-hover:translate-x-0.5 transition-transform inline-block">→</span>
                     </Link>
                   </>

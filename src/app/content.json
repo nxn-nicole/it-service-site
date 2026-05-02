@@ -7,7 +7,7 @@
   "profile": {
     "title": "澳洲全栈工程师",
     "specialize": "Azure & .NET Expert",
-    "summary": "热爱教学，用绘图与大白话拆解硬核概念，让零基础初学者也能轻松掌握复杂的技术逻辑。5 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发，擅长将工业级工程标准带入教学。",
+    "summary": "热爱教学，擅长用绘图与大白话拆解硬核概念，让零基础初学者也能轻松掌握复杂的技术逻辑。5 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发，擅长将工业级工程标准带入教学。",
     "highlights": [
       { "label": "经验", "value": "4 年澳洲咨询" },
       { "label": "背景", "value": "UTS 毕业" },
@@ -44,7 +44,7 @@
       },
       {
         "label": "实战项目驱动",
-        "note": "模拟真实工业界开发流程，从零开始搭建生产级全栈应用，积累可就业的硬核作品集。",
+        "note": "模拟真实工业界开发流程，搭建生产级全栈应用，积累可就业的硬核作品集。",
         "color": "text-pink-300"
       }
     ]
@@ -74,9 +74,10 @@
         "link": "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
       },
       {
-        "value": "500+",
-        "label": "小时深度辅导",
-        "gradient": "from-amber-300 to-orange-400"
+        "value": "100%",
+        "label": "学员好评",
+        "gradient": "from-amber-300 to-orange-400",
+        "link": "/courses#feedback"
       }
     ],
     "feedbacks": [
