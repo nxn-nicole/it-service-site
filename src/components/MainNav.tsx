@@ -45,7 +45,7 @@ export default function MainNav() {
             : "bg-emerald-600/80 text-white hover:bg-emerald-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
         }`}
       >
-        6 个月就业计划
+        企业级项目经验
       </Link>
     </nav>
   );

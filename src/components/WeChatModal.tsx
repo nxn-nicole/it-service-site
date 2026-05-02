@@ -10,18 +10,19 @@ interface WeChatModalProps {
   children: React.ReactNode;
   wechatId?: string;
   source?: WeChatSource;
+  note?: string;
 }
 
 const sourceConfig: Record<WeChatSource, { title: string; subtitle: string; note: string }> = {
   blotz:      { title: "微信咨询 Blotz 项目",  subtitle: "扫码或搜索微信号添加好友", note: "Blotz 项目" },
   handbook:   { title: "微信咨询入门手册",      subtitle: "扫码或搜索微信号添加好友", note: "入门手册" },
-  consulting: { title: "添加微信预约咨询",      subtitle: "扫码或搜索微信号添加好友", note: "1v1" },
-  general:    { title: "添加微信预约咨询",      subtitle: "扫码或搜索微信号添加好友", note: "1v1" },
+  consulting: { title: "添加微信预约咨询",      subtitle: "扫码或搜索微信号添加好友", note: "你想咨询的内容" },
+  general:    { title: "添加微信预约咨询",      subtitle: "扫码或搜索微信号添加好友", note: "你想咨询的内容" },
 };
 
-export default function WeChatModal({ children, wechatId = "Azdev0189", source = "general" }: WeChatModalProps) {
+export default function WeChatModal({ children, wechatId = "Azdev0189", source = "general", note: noteProp }: WeChatModalProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const cfg = sourceConfig[source];
+  const cfg = { ...sourceConfig[source], ...(noteProp ? { note: noteProp } : {}) };
 
   return (
     <>
