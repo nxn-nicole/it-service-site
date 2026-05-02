@@ -10,6 +10,7 @@ interface WeChatModalProps {
   children: React.ReactNode;
   wechatId?: string;
   source?: WeChatSource;
+  note?: string;
 }
 
 const sourceConfig: Record<WeChatSource, { title: string; subtitle: string; note: string }> = {
@@ -19,9 +20,9 @@ const sourceConfig: Record<WeChatSource, { title: string; subtitle: string; note
   general:    { title: "添加微信预约咨询",      subtitle: "扫码或搜索微信号添加好友", note: "你想咨询的内容" },
 };
 
-export default function WeChatModal({ children, wechatId = "Azdev0189", source = "general" }: WeChatModalProps) {
+export default function WeChatModal({ children, wechatId = "Azdev0189", source = "general", note: noteProp }: WeChatModalProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const cfg = sourceConfig[source];
+  const cfg = { ...sourceConfig[source], ...(noteProp ? { note: noteProp } : {}) };
 
   return (
     <>
