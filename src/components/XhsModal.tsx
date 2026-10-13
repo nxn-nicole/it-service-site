@@ -28,7 +28,7 @@ export default function XhsModal({
   children,
   profileUrl,
   title = "查看小红书真实评价",
-  subtitle = "48 条学员真实反馈",
+  subtitle = "56+ 条学员真实反馈",
   steps = DEFAULT_STEPS,
   ctaText = "前往小红书主页",
 }: XhsModalProps) {
@@ -46,44 +46,44 @@ export default function XhsModal({
           onClick={() => setIsOpen(false)}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-brand-ink/60" />
 
           {/* Modal */}
           <div
-            className="relative z-10 w-full max-w-md rounded-3xl border border-white/10 bg-zinc-900 p-8 shadow-2xl"
+            className="animate-in fade-in zoom-in-95 relative z-10 w-full max-w-md rounded-3xl border-2 border-brand-ink bg-white p-8 text-brand-ink shadow-[0_6px_0_0_var(--color-brand-ink)] duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute right-4 top-4 p-2 rounded-full hover:bg-white/10 transition-colors"
+              className="absolute right-4 top-4 cursor-pointer rounded-full p-2 transition-colors hover:bg-brand-ink/5"
             >
-              <X className="h-5 w-5 text-white/60" />
+              <X className="h-5 w-5 text-brand-muted" />
             </button>
 
             <div className="space-y-6">
               {/* Header */}
-              <div className="text-center space-y-2">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 mx-auto">
+              <div className="space-y-2 text-center">
+                <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-brand-ink bg-white">
                   <Image src="/xhs.png" alt="小红书" width={24} height={24} />
                 </div>
-                <h3 className="text-xl font-bold text-white">{title}</h3>
-                <p className="text-sm text-white/50">{subtitle}</p>
+                <h3 className="text-xl font-black">{title}</h3>
+                <p className="text-sm text-brand-muted">{subtitle}</p>
               </div>
 
               {/* Steps */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {steps.map((step, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5"
+                    className="flex items-start gap-4 rounded-2xl border-2 border-brand-ink/10 bg-brand-paper p-4"
                   >
-                    <div className="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 text-sm font-bold text-rose-400">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-brand-ink bg-brand-yellow text-sm font-black">
                       {i + 1}
                     </div>
                     <div className="space-y-1">
-                      <p className="text-sm font-bold text-white">{step.heading}</p>
-                      <p className="text-xs text-white/40">{step.detail}</p>
+                      <p className="text-sm font-black">{step.heading}</p>
+                      <p className="text-xs text-brand-muted">{step.detail}</p>
                     </div>
                   </div>
                 ))}
@@ -94,12 +94,12 @@ export default function XhsModal({
                 href={profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-linear-to-r from-rose-500 to-pink-600 text-white text-sm font-bold hover:opacity-90 transition-opacity"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-brand-ink bg-brand-coral py-4 text-sm font-black text-white shadow-[0_5px_0_0_var(--color-brand-ink)] transition-all duration-150 hover:-translate-y-0.5 active:translate-y-1 active:shadow-[0_1px_0_0_var(--color-brand-ink)]"
               >
                 {ctaText} <ArrowUpRight className="h-4 w-4" />
               </a>
 
-              <p className="text-[11px] text-white/25 text-center">
+              <p className="text-center text-[11px] text-brand-muted">
                 打开后在 App 内浏览体验更佳
               </p>
             </div>

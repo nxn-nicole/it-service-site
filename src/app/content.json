@@ -1,4 +1,11 @@
 {
+  "mission": {
+    "sticker": "",
+    "lead": "",
+    "title": "把大学生训练成\n[新时代的]软件工程师",
+    "body": "在这里会学到大学不会教的、工作需要的技能。",
+    "hint": ""
+  },
   "hero": {
     "eyebrow": "简介",
     "title": "掌握真实项目能力。",
@@ -6,21 +13,51 @@
   },
   "profile": {
     "title": "澳洲全栈工程师",
-    "specialize": "Azure & .NET Expert",
-    "summary": "热爱教学，擅长用绘图与大白话拆解硬核概念，让零基础初学者也能轻松掌握复杂的技术逻辑。5 年澳洲 IT 咨询背景，深耕 Azure 云架构与 .NET 全栈开发，擅长将工业级工程标准带入教学。",
+    "specialize": "专业：AI · Azure · .NET",
+    "summary": "站在 AI 最前线，把 AI 落地到大型企业开发项目，执行全 AI 自动化开发流程。自己也是从实习生做起，从零开始学。带过超过 150 个学生，擅长教学，用大白话让新手接触软件开发。",
     "highlights": [
-      { "label": "经验", "value": "4 年澳洲咨询" },
-      { "label": "背景", "value": "UTS 毕业" },
-      { "label": "证书", "value": "Microsoft Certified" },
-      { "label": "成果", "value": "100+ 学员辅导" }
+      {
+        "label": "经验",
+        "value": "4 年澳洲咨询"
+      },
+      {
+        "label": "背景",
+        "value": "UTS 毕业"
+      },
+      {
+        "label": "证书",
+        "value": "Microsoft Certified"
+      },
+      {
+        "label": "成果",
+        "value": "100+ 学员辅导"
+      }
     ],
     "certifications": [
-      { "code": "DP-300", "url": "https://learn.microsoft.com/credentials/certifications/exams/dp-300/" },
-      { "code": "AI-102", "url": "https://learn.microsoft.com/credentials/certifications/exams/ai-102/" },
-      { "code": "PL-400", "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-400/" },
-      { "code": "PL-200", "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-200/" }
+      {
+        "code": "DP-300",
+        "url": "https://learn.microsoft.com/credentials/certifications/exams/dp-300/"
+      },
+      {
+        "code": "AI-102",
+        "url": "https://learn.microsoft.com/credentials/certifications/exams/ai-102/"
+      },
+      {
+        "code": "PL-400",
+        "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-400/"
+      },
+      {
+        "code": "PL-200",
+        "url": "https://learn.microsoft.com/credentials/certifications/exams/pl-200/"
+      }
     ],
-    "techStack": [".NET", "Azure", "React", "Next.js", "SQL"]
+    "techStack": [
+      ".NET",
+      "Azure",
+      "React",
+      "Next.js",
+      "SQL"
+    ]
   },
   "goal": {
     "eyebrow": "教学",
@@ -29,22 +66,22 @@
     "pillars": [
       {
         "label": "小班 & 1v1",
-        "note": "小班制授课深度结合 1v1 支持，确保每一位学员都能跟上进度并解决卡点。",
+        "note": "控制人数，支持一对一。",
         "color": "text-amber-300"
       },
       {
         "label": "定制化成长路线",
-        "note": "根据学员不同背景量身定制学习 Roadmap，提供清晰、阶梯式的职业成长路径规划。",
+        "note": "先了解每个人的方向和不足，再定各自要补什么。",
         "color": "text-emerald-300"
       },
       {
         "label": "零基础友好讲解",
-        "note": "擅长用绘图、大白话和生活案例拆解硬核概念，让复杂的技术逻辑直观且易于理解。",
+        "note": "一边画图一边讲，用大白话把概念讲明白。",
         "color": "text-sky-300"
       },
       {
         "label": "实战项目驱动",
-        "note": "模拟真实工业界开发流程，搭建生产级全栈应用，积累可就业的硬核作品集。",
+        "note": "不靠长视频，直接上手做真实项目，做完能写进简历。",
         "color": "text-pink-300"
       }
     ]
@@ -58,7 +95,7 @@
     "stats": [
       {
         "value": "5+ 年",
-        "label": "项目开发经验",
+        "label": "澳洲本地开发经验",
         "gradient": "from-pink-400 to-rose-400"
       },
       {
@@ -74,13 +111,37 @@
         "link": "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
       },
       {
-        "value": "100%",
-        "label": "学员好评",
+        "value": "56+",
+        "label": "条真实评价",
         "gradient": "from-amber-300 to-orange-400",
         "link": "/courses#feedback"
       }
     ],
     "feedbacks": [
+      {
+        "name": "xxx",
+        "note": "真的学到了很多学校项目里接触不到的东西！跟着项目熟悉了实际开发流程，博主也会经常 follow up，带着一起解决问题，很有动力继续学下去，也积累了不少实战经验",
+        "date": "2026-10-12",
+        "link": "https://www.xiaohongshu.com/explore/6794d9f5000000002900e915"
+      },
+      {
+        "name": "momo",
+        "note": "非常感谢 很用心的博主 非常认真耐心 也很会引导 从后端到前端手把手带你学 帮你理清逻辑 同时在项目的实践中学到很多 无限进步!!!!",
+        "date": "2026-10-12",
+        "link": "https://www.xiaohongshu.com/explore/6794d9f5000000002900e915"
+      },
+      {
+        "name": "MooMoo0799",
+        "note": "感谢博主，也非常感谢能参加项目， 在这个过程中博主细心引导和教学如何专业的去完成一个任务， 时不时还有干货教学和云端教学。 在学习项目的过程中也逐渐建立起团队意识和对项目的深入理解，收获颇丰👍",
+        "date": "2026-03-14",
+        "link": "https://www.xiaohongshu.com/explore/6794d9f5000000002900e915"
+      },
+      {
+        "name": "俐俐豪可愛",
+        "note": "非常開心可以參加這個項目跟大家一起學習🥹🫶，有什麼問題博主都會很有耐心的講解，完全不用擔心學不會的事情發生。每次code review的時候，會糾正哪些部分寫的不乾淨，讓我這個四年本科都寫代碼都被老師嫌棄的trash code仔越寫越乾淨（再也不是骯髒泡泡了）🫶🫶、、真的非常有用不開玩笑🫵😠",
+        "date": "2026-02-04",
+        "link": "https://www.xiaohongshu.com/explore/6794d9f5000000002900e915"
+      },
       {
         "name": "桜吹雪",
         "note": "博主真的非常用心，遇到什么問題都會耐心講解，也能隨時給出有用的反饋！這個項目讓我真正的接觸到了在真正就業時，團隊合作到底是怎麼運作的，同時也學習了目前前端比較常用的React等等，都是我在uni沒有學過的！🍑",
@@ -252,42 +313,84 @@
       ]
     }
   },
+  "help": {
+    "title": "无偿帮助真诚的学生",
+    "body": "不管是找工作、选方向、学习、选课，还是转码，都欢迎来聊聊。",
+    "cta": "寻求帮助"
+  },
   "journey": {
     "title": "实战背景与经历",
     "eyebrow": "Experience & Background",
     "items": [
       {
-        "year": "2026.01",
+        "year": "2026.03",
+        "category": "Mentoring",
+        "title": "Blotz 团队纳入 Agentic 开发模式",
+        "desc": "Blotz 团队开始用 AI Agent 做开发：AI 来写，人来规划和把关。",
+        "tags": [
+          "AI Agent",
+          "Blotz"
+        ],
+        "gradient": "from-violet-500/40",
+        "link": "/blotz"
+      },
+      {
+        "year": "2026.02",
         "category": "Mentoring",
         "title": "🚀 Blotz App V1.0 正式发布",
         "desc": "Blotz 全栈 App 迎来正式发布。这是与学员们共同开发并交付的成果。",
-        "tags": ["Release", "V1.0"],
+        "tags": [
+          "Release",
+          "V1.0"
+        ],
         "gradient": "from-violet-500/40",
-        "link": "https://blotz-website.vercel.app/"
+        "link": "https://www.blotztask.com/"
       },
       {
         "year": "2025.07",
         "category": "Work",
         "title": "💼 咨询顾问 (服务于美国 500 强)",
         "desc": "作为咨询公司委派的主要顾问为美国 500 强企业提供深度的 Azure 云架构咨询。专注于云安全架构设计、网络自动化与 IaC 落地，沉淀了极具价值的高可用架构方案。",
-        "tags": ["Consulting", "Cloud Security", "Networking", "IaC"],
+        "tags": [
+          "Consulting",
+          "Cloud Security",
+          "Networking",
+          "IaC"
+        ],
         "gradient": "from-blue-500/40"
       },
       {
-        "year": "2024.05",
+        "year": "2024.07",
         "category": "Mentoring",
         "title": "Blotz 实战项目启动",
         "desc": "启动 Blotz 实战项目。在带学员实战的同时，共同打造一款能为社区用户创造价值的产品，在真实的项目交付中积累工业级开发经验。",
-        "tags": ["Blotz", "Standard"],
+        "tags": [
+          "Blotz",
+          "Standard"
+        ],
         "gradient": "from-violet-500/40",
-        "link": "https://blotz-website.vercel.app/"
+        "link": "https://www.blotztask.com/"
+      },
+      {
+        "year": "2024",
+        "category": "Work",
+        "title": "开始做 AI 开发",
+        "desc": "在公司的企业项目里开始接触 AI 开发。",
+        "tags": [
+          "AI"
+        ],
+        "gradient": "from-blue-500/40"
       },
       {
         "year": "2024.01",
         "category": "Work",
         "title": "Azure 云架构顾问",
         "desc": "职业生涯的重要跨越。专注于云安全、IaC 自动化与云网络架构，为企业客户提供稳健的云原生架构方案与生产级运维支持。",
-        "tags": ["Azure", "IaC", "Security"],
+        "tags": [
+          "Azure",
+          "IaC",
+          "Security"
+        ],
         "gradient": "from-blue-500/40"
       },
       {
@@ -295,7 +398,10 @@
         "category": "Mentoring",
         "title": "👨‍🏫 开启首个技术教学班级",
         "desc": "开启技术教学之旅。深感大学课程与工业界实战需求存在巨大断层，因此决定将实战经验转化为教学内容，帮助学员填补从校园到职场的技能鸿沟。",
-        "tags": ["Mentoring", "Teaching"],
+        "tags": [
+          "Mentoring",
+          "Teaching"
+        ],
         "gradient": "from-violet-500/40"
       },
       {
@@ -303,7 +409,10 @@
         "category": "Work",
         "title": "实习生导师 & Tech Lead",
         "desc": "被委任为公司实习生团队的技术负责人。这是教学热情的起点——通过指导新人攻克技术难题，意识到将复杂逻辑讲透的巨大价值。",
-        "tags": ["Tech Lead", "Mentor"],
+        "tags": [
+          "Tech Lead",
+          "Mentor"
+        ],
         "gradient": "from-blue-500/40"
       },
       {
@@ -311,7 +420,10 @@
         "category": "Work",
         "title": "全栈软件工程师 (正式转正)",
         "desc": "顺利通过实习考核并留任，开启了全栈工程师的正式探索。在真实项目的磨练下，开始深入理解生产环境对代码质量与稳定性的实际要求。",
-        "tags": [".NET", "React"],
+        "tags": [
+          ".NET",
+          "React"
+        ],
         "gradient": "from-blue-500/40"
       },
       {
@@ -319,7 +431,10 @@
         "category": "Work",
         "title": "🎓 咨询公司实习生",
         "desc": "在澳洲 IT 咨询公司开启职业生涯。从第一天起就接受专业团队的指导，初步建立了对商业化代码标准与工程化开发流程的系统认知。",
-        "tags": ["Consulting", "Intern"],
+        "tags": [
+          "Consulting",
+          "Intern"
+        ],
         "gradient": "from-blue-500/40"
       }
     ]

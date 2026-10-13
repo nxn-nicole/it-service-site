@@ -1,250 +1,380 @@
 import Image from "next/image";
 import {
-  Code2,
-  Database,
-  GraduationCap,
-  Users,
+  ArrowUpRight,
+  Blocks,
   BrainCircuit,
-  RefreshCcw,
-  Infinity as DevOpsIcon,
+  Code2,
+  Crown,
+  GraduationCap,
   Rocket,
+  Smartphone,
+  Star,
+  Users,
+  type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import content from "./content.json";
 import { Timeline } from "@/components/Timeline";
+import { Hero } from "./join/Hero";
+import { RealProjectScene, SmallClassScene, TailoredScene, WhiteboardScene } from "./TeachingScenes";
+import { Band, CountUp, Reveal, SectionHeading, Sticker, Title } from "@/components/kit";
+import { buttonLimeClass, cardFrameClass, cardClass, liftClass } from "@/components/styles";
+
+const xhsProfile = "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7";
+
+type Tech = {
+  name: string;
+  /** Smaller second line on the crowned cards. */
+  note?: string;
+  url: string;
+  /** Official logo file in /public/logos. */
+  logo?: string;
+  /** A plain icon, for things without a logo of their own. */
+  icon?: LucideIcon;
+  /** Drawn in CSS instead of loaded from a file. */
+  mark?: "dotnet";
+};
+
+// The three he is strongest in wear a crown; the rest are tools he also works with.
+const crownedTech: Tech[] = [
+  { name: "AI Agent", note: "Agentic Engineering", icon: BrainCircuit, url: "https://learn.microsoft.com/azure/ai-services/openai/" },
+  { name: "Azure", logo: "/logos/azure.svg", url: "https://learn.microsoft.com/azure" },
+  { name: ".NET", mark: "dotnet", url: "https://learn.microsoft.com/dotnet" },
+];
+const otherTech: Tech[] = [
+  { name: "React", logo: "/logos/react.svg", url: "https://react.dev" },
+  { name: "Next.js", logo: "/logos/nextjs.svg", url: "https://nextjs.org/docs" },
+  { name: "React Native", icon: Smartphone, url: "https://reactnative.dev" },
+  { name: "SQL Server", logo: "/logos/sql-server.svg", url: "https://www.microsoft.com/sql-server" },
+  { name: "DevOps", logo: "/logos/azure-devops.svg", url: "https://learn.microsoft.com/azure/devops" },
+  { name: "IaC", icon: Blocks, url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep" },
+];
+
+/**
+ * One technology's picture. `box` sizes it; `markText` sizes the lettering of
+ * the .NET mark, which is the current logo: white ".NET" on the brand purple.
+ */
+function TechGlyph({ tech, box, markText }: { tech: Tech; box: string; markText: string }) {
+  if (tech.mark === "dotnet") {
+    return (
+      <span
+        aria-hidden
+        className={`flex shrink-0 items-center justify-center rounded-[22%] bg-[#512bd4] font-black tracking-tighter text-white ${box} ${markText}`}
+      >
+        .NET
+      </span>
+    );
+  }
+  if (tech.logo) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={tech.logo} alt="" className={`shrink-0 object-contain ${box}`} />;
+  }
+  const Icon = tech.icon;
+  return Icon ? <Icon className={`shrink-0 ${box}`} strokeWidth={1.6} /> : null;
+}
+
+const crownTilts = ["-rotate-12", "rotate-6", "-rotate-6"];
+// Where each of the three sits round the photo, and when its float starts.
+const skillBadges = [
+  { ...crownedTech[0], spot: "left-0 top-16 -rotate-6 md:left-2 md:top-20", delay: "-0.4s" },
+  { ...crownedTech[1], spot: "right-0 top-20 rotate-6 md:right-2 md:top-28", delay: "-1.8s" },
+  { ...crownedTech[2], spot: "bottom-12 left-3 rotate-3 md:bottom-16 md:left-10", delay: "-3s" },
+];
+
+const statTones = ["bg-brand-yellow-soft", "bg-brand-purple-soft", "bg-brand-lime-soft", "bg-brand-blue-soft"];
+
+const pillarIcons = [Users, Rocket, GraduationCap, Code2];
+const pillarTones = ["bg-brand-yellow", "bg-brand-lime", "bg-brand-blue text-white", "bg-brand-purple text-white"];
+const pillarLinks = ["/courses", "/courses", "/handbook", "/blotz"];
+const pillarStages = ["bg-brand-yellow-soft", "bg-brand-lime-soft", "bg-brand-blue-soft", "bg-brand-purple-soft"];
+const pillarScenes = [SmallClassScene, TailoredScene, WhiteboardScene, RealProjectScene];
 
 export default function IntroductionPage() {
-  const techLogos = [
-    { name: "Azure", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg", color: "from-blue-500/40", url: "https://learn.microsoft.com/azure" },
-    { name: ".NET", logo: "https://cdn.simpleicons.org/dotnet/white", color: "from-purple-600/40", url: "https://learn.microsoft.com/dotnet" },
-    { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/white", color: "from-white/20", url: "https://nextjs.org/docs" },
-    { name: "React", logo: "https://cdn.simpleicons.org/react/white", color: "from-cyan-500/40", url: "https://react.dev" },
-    { name: "Database", icon: Database, color: "from-blue-400/40", url: "https://www.microsoft.com/sql-server" },
-    { name: "Scrum", icon: RefreshCcw, color: "from-orange-400/40", url: "https://www.scrumalliance.org/about-scrum" },
-    { name: "GitHub", logo: "https://cdn.simpleicons.org/github/white", color: "from-white/20", url: "https://docs.github.com" },
-    { name: "DevOps", icon: DevOpsIcon, color: "from-blue-600/40", url: "https://learn.microsoft.com/azure/devops" },
-    { name: "AI", icon: BrainCircuit, color: "from-emerald-500/40", url: "https://learn.microsoft.com/azure/ai-services/openai/" },
-  ];
+  const [firstSentence, ...restSentences] = content.profile.summary.split("。").filter(Boolean);
 
   return (
-    <section className="space-y-24 pb-12">
+    <>
+      {/* What I am trying to do */}
+      <Hero
+        standalone={false}
+        sticker={content.mission.sticker}
+        lead={content.mission.lead}
+        title={content.mission.title}
+        hint={content.mission.hint}
+      >
+        <Reveal className="mx-auto mt-6 max-w-xl lg:mx-0">
+          <p className="text-lg leading-relaxed text-brand-muted md:text-xl">
+            {/* Break only after the 、 so no line starts with a stray character */}
+            {content.mission.body.split("、").map((part, i, parts) => (
+              <span key={part} className="inline-block">
+                {part}
+                {i < parts.length - 1 && "、"}
+              </span>
+            ))}
+          </p>
+        </Reveal>
 
-      {/* Profile Section */}
-      <div className="flex flex-col items-center gap-12 md:flex-row md:items-center md:gap-16 px-4">
-        <div className="relative shrink-0">
-          <div className="absolute inset-0 rounded-[40px] bg-blue-500/10 blur-3xl opacity-50 animate-pulse" />
-          <Image
-            src="/profile-photo.webp"
-            alt="头像"
-            width={180}
-            height={180}
-            className="relative h-36 w-36 md:h-48 md:w-48 rounded-[32px] border border-white/10 object-cover shadow-2xl transition-all duration-500 hover:scale-105"
-          />
-        </div>
+        {/* The one thing to do next: ask. A speech bubble floats beside the button and opens up on hover. */}
+        <Reveal delay={0.1} className="mt-8 flex justify-center lg:justify-start">
+          <Link href="/courses" className="group flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-6">
+            <span className={`${buttonLimeClass} shrink-0`}>
+              {content.help.cta} <ArrowUpRight className="h-5 w-5" />
+            </span>
 
-        <div className="flex flex-col items-center space-y-6 text-center md:items-start md:text-left flex-1 relative z-10">
-          <div className="space-y-4">
-
-            <a
-              href="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group/name inline-block"
-            >
-              <h1 className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.04em] text-white transition-colors group-hover/name:text-white/90">
-                {content.profile.title}
-                <span className="inline-block ml-4 opacity-0 group-hover/name:opacity-100 transition-all transform translate-x-[-10px] group-hover/name:translate-x-0 text-sm font-medium text-white/40 tracking-wider">
-                  VIEW ON XHS →
-                </span>
-              </h1>
-            </a>
-            <p className="max-w-2xl text-lg leading-relaxed md:text-xl font-medium">
-              {(() => {
-                const [first, ...rest] = content.profile.summary.split("。").filter(Boolean);
-                return (
-                  <>
-                    <span className="text-white/80">{first}。</span>
-                    <span className="text-white/45">{rest.join("。")}。{" "}</span>
-                    <Link
-                      href="/blotz"
-                      className="group inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
-                    >
-                      <span className="underline underline-offset-4 decoration-emerald-400/40 group-hover:decoration-emerald-300/60 transition-colors">企业级项目经验</span>
-                      <span className="group-hover:translate-x-0.5 transition-transform inline-block">→</span>
-                    </Link>
-                  </>
-                );
-              })()}
-            </p>
-
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-24">
-        {/* Stats Section */}
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 px-2">
-          {content.feedback.stats.map((item) => {
-            const Container = item.link ? 'a' : 'div';
-            return (
-              <Container
-                key={item.label}
-                {...(item.link ? {
-                  href: item.link,
-                  ...(item.link.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {}),
-                  className: "group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 text-center transition-all duration-500 hover:bg-white/[0.08] hover:border-white/30 hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] hover:-translate-y-2 cursor-pointer"
-                } : {
-                  className: "group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 text-center transition-all duration-500 hover:bg-white/[0.08] hover:border-white/30 hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] hover:-translate-y-2"
-                })}
+            {/* The invisible copy holds the bubble's place, so opening it never moves the page.
+                Screens without a mouse have no hover: there the bubble is simply open. */}
+            <span className="relative block">
+              <span
+                aria-hidden
+                className="invisible block whitespace-nowrap border-2 px-4 py-3 text-base font-black md:text-lg [@media(hover:none)]:hidden"
               >
-                <div
-                  className={`absolute inset-x-0 top-0 h-px bg-linear-to-r ${item.gradient} opacity-30 group-hover:opacity-100 transition-opacity duration-500`}
-                />
-                <div
-                  className={`text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r ${item.gradient} tracking-tighter transition-all duration-500 group-hover:scale-110`}
-                >
-                  {item.value}
-                </div>
-                <p className="mt-3 text-sm font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
-                  {item.label}
-                  {item.link && <span className="inline-block ml-2 opacity-0 group-hover:opacity-100 transition-opacity">↗</span>}
-                </p>
-              </Container>
-            );
-          })}
-        </div>
-
-        {/* Technical Expertise - Refined Heading */}
-        <div className="space-y-12 px-2 relative">
-          <div className="absolute top-0 right-0 h-64 w-64 bg-cyan-500/3 blur-[100px] rounded-full pointer-events-none" />
-          <div className="space-y-4 px-4 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-white/20" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">Expertise</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-              技术专长
-            </h2>
-            <div className="max-w-3xl border-l border-white/10 pl-6 mt-6">
-              <p className="text-base md:text-lg leading-relaxed text-white/40 font-medium">
-                深耕微软生态与全栈开发，专注于高性能、可扩展的现代化系统架构。
-              </p>
-            </div>
-          </div>
-
-          <div className="relative flex overflow-x-hidden group/marquee rounded-3xl border border-white/5 bg-white/1 py-8 mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-            <div className="flex animate-marquee whitespace-nowrap py-6">
-              {[...techLogos, ...techLogos].map((tech, idx) => {
-                const Icon = tech.icon;
-                return (
-                  <a 
-                    key={`${tech.name}-${idx}`} 
-                    href={tech.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mx-10 flex flex-col items-center gap-4 transition-all duration-500 hover:scale-110"
-                  >
-                    <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-2xl border border-white/10 bg-white/4 flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden">
-                      <div className={`absolute inset-0 bg-linear-to-br ${tech.color} to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-                      {tech.logo ? (
-                        <img 
-                          src={tech.logo} 
-                          alt={tech.name} 
-                          className={`relative z-10 h-10 w-10 md:h-12 md:w-12 object-contain transition-all duration-500 ${tech.logo.includes('microsoftazure') ? 'brightness-0 invert scale-95' : ''} grayscale-[0.05] opacity-100 group-hover:grayscale-0 group-hover:opacity-100`} 
-                        />
-                      ) : Icon && (
-                        <Icon 
-                          size={32}
-                          className="relative z-10 text-white/90 group-hover:text-white transition-all duration-500" 
-                        />
-                      )}
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/80 transition-colors duration-500">
-                      {tech.name}
+                {content.help.title}
+              </span>
+              <span className="animate-float absolute left-0 top-0 block w-max max-w-[86vw] rounded-2xl border-2 border-brand-ink bg-white px-4 py-3 text-left shadow-[0_4px_0_0_var(--color-brand-ink)] [@media(hover:none)]:static">
+                {/* The tail points at the button: up on phones, left on wider screens */}
+                <span className="absolute -top-[8px] left-1/2 h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l-2 border-t-2 border-brand-ink bg-white sm:-left-[8px] sm:top-[18px] sm:translate-x-0 sm:border-b-2 sm:border-t-0" />
+                <span className="block whitespace-nowrap text-base font-black md:text-lg">{content.help.title}</span>
+                {/* Opens in both directions at once. The words sit at a fixed width, so the lines
+                    are already where they will end up and nothing reflows while it opens. */}
+                <span className="grid grid-cols-[0fr] grid-rows-[0fr] opacity-0 transition-[grid-template-columns,grid-template-rows,opacity] duration-300 ease-out group-hover:grid-cols-[1fr] group-hover:grid-rows-[1fr] group-hover:opacity-100 [@media(hover:none)]:grid-cols-[1fr] [@media(hover:none)]:grid-rows-[1fr] [@media(hover:none)]:opacity-100">
+                  <span className="min-h-0 min-w-0 overflow-hidden">
+                    <span className="block w-[15.5rem] max-w-[72vw] pt-1.5 text-[15px] font-bold leading-snug text-brand-muted">
+                      {/* Break only after punctuation, never in the middle of a phrase */}
+                      {(content.help.body.match(/[^、，。]+[、，。]?/g) ?? []).map((phrase) => (
+                        <span key={phrase} className="inline-block">
+                          {phrase}
+                        </span>
+                      ))}
                     </span>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </Link>
+        </Reveal>
+      </Hero>
 
-        {/* Teaching Method - Refined Heading */}
-        <div className="space-y-12 px-2 relative">
-          <div className="absolute top-1/2 left-0 h-80 w-80 bg-emerald-500/3 blur-[100px] rounded-full pointer-events-none" />
-          <div className="space-y-4 px-4 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-white/20" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">Approach</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-              教学方式
-            </h2>
-            <div className="max-w-3xl border-l border-white/10 pl-6 mt-6">
-              <p className="text-base md:text-lg leading-relaxed text-white/40 font-medium">
-                {content.goal.description}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {content.goal.pillars.map((item, index) => {
-              const icons = [Users, Rocket, GraduationCap, Code2];
-              const Icon = icons[index % icons.length] || Users;
-              const color = item.color ?? "text-white";
-
-              const cardContent = (
-                <div
-                  key={item.label}
-                  className="group relative flex gap-8 p-8 rounded-3xl border border-white/5 bg-white/2 transition-all duration-500 hover:bg-white/6 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(255,255,255,0.03)] hover:-translate-y-2 overflow-hidden"
+      {/* Profile */}
+      <Band tone="lime">
+        <div>
+          {/* Same two-column grid as the first screen: picture in one half, words in the other */}
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* A small photo in a snapshot frame, with the three crowned skills and a few shapes floating round it */}
+            <Reveal className="flex justify-center">
+              <div className="relative h-[340px] w-[320px] md:h-[400px] md:w-[440px]">
+                <Star
+                  aria-hidden
+                  className="animate-float absolute right-8 top-1 h-9 w-9 rotate-12 fill-brand-yellow md:right-14 md:h-11 md:w-11"
+                  style={{ animationDelay: "-1.3s" }}
+                />
+                <svg
+                  aria-hidden
+                  viewBox="0 0 96 28"
+                  className="animate-float absolute bottom-10 right-0 w-20 text-brand-purple md:bottom-14 md:right-4 md:w-24"
+                  style={{ animationDelay: "-2.4s" }}
                 >
-                  <div className={`absolute -right-16 -top-16 h-48 w-48 bg-linear-to-br ${color.replace('text-', 'from-')}/10 to-transparent blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+                  <path
+                    d="M3 14c8-14 16-14 24 0s16 14 24 0 16-14 24 0 12 12 18 4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span
+                  aria-hidden
+                  className="absolute left-2 top-0 h-16 w-24 bg-[radial-gradient(var(--color-brand-blue)_2.5px,transparent_3px)] bg-[length:16px_16px] opacity-60 md:left-6"
+                />
 
-                  <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-black/40 border border-white/5 group-hover:border-white/30 group-hover:bg-black/60 transition-all duration-500 shadow-xl">
-                    <Icon className={`h-8 w-8 ${color} opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`} strokeWidth={1.5} />
-                  </div>
-                  <div className="relative z-10 space-y-3">
-                    <p className="text-xl font-bold text-white/90 tracking-tight group-hover:text-white transition-colors duration-500">
-                      {item.label}
-                    </p>
-                    <p className="text-base leading-relaxed text-white/40 group-hover:text-white/70 transition-colors duration-500">
-                      {item.note}
-                    </p>
-                  </div>
+                {skillBadges.map((badge) => {
+                  return (
+                    <span
+                      key={badge.name}
+                      aria-hidden
+                      className={`animate-float absolute flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-brand-ink bg-white shadow-[0_4px_0_0_var(--color-brand-ink)] md:h-16 md:w-16 ${badge.spot}`}
+                      style={{ animationDelay: badge.delay }}
+                    >
+                      <TechGlyph tech={badge} box="h-8 w-8 md:h-9 md:w-9" markText="text-[9px] md:text-[10px]" />
+                      <span className="absolute -right-2.5 -top-2.5 flex h-6 w-6 rotate-12 items-center justify-center rounded-full border-2 border-brand-ink bg-brand-yellow">
+                        <Crown className="h-3 w-3" />
+                      </span>
+                    </span>
+                  );
+                })}
+
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded-2xl border-2 border-brand-ink bg-white p-3 shadow-[0_6px_0_0_var(--color-brand-ink)]">
+                  <span
+                    aria-hidden
+                    className="absolute -top-3 left-1/2 h-6 w-20 -translate-x-1/2 rotate-3 rounded-sm border border-brand-ink/20 bg-brand-yellow/85"
+                  />
+                  <Image
+                    src="/profile-photo.webp"
+                    alt="头像"
+                    width={220}
+                    height={220}
+                    priority
+                    className="h-44 w-44 rounded-xl border-2 border-brand-ink object-cover md:h-[220px] md:w-[220px]"
+                  />
+                  <p className="pt-2.5 text-center text-base font-black">马农不卷大厂</p>
+                </div>
+
+                <Sticker tone="yellow" className="absolute bottom-2 left-1/2 -ml-4 rotate-6 whitespace-nowrap max-[360px]:-ml-20 md:bottom-5 md:text-base">
+                  {content.profile.specialize}
+                </Sticker>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1} className="space-y-6 text-center lg:text-left">
+              <h2 className="isolate text-[2.3rem] font-black leading-[1.15] tracking-tight md:text-6xl">
+                <Title text={`[${content.profile.title}]`} />
+              </h2>
+              <p className="mx-auto max-w-xl text-lg leading-relaxed md:text-xl lg:mx-0">
+                <span className="font-bold">{firstSentence}。</span>
+                <span className="text-brand-muted">{restSentences.join("。")}。</span>
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                <a href={xhsProfile} target="_blank" rel="noopener noreferrer" className={buttonLimeClass}>
+                  查看小红书 <ArrowUpRight className="h-5 w-5" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Stats: a row of their own */}
+          <div className="mt-16 grid grid-cols-2 gap-4 md:mt-24 lg:grid-cols-4">
+            {content.feedback.stats.map((item, i) => {
+              const body = (
+                <div className={`${cardFrameClass} ${statTones[i % statTones.length]} h-full p-6 text-center md:p-8`}>
+                  <CountUp value={item.value} className="block text-4xl font-black tracking-tight md:text-5xl" />
+                  <p className="mt-2 text-sm font-black text-brand-muted">
+                    {item.label}
+                    {item.link && <ArrowUpRight className="ml-1 inline h-4 w-4" />}
+                  </p>
                 </div>
               );
 
-              const href = index === 2 ? "/handbook" : index === 3 ? "/blotz" : "/courses";
               return (
-                <Link key={item.label} href={href}>
-                  {cardContent}
-                </Link>
+                <Reveal key={item.label} delay={i * 0.07}>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      {...(item.link.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className={`block h-full ${liftClass}`}
+                    >
+                      {body}
+                    </a>
+                  ) : (
+                    body
+                  )}
+                </Reveal>
               );
             })}
           </div>
         </div>
+      </Band>
 
-        {/* About Me / Journey Section - Clean Architectural Heading */}
-        <div id="journey" className="space-y-16 px-2 relative scroll-mt-32">
-          {/* Section Ambient Glows */}
-          <div className="absolute top-1/4 -left-20 h-96 w-96 bg-blue-500/3 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-1/4 -right-20 h-96 w-96 bg-purple-500/3 blur-[120px] rounded-full pointer-events-none" />
+      {/* Technical expertise */}
+      <Band tone="blue">
+        <SectionHeading
+          eyebrow="Expertise"
+          tone="blue"
+          title="[技术专长]"
+          lead="深耕微软生态与全栈开发，专注于高性能、可扩展的现代化系统架构。"
+        />
 
-          <div className="space-y-4 px-4 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-white/20" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">{content.journey.eyebrow}</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-              {content.journey.title}
-            </h2>
-          </div>
-
-          <div className="relative z-10">
-            <Timeline items={content.journey.items} />
-          </div>
+        <div className="mt-12 grid grid-cols-3 gap-3 md:gap-5">
+          {crownedTech.map((tech, i) => {
+            return (
+              <Reveal key={tech.name} delay={i * 0.1} className="relative pt-6">
+                <span
+                  aria-hidden
+                  className={`animate-float absolute left-1/2 top-0 z-10 -ml-5 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-ink bg-brand-yellow shadow-[0_3px_0_0_var(--color-brand-ink)] md:-ml-6 md:h-12 md:w-12 ${crownTilts[i % crownTilts.length]}`}
+                >
+                  <Crown className="h-5 w-5 md:h-6 md:w-6" />
+                </span>
+                <a
+                  href={tech.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${cardClass} ${liftClass} flex h-full flex-col items-center justify-center gap-3 px-2 pb-5 pt-8 md:gap-4 md:px-6 md:pb-7 md:pt-10`}
+                >
+                  <TechGlyph tech={tech} box="h-11 w-11 md:h-20 md:w-20" markText="text-[13px] md:text-2xl" />
+                  <span className="text-center text-xl font-black leading-tight tracking-tight md:text-4xl">{tech.name}</span>
+                  {tech.note && (
+                    <span className="-mt-2 text-center text-[11px] font-bold leading-tight text-brand-muted md:-mt-1 md:text-base">
+                      {tech.note}
+                    </span>
+                  )}
+                </a>
+              </Reveal>
+            );
+          })}
         </div>
-      </div>
-    </section>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
+          {otherTech.map((tech, i) => {
+            return (
+              <Reveal key={tech.name} delay={0.3 + i * 0.05}>
+                <a
+                  href={tech.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${liftClass} inline-flex items-center gap-2.5 rounded-2xl border-2 border-brand-ink bg-white px-4 py-2.5 text-base font-black shadow-[0_4px_0_0_var(--color-brand-ink)]`}
+                >
+                  <TechGlyph tech={tech} box="h-6 w-6" markText="text-[7px]" />
+                  {tech.name}
+                </a>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Band>
+
+      {/* Teaching method */}
+      <Band tone="paper">
+        <SectionHeading eyebrow="Approach" tone="yellow" title="[教学方式]" />
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {content.goal.pillars.map((item, index) => {
+            const Icon = pillarIcons[index % pillarIcons.length];
+            const Scene = pillarScenes[index % pillarScenes.length];
+            return (
+              <Reveal key={item.label} delay={index * 0.07}>
+                <Link
+                  href={pillarLinks[index] ?? "/courses"}
+                  className={`${cardClass} ${liftClass} flex h-full flex-col overflow-hidden`}
+                >
+                  {/* The idea is shown first; the line under the title only names it */}
+                  <div className={`border-b-2 border-brand-ink px-4 py-8 lg:py-10 ${pillarStages[index % pillarStages.length]}`}>
+                    <div className="w-full lg:[zoom:1.3]">
+                      <Scene />
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-5 md:p-7">
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-brand-ink ${pillarTones[index % pillarTones.length]}`}
+                    >
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-xl font-black tracking-tight md:text-2xl">{item.label}</p>
+                      <p className="mt-1.5 text-base font-medium leading-relaxed text-brand-muted md:text-lg">{item.note}</p>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Band>
+
+      {/* Journey */}
+      <Band tone="purple" id="journey" className="scroll-mt-24">
+        <SectionHeading eyebrow={content.journey.eyebrow} tone="purple" title={`[${content.journey.title}]`} />
+        <div className="mt-12">
+          <Timeline items={content.journey.items} />
+        </div>
+      </Band>
+    </>
   );
 }

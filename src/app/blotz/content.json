@@ -4,21 +4,325 @@
     "spots": "1",
     "date": "2026-03-01"
   },
+  "audit": {
+    "eyebrow": "第一步",
+    "title": "欢迎来[了解项目]",
+    "caption": "看看团队怎么开会、怎么协作，过程中可以直接提问。",
+    "meeting": "每周项目会议",
+    "people": [
+      "产品",
+      "Senior",
+      "设计",
+      "前端",
+      "后端"
+    ],
+    "you": "你",
+    "youLabel": "旁听",
+    "question": "这一步为什么这样做？",
+    "cta": "参与旁听",
+    "wechatNote": "Blotz - 旁听"
+  },
+  "fit": {
+    "eyebrow": "适合谁",
+    "title": "[适合]哪些人？",
+    "rows": [
+      {
+        "tag": "大学生",
+        "text": "在读 IT / CS，想给简历加一个上线项目的朋友"
+      },
+      {
+        "tag": "转码",
+        "text": "想转行做软件开发的朋友"
+      },
+      {
+        "tag": "Junior",
+        "text": "想累积专业项目经验的朋友"
+      },
+      {
+        "tag": "在职",
+        "text": "工作里没机会接触最新技术栈的朋友"
+      }
+    ],
+    "stamp": "也欢迎零基础"
+  },
+  "process": {
+    "title": "产品是[怎么开发的？]"
+  },
+  "feedback": {
+    "eyebrow": "同学怎么说",
+    "countLead": "小红书累计",
+    "count": "56+ 条真实评价",
+    "source": "小红书",
+    "more": "再看 {n} 条",
+    "less": "收起",
+    "all": "查看更多小红书评价",
+    "picks": [
+      {
+        "name": "xxx",
+        "date": "2026-10-12",
+        "mark": "真的学到了很多学校项目里接触不到的东西"
+      },
+      {
+        "name": "momo",
+        "date": "2026-10-12",
+        "mark": "从后端到前端手把手带你学"
+      },
+      {
+        "name": "星㐅梦",
+        "date": "2025-06-30",
+        "mark": "很多Industrial Experience是教授在课堂上不会教的"
+      },
+      {
+        "name": "Oo",
+        "date": "2025-08-06",
+        "mark": "90%全部都是学校不曾教过我们的企业级实用教材"
+      },
+      {
+        "name": "NiNi",
+        "date": "2025-06-09",
+        "mark": "mentor真的是我遇到的为数不多真的想教会你东西的人"
+      },
+      {
+        "name": "铁锅炖大鹅",
+        "date": "2025-04-14",
+        "mark": "只有跟着项目一步一步做，才能知道需要学什么、怎么学、怎么做"
+      },
+      {
+        "name": "phenomenax",
+        "date": "2025-03-15",
+        "mark": "项目的结构和work flow都是根据实际工作环境设计的"
+      },
+      {
+        "name": "俐俐豪可愛",
+        "date": "2026-02-04",
+        "mark": "每次code review的時候，會糾正哪些部分寫的不乾淨"
+      },
+      {
+        "name": "银一",
+        "date": "2025-01-28",
+        "mark": "每一个成员都是当作商业项目去完成的"
+      },
+      {
+        "name": "F_bananea",
+        "date": "2025-01-27",
+        "mark": "会引导组员自己去一步步解决问题而不是直接扔一个答案"
+      },
+      {
+        "name": "桜吹雪",
+        "date": "2026-02-22",
+        "mark": "在真正就業時，團隊合作到底是怎麼運作的"
+      },
+      {
+        "name": "momo",
+        "date": "2025-04-06",
+        "mark": "會按照每個人程度來分配任務"
+      },
+      {
+        "name": "MooMoo0799",
+        "date": "2026-03-14",
+        "mark": "博主细心引导和教学如何专业的去完成一个任务"
+      },
+      {
+        "name": "..",
+        "date": "2025-05-20",
+        "mark": "博主不断地关心我的学习进度"
+      },
+      {
+        "name": "FALLinDARK",
+        "date": "2025-01-28",
+        "mark": "和自己做项目真的不一样"
+      },
+      {
+        "name": "无所谓",
+        "date": "2025-01-26",
+        "mark": "定期组织知识分享，包括开发还有devops内容"
+      },
+      {
+        "name": "那还得了",
+        "date": "2026-02-20",
+        "mark": "学到了很多个人项目学习不到的东西"
+      },
+      {
+        "name": "乔治plucky_crow",
+        "date": "2025-08-15",
+        "mark": "一個肯教一個肯學"
+      },
+      {
+        "name": "鲜榨柠檬汁",
+        "date": "2025-01-30",
+        "mark": "对各种架构的运用都有了更清晰的了解"
+      },
+      {
+        "name": "过一Jen子",
+        "date": "2026-02-13",
+        "mark": "有系统地带着做项目"
+      },
+      {
+        "name": "Golch",
+        "date": "2025-01-28",
+        "mark": "遇到问题我们也会及时沟通反馈"
+      },
+      {
+        "name": "艺术家鬼鬼头",
+        "date": "2025-08-06",
+        "mark": "团队开发很有效率"
+      },
+      {
+        "name": "一棵树🌲",
+        "date": "2025-01-28",
+        "mark": "博主随叫随到解决问题也非常耐心"
+      },
+      {
+        "name": "momo",
+        "date": "2025-06-28",
+        "mark": "看得出来主讲技术能力很强，也很会教人"
+      }
+    ]
+  },
+  "arch": {
+    "eyebrow": "技术栈",
+    "title": "项目用到的[技术]",
+    "app": {
+      "name": "手机 App",
+      "note": "iOS · Android",
+      "tech": [
+        "Expo",
+        "React Native",
+        "NativeWind",
+        "TanStack Query",
+        "React Hook Form"
+      ]
+    },
+    "api": {
+      "name": "后端",
+      "note": "REST API · 实时推送",
+      "tech": [
+        ".NET 10",
+        "ASP.NET Core",
+        "EF Core",
+        "SignalR",
+        "Microsoft Agent Framework"
+      ]
+    },
+    "services": [
+      {
+        "name": "登录",
+        "tech": "Auth0"
+      },
+      {
+        "name": "AI",
+        "tech": "Azure OpenAI"
+      },
+      {
+        "name": "数据库",
+        "tech": "Azure SQL"
+      }
+    ],
+    "cloud": {
+      "label": "Cloud",
+      "tech": [
+        "Azure App Service",
+        "Key Vault",
+        "Application Insights",
+        "PostHog"
+      ]
+    },
+    "ship": {
+      "label": "CI/CD",
+      "steps": [
+        "GitHub Actions",
+        "Staging",
+        "Production"
+      ]
+    }
+  },
+  "grow": {
+    "eyebrow": "成长路线",
+    "title": "在项目里\n[不断成长]",
+    "caption": "参与一段时间后，如果你喜欢这个项目，也能融入团队的开发方式和理念，想长期做下去，就有机会成为合作伙伴。",
+    "you": "你",
+    "levels": [
+      {
+        "name": "学生",
+        "note": "先跟着教程打基础"
+      },
+      {
+        "name": "Developer",
+        "note": "做真实任务，有 Senior 带"
+      },
+      {
+        "name": "Senior",
+        "note": "写需求、Review、带新人"
+      },
+      {
+        "name": "合作伙伴",
+        "note": "把项目当副业一起做"
+      }
+    ]
+  },
+  "aiLink": "看我们怎么用 AI 开发",
+  "app": {
+    "title": "这是[什么项目]？",
+    "name": "Blotz",
+    "tagline": "AI Agent 生活规划 App",
+    "body": "App 已经上线，目前持续迭代，不断增加新功能。",
+    "stats": [
+      {
+        "before": "目前已有",
+        "value": "3000+",
+        "label": "注册用户"
+      }
+    ],
+    "site": "Blotz 官网",
+    "shots": [
+      "Blotz 的任务列表",
+      "Blotz 的 AI 语音输入"
+    ]
+  },
   "hero": {
     "eyebrow": "工业实战项目",
+    "lead": "给大学生和新手",
+    "headline": "快速高效累积\n[专业开发经验]",
     "title": "Blotz 全栈项目经验",
     "tagline": "在真实团队中积累可验证的全栈经验",
     "subtitle": "生产级项目，真实代码、真实 PR、真实上线。",
     "stats": [
-      { "value": "80+", "label": "学员已参与获得实战经验" },
-      { "value": "全栈技术栈", "label": "Next.js · .NET · Azure · OpenAI" }
-    ]
+      {
+        "value": "100+",
+        "label": "学员已参与获得实战经验"
+      },
+      {
+        "value": "全栈技术栈",
+        "label": "Next.js · .NET · Azure · OpenAI"
+      }
+    ],
+    "table": {
+      "task": "新功能",
+      "fresh": "NEW",
+      "seats": [
+        "产品",
+        "设计",
+        "宣传",
+        "Senior",
+        "Junior",
+        "Developer"
+      ],
+      "parts": [
+        "写需求",
+        "出设计图",
+        "用 AI 开发",
+        "Review 代码",
+        "做宣传"
+      ],
+      "done": "功能上线",
+      "goal": "专业项目经验"
+    }
   },
   "pillars": [
     {
       "icon": "Code2",
       "title": "真实代码库",
-      "desc": "不是教学演示项目 — Blotz 是一个已有 300+ 真实用户、2000+ 测试用户的 AI 生产力应用，你提交的每一行代码都会真正上线。"
+      "desc": "不是教学演示项目 — Blotz 是一个已有 3000+ 注册用户的 AI 生产力应用，你提交的每一行代码都会真正上线。"
     },
     {
       "icon": "GitPullRequest",
@@ -42,11 +346,65 @@
     }
   ],
   "techStack": [
-    { "category": "前端", "color": "blue", "items": ["Next.js 14", "TypeScript", "Tailwind CSS", "Shadcn UI", "Zustand", "NextAuth.js"] },
-    { "category": "移动端", "color": "pink", "items": ["React Native (Expo)", "Expo Router", "NativeWind", "React Query", "Auth0", "Sentry"] },
-    { "category": "后端", "color": "violet", "items": [".NET 8", "C#", "REST API", "SignalR", "EF Core", "Azure OpenAI", "Semantic Kernel"] },
-    { "category": "数据库", "color": "orange", "items": ["SQL Server", "Azure SQL Database", "EF Core Migrations"] },
-    { "category": "云平台 & DevOps", "color": "cyan", "items": ["Microsoft Azure", "Azure App Service", "Azure Key Vault", "Azure Functions", "Application Insights", "GitHub Actions (CI/CD)", "Bicep (IaC)"] }
+    {
+      "category": "前端",
+      "color": "blue",
+      "items": [
+        "Next.js 14",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Zustand",
+        "NextAuth.js"
+      ]
+    },
+    {
+      "category": "移动端",
+      "color": "pink",
+      "items": [
+        "React Native (Expo)",
+        "Expo Router",
+        "NativeWind",
+        "React Query",
+        "Auth0",
+        "Sentry"
+      ]
+    },
+    {
+      "category": "后端",
+      "color": "violet",
+      "items": [
+        ".NET 8",
+        "C#",
+        "REST API",
+        "SignalR",
+        "EF Core",
+        "Azure OpenAI",
+        "Semantic Kernel"
+      ]
+    },
+    {
+      "category": "数据库",
+      "color": "orange",
+      "items": [
+        "SQL Server",
+        "Azure SQL Database",
+        "EF Core Migrations"
+      ]
+    },
+    {
+      "category": "云平台 & DevOps",
+      "color": "cyan",
+      "items": [
+        "Microsoft Azure",
+        "Azure App Service",
+        "Azure Key Vault",
+        "Azure Functions",
+        "Application Insights",
+        "GitHub Actions (CI/CD)",
+        "Bicep (IaC)"
+      ]
+    }
   ],
   "events": [
     {
@@ -83,7 +441,7 @@
       },
       {
         "question": "零基础加入后，第一步要做什么？",
-        "answer": "加入后你会收到一套完整的 Onboarding 文档，包含视频讲解，带你从零了解整个代码库结构与项目运作方式。同时我们还准备了系统性的学习模块，覆盖项目所需的全部技术栈与技能——前端、后端、数据库一步一步来。你不需要提前学完所有东西，跟着节奏走就好，团队随时在线支持你。"
+        "answer": "不会一开始就直接把你丢进真实项目里做任务。会先从 Tutorial Module 开始，大概两到三周。不再是以前那种看视频、自己摸索的学法，我们会教你怎么借助 AI，快速、高效地把基础补起来。在这个阶段，Senior 会 1v1 关心你的学习进度。每一个学习模块都会有对应的任务或练习，Senior 会帮你检查完成情况，看看你哪里理解了、哪里还需要补，再一步步带你进入真实项目。"
       },
       {
         "question": "每周需要投入多少时间？",
@@ -91,7 +449,7 @@
       },
       {
         "question": "项目是远程参与还是必须在悉尼？",
-        "answer": "两者都可以。Discord 技术分享和日常协作完全线上，每周三线下共创活动在悉尼，线上成员可以通过录播异步参与。"
+        "answer": "两者都可以。日常协作和每周项目会议都在线上；悉尼的同学还可以参加每周的线下学习。"
       },
       {
         "question": "参与之后我会有什么可以放在简历上？",
@@ -99,7 +457,7 @@
       },
       {
         "question": "需要参与多久才能具备找工作的能力？",
-        "answer": "因人而异，但根据我们的经验：持续参与约 6 个月，大多数认真的学员都能达到 Tech Lead 水平，同时积累扎实的全栈技术能力与软技能，具备申请初级职位的竞争力——不只是技术，沟通、汇报、团队协作一样都不少。"
+        "answer": "因人而异，但根据我们的经验：持续参与约 6 个月，大多数认真的学员都能积累扎实的全栈技术能力与软技能，具备申请初级职位的竞争力——不只是技术，沟通、汇报、团队协作一样都不少。"
       }
     ]
   },
