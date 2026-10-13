@@ -1,0 +1,244 @@
+{
+  "hero": {
+    "lead": "Blotz 团队怎么用 AI 开发",
+    "title": "AI orchestration\n[不是 vibe coding]",
+    "vibe": {
+      "name": "Vibe coding",
+      "text": "想到什么就让 AI 写什么，结果看运气。"
+    },
+    "orchestration": {
+      "name": "AI orchestration",
+      "text": "你先把计划和流程定好，再让 AI 去做。",
+      "slots": [
+        "你规划",
+        "AI 执行",
+        "你决定"
+      ]
+    }
+  },
+  "steps": {
+    "eyebrow": "一个任务怎么做",
+    "title": "做一个任务：[6 步]",
+    "lead": "Senior 分给你一个任务（我们叫 PBI）。拿到任务后，直接复制粘贴给 AI，它就会开始做。",
+    "you": "你",
+    "ai": "AI",
+    "items": [
+      {
+        "title": "AI 先讲解",
+        "text": "AI 出一页讲解，列出要你先决定的问题。你选好，回一句 go。",
+        "lines": [
+          {
+            "who": "you",
+            "text": "（贴上任务）"
+          },
+          {
+            "who": "ai",
+            "text": "讲解页好了，有几个问题要你先决定"
+          },
+          {
+            "who": "you",
+            "text": "go",
+            "code": true
+          }
+        ],
+        "tools": []
+      },
+      {
+        "title": "开分支、检查环境",
+        "text": "AI 开新分支，把任务状态改成进行中。测试跑不了就停下，告诉你怎么修。",
+        "lines": [
+          {
+            "who": "ai",
+            "text": "开好新分支",
+            "done": true
+          },
+          {
+            "who": "ai",
+            "text": "任务改成进行中",
+            "done": true
+          },
+          {
+            "who": "ai",
+            "text": "测试环境可以跑",
+            "done": true
+          }
+        ],
+        "tools": [
+          0,
+          1
+        ]
+      },
+      {
+        "title": "小块写，每块都测",
+        "text": "AI 按团队定好的规范，一小块一小块地写。你可以边看边问。",
+        "lines": [
+          {
+            "who": "ai",
+            "text": "第 1 块写好，测试通过",
+            "done": true
+          },
+          {
+            "who": "you",
+            "text": "这里为什么这样写？"
+          },
+          {
+            "who": "ai",
+            "text": "第 2 块写好，测试通过",
+            "done": true
+          }
+        ],
+        "tools": []
+      },
+      {
+        "title": "上真机测",
+        "text": "用户看得到的改动，AI 在你的手机上点一遍。",
+        "lines": [
+          {
+            "who": "ai",
+            "text": "在你的手机上打开 App"
+          },
+          {
+            "who": "ai",
+            "text": "改动的地方点了一遍",
+            "done": true
+          }
+        ],
+        "tools": [
+          3
+        ]
+      },
+      {
+        "title": "看懂总结",
+        "text": "AI 先自己检查一遍代码，再告诉你改了什么、为什么、有什么风险。看不懂就追问。",
+        "lines": [
+          {
+            "who": "ai",
+            "text": "自查完成，小问题已修好",
+            "done": true
+          },
+          {
+            "who": "ai",
+            "text": "改了什么 · 为什么 · 有什么风险"
+          },
+          {
+            "who": "you",
+            "text": "第二点没看懂，再讲一遍"
+          }
+        ],
+        "tools": []
+      },
+      {
+        "title": "AI 开 PR",
+        "text": "AI 开 PR，在 Discord 通知负责检查的人，任务状态自动更新。",
+        "lines": [
+          {
+            "who": "ai",
+            "text": "PR 和流程说明写好了"
+          },
+          {
+            "who": "ai",
+            "text": "PR 已开，已通知负责检查的人",
+            "done": true
+          }
+        ],
+        "tools": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "toolsLabel": "AI 帮你处理",
+    "tools": [
+      "GitHub",
+      "看板",
+      "Discord",
+      "手机"
+    ],
+    "toolsCaption": "你只开一个 terminal，一直跟 AI 聊天。"
+  },
+  "stages": {
+    "eyebrow": "Blotz 的开发方式",
+    "title": "[DevOps] + AI Orchestration",
+    "lobes": [
+      "规划",
+      "开发"
+    ],
+    "items": [
+      {
+        "name": "Feedback",
+        "what": "看监控和用户数据，收集意见",
+        "owners": [
+          "Senior",
+          "PM"
+        ]
+      },
+      {
+        "name": "Planning",
+        "what": "决定下一步做哪些任务",
+        "owners": [
+          "Senior"
+        ]
+      },
+      {
+        "name": "Create PBI",
+        "what": "把任务写清楚，定好风险等级",
+        "owners": [
+          "Senior"
+        ]
+      },
+      {
+        "name": "Implement",
+        "what": "写代码",
+        "owners": [
+          "Developer"
+        ]
+      },
+      {
+        "name": "Testing",
+        "what": "证明改好了",
+        "owners": [
+          "Developer"
+        ]
+      },
+      {
+        "name": "Review",
+        "what": "检查别人的 PR",
+        "owners": [
+          "Developer",
+          "Senior"
+        ]
+      },
+      {
+        "name": "Release",
+        "what": "自动部署到 Staging、Production，发布到商店",
+        "owners": [
+          "Senior"
+        ]
+      }
+    ]
+  },
+  "end": {
+    "back": "回到 Blotz 项目"
+  },
+  "clips": {
+    "label": "视频示例",
+    "stepPrefix": "第 {n} 步",
+    "close": "关闭",
+    "items": [
+      {
+        "step": 1,
+        "src": "/blotz/ai/explain.mp4",
+        "poster": "/blotz/ai/explain-poster.jpg",
+        "caption": "AI 先把任务解释清楚，然后把需要你决定的两件事列出来。你选好答案发给它，它再开始写。"
+      },
+      {
+        "step": 6,
+        "src": "/blotz/ai/open-pr.mp4",
+        "poster": "/blotz/ai/open-pr-poster.jpg",
+        "caption": "做完之后，AI 把 PR 和流程说明写好，然后开 PR，任务状态也自动更新。"
+      }
+    ],
+    "short": "视频"
+  }
+}

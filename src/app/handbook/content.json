@@ -4,7 +4,12 @@
     "title": "全栈学习手册",
     "tagline": "专为初学者精心设计",
     "subtitle": "专为零基础设计的系统化全栈学习手册，结合精选资源、实战代码示范与 1v1 代码审查。",
-    "badges": ["零基础可上手", "前后端移动端全覆盖", "AI 辅助学习", "1v1 PR 代码审查"],
+    "badges": [
+      "零基础可上手",
+      "前后端移动端全覆盖",
+      "AI 辅助学习",
+      "1v1 PR 代码审查（1v1 版）"
+    ],
     "cta": "立即咨询获取"
   },
   "painPoints": {
@@ -47,7 +52,7 @@
         "color": "cyan"
       },
       {
-        "title": "1v1 PR 代码审查",
+        "title": "1v1 PR 代码审查（1v1 版）",
         "description": "每个模块完成后，导师亲自审查你的 Pull Request，像真实公司的 Tech Lead 一样给出反馈，帮你养成工业级代码习惯。",
         "color": "emerald"
       }
@@ -63,8 +68,7 @@
         "color": "cyan",
         "modules": [
           "AI Recommendation",
-          "Setup Coding Agent",
-          "How to use AI in Blotz"
+          "How to Use the Prompts"
         ]
       },
       {
@@ -81,11 +85,25 @@
         "color": "blue",
         "modules": [
           "Module 0 - Basic",
-          "Module 1 - Next.js",
+          "Module 1 – Next.js",
           "Module 2 - ShadCN",
           "Module 3 - React Hook Form",
-          "Module 4 - Tanstack Query",
+          "Module 4 - State",
+          "Module 4 - Tanstack query",
           "Module 5 - Review and Refactor"
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "MOBILE APP",
+        "color": "pink",
+        "modules": [
+          "Module 0 - Basic React Native and Expo",
+          "Module 1 - Todo App Initial Setup",
+          "Module 2 - Feature Based Folder",
+          "Module 3 - Protected Routes",
+          "Module 4 - Expo Dev Client",
+          "Module 5 - Error Handling"
         ]
       },
       {
@@ -95,7 +113,7 @@
         "modules": [
           "Module 0 - Basic C#, .NET",
           "Module 1 - EF Core & Database",
-          "Module 2 - Database Communication",
+          "Module 2 - Todo App and Database Communication",
           "Module 3 - Frontend Communication",
           "Module 4 - Domain Relation",
           "Module 5 - CQRS"
@@ -107,18 +125,29 @@
         "color": "rose",
         "modules": [
           "Overview - Production Grade Backend Architecture",
-          "Module 0 - EF Core"
+          "Module 0 – EF Core Modeling & Configuration",
+          "Performance – The N+1 Query Problem",
+          "Configuration & the Options Pattern",
+          "Module 1 – Project Structure & Architecture",
+          "Module 2 – Middleware and Error Handling",
+          "Module 3 - .NET Testing (Theory)",
+          "Module 4 - .NET Testing (Hands On)",
+          "TIPS for .NET"
         ]
       },
       {
-        "id": "mobile",
-        "label": "MOBILE APP",
-        "color": "pink",
+        "id": "backend-architect",
+        "label": "BACKEND ARCHITECT",
+        "color": "orange",
         "modules": [
-          "Module 0 - Basic React Native and Expo",
-          "Module 1 - Todo App Initial Setup",
-          "Module 2 - Feature Based Folder",
-          "Module 3 - Protected Routes"
+          "DTOs",
+          "Dependency Injection",
+          "Identity Service Basic",
+          "Logging",
+          "Exception Handling",
+          "Middleware - Global Exception Handling",
+          "Backend Architecture Pattern",
+          "Signal R"
         ]
       }
     ],
@@ -131,15 +160,43 @@
           "Module - Overview",
           "Module 0 - Azure Setup",
           "Module 1 - Azure Introduction",
-          "Module 2 - Deploy To Web App",
+          "Module 2 – Deploy To Web App",
           "Module 3 - Deploy to SQL Database",
-          "Module 4 - Automate Deploy Web App (CI/CD)",
+          "Module 4 - Automate deploy web app (CI/CD)",
           "Module 5 - Azure Key Vault"
+        ]
+      },
+      {
+        "id": "azure-common",
+        "label": "AZURE COMMON SERVICES",
+        "color": "cyan",
+        "modules": [
+          "Module 1 - Logging to App Insight",
+          "Module 3 - Automate deploy Azure SQL (CI/CD)"
+        ]
+      },
+      {
+        "id": "azure-iac",
+        "label": "INFRASTRUCTURE OF CODE",
+        "color": "violet",
+        "modules": [
+          "Module 0 - Basic Bicep",
+          "Module 1 - Code structure Bicep",
+          "Module 2 - Automate Deploy IAC (CI/CD)"
+        ]
+      },
+      {
+        "id": "azure-identity",
+        "label": "AZURE IDENTITY",
+        "color": "pink",
+        "modules": [
+          "Module 0 - Azure Role",
+          "Module 1 - Managed Identity"
         ]
       }
     ],
     "azureNote": "🎬 Azure 模块附含自录中文教学视频",
-    "lockedLabel": "联系我获取完整访问权限",
+    "lockedLabel": "想要有人带着学？",
     "lockedSublabel": "获取后即可访问完整 GitBook 文档与配套代码仓库"
   },
   "audience": {
@@ -179,7 +236,7 @@
       },
       {
         "question": "1v1 代码审查是怎么运作的？",
-        "answer": "每个模块学完后，你在 GitHub 上提交 Pull Request，导师会像真实 Tech Lead 一样给你留下代码评论和改进建议，帮你在实践中养成良好的工程习惯。"
+        "answer": "1v1 版包含这一项：每个模块学完后，你在 GitHub 上提交 Pull Request，导师会像真实 Tech Lead 一样给你留下代码评论和改进建议，帮你在实践中养成良好的工程习惯。辅导版是学完后做一次 1 小时的 1v1 全代码综合审查。"
       },
       {
         "question": "买了之后可以永久访问吗？",

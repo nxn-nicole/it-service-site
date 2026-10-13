@@ -1,0 +1,92 @@
+{
+  "brand": "Blotz",
+  "hero": {
+    "sticker": "旁听之后",
+    "lead": "我们在做一件事",
+    "title": "让大学生\n更快学会\n[职场要的技能]",
+    "skills": ["软实力", "技术", "信心", "团队合作", "项目", "运用 AI"],
+    "goal": "新时代的软件工程师",
+    "you": "你",
+    "person": "大学生",
+    "hint": "往下滑，一分钟看完"
+  },
+  "ai": {
+    "eyebrow": "🔥 最前线开发模式",
+    "title": "[AI Orchestration]\n开发模式",
+    "caption": "先定好计划和流程。你负责规划和检查，写代码交给 AI。",
+    "no": "vibe coding",
+    "yes": "AI orchestration",
+    "stations": ["拆需求", "AI 写", "你检查", "上线"],
+    "status": ["先把需求拆清楚", "交给 AI 去写", "你来检查它写的", "上线"]
+  },
+  "team": {
+    "eyebrow": "管理项目",
+    "title": "专业企业级\n[项目管理规范]",
+    "caption": "Sprint、PR Review、上线，正式开发流程看板。",
+    "sprint": "Sprint",
+    "columns": ["To do", "Doing", "Done"],
+    "cards": ["新功能", "修 Bug", "写测试"],
+    "done": "Sprint 完成"
+  },
+  "review": {
+    "eyebrow": "有人带",
+    "title": "有 [Senior] 带",
+    "caption": "在职的 Senior 帮你 review 代码、回答问题，训练你成为下一个 Senior。",
+    "file": "你的 PR",
+    "reviewer": "Sr",
+    "comment": "这里可以更简单 👀",
+    "approved": "Approved"
+  },
+  "resume": {
+    "eyebrow": "找工作",
+    "title": "简历有真实\n[高价值项目背书]",
+    "caption": "",
+    "rows": ["已上架的 App", "GitHub 贡献记录", "团队协作经历"],
+    "stamp": "Reference"
+  },
+  "extras": {
+    "label": "还有这些",
+    "items": ["每周线下学习（限悉尼）", "Senior 帮你改简历、练面试", "学习手册对成员开放", "时间灵活，忙的那周可以请 Break Week"]
+  },
+  "proof": {
+    "eyebrow": "同学怎么说",
+    "title": "成员们的[反馈]",
+    "journeys": [
+      ["零经验", "Tech Lead"],
+      ["UNSW 在读", "学 .NET", "Tech Lead"]
+    ],
+    "source": "小红书"
+  },
+  "whyFee": {
+    "eyebrow": "关于费用 · 1/2",
+    "title": "为什么有[费用]？",
+    "caption": "新手刚来还不能独立做，需要 Tech Lead 花很多时间带。",
+    "uses": ["Tech Lead 的时间", "云服务", "AI"],
+    "sticker": "小额 · 不是 Bootcamp"
+  },
+  "feePath": {
+    "eyebrow": "关于费用 · 2/2",
+    "title": "越做越少，[最后免费]",
+    "caption": "考试、忙的那几周可以停，不收费。",
+    "stages": ["Developer", "TL Candidate", "Tech Lead"],
+    "free": "免费",
+    "you": "你"
+  },
+  "ways": {
+    "eyebrow": "怎么加入",
+    "title": "你是[哪一种]？",
+    "caption": "点一下看看。",
+    "options": [
+      { "tab": "能独立做开发", "how": "直接参与", "fee": "不收费", "detail": "像早期 Startup 的共建成员。" },
+      { "tab": "还在学", "how": "Tech Lead 带着做", "fee": "小额费用", "detail": "零基础也可以，从 Tutorial 开始。" }
+    ]
+  },
+  "next": {
+    "eyebrow": "下一步",
+    "title": "跟 Tech Lead [语音五分钟]",
+    "caption": "聊聊你的背景，看适合从哪里开始。不适合也会直说。",
+    "cta": "找 Tech Lead 聊聊",
+    "wechatNote": "旁听后想聊聊"
+  },
+  "footer": "马农不卷大厂"
+}

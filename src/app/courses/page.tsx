@@ -1,11 +1,17 @@
 import content from "./content.json";
 import homeContent from "../content.json";
-import { CheckCircle2, MessageSquare, GraduationCap, Users2, Rocket, ArrowUpRight } from "lucide-react";
+import { MessageSquare, GraduationCap, Users2, Rocket, ArrowUpRight, HeartHandshake, Plane } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import WeChatModal from "@/components/WeChatModal";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import XhsModal from "@/components/XhsModal";
-import Link from "next/link";
-
+import { Band, Clauses, CountUp, Reveal, SectionHeading, Sticker, Title } from "@/components/kit";
+import type { Tone } from "@/components/kit";
+import { buttonCoralClass, buttonGhostClass, buttonLimeClass, cardClass, cardFrameClass, liftClass } from "@/components/styles";
+import { PopIcon, TickList, Wobble } from "./ServiceBits";
+import PassItOnScene from "../PassItOnScene";
+import CallScene from "./CallScene";
 
 interface Service {
   title: string;
@@ -16,282 +22,317 @@ interface Service {
   suitableFor?: string[];
 }
 
+const xhsProfile = "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7";
+
+// The handbook, project and 1v1 cards are hidden for now: this page is only about asking for help.
+const showPaidServices = false;
+
+
+const reasonIcons = [Plane, HeartHandshake, Users2];
+const reasonTones = ["bg-brand-blue text-white", "bg-brand-lime", "bg-brand-purple text-white"];
+
+
+// How each paid card is dressed: the recommended one is yellow, the handbook purple, the rest blue.
+interface CardLook {
+  card: string;
+  icon: string;
+  badge: Tone;
+  pill: string;
+  tick: string;
+  button: string;
+}
+
+const hotLook: CardLook = {
+  card: `${cardFrameClass} bg-brand-yellow-soft`,
+  icon: "bg-brand-yellow",
+  badge: "yellow",
+  pill: "bg-white",
+  tick: "bg-brand-yellow",
+  button: buttonLimeClass,
+};
+
+const handbookLook: CardLook = {
+  card: cardClass,
+  icon: "bg-brand-purple text-white",
+  badge: "purple",
+  pill: "bg-brand-purple-soft",
+  tick: "bg-brand-purple text-white",
+  button: buttonGhostClass,
+};
+
+const plainLook: CardLook = {
+  card: cardClass,
+  icon: "bg-brand-blue text-white",
+  badge: "blue",
+  pill: "bg-brand-blue-soft",
+  tick: "bg-brand-blue text-white",
+  button: buttonGhostClass,
+};
+
 export default function ServicesPage() {
   const icons = [MessageSquare, GraduationCap, Users2, Rocket];
-  const freeConsultation = content.services[0] as Service;
   const paidServices = content.services.slice(1) as Service[];
 
   return (
-    <section className="space-y-12 pb-24">
-      {/* Hero Section - More Compact */}
-      <div className="relative pt-12 text-center max-w-2xl mx-auto space-y-4">
-        <div className="absolute left-1/2 -top-10 -translate-x-1/2 h-48 w-48 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none" />
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-          {content.hero.title}
-        </h1>
-        <p className="text-base md:text-lg text-white/60 font-medium">
-          {content.hero.subtitle}
-        </p>
-      </div>
+    <>
+      {/* Ask for help: the problems students come with on one side, a short call on the other */}
+      <Band tone="paper" className="pt-10! md:pt-16!">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="text-center lg:text-left">
+            <Reveal className="space-y-5">
+              <h1 className="isolate text-[2.6rem] font-black leading-[1.15] tracking-tight md:text-7xl">
+                <Title text={`[${content.hero.title}]`} />
+              </h1>
+            </Reveal>
 
-      {/* Free Consultation Bar - Redesigned for clarity & trust */}
-      <div className="max-w-5xl mx-auto px-4 md:px-0">
-        <WeChatModal wechatId="Azdev0189" source="consulting">
-          <div className="group relative flex flex-col md:flex-row items-stretch gap-0 overflow-hidden rounded-[32px] border border-emerald-500/20 bg-emerald-500/2 transition-all duration-500 hover:bg-emerald-500/4 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.1)]">
-          {/* Content Side */}
-          <div className="flex-1 p-8 md:p-10 space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                <MessageSquare className="h-6 w-6 text-emerald-400" />
-              </div>
-              <div className="flex items-center gap-3">
-                <h2 className="text-2xl font-bold text-white tracking-tight">
-                  {freeConsultation.title}
-                </h2>
-                <span className="px-2 py-0.5 rounded-md bg-emerald-500 text-[10px] font-black text-black uppercase">
-                  FREE
-                </span>
-              </div>
-            </div>
-            
-            <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl">
-              {freeConsultation.description}
-            </p>
+            <Reveal delay={0.1} className="mt-10 text-left">
+              <p className="text-base font-black tracking-wider text-brand-muted md:text-lg">{content.ask.pointsTitle}</p>
+              {/* One row per problem: who it is on the left, what they are stuck on beside it (below it on phones) */}
+              <ul className="mt-3 grid sm:grid-cols-[auto_1fr] sm:gap-x-5">
+                {content.ask.points.map((point) => (
+                  <li
+                    key={point.who}
+                    className="grid gap-2 border-b-2 border-brand-ink/10 py-4 last:border-b-0 sm:col-span-2 sm:grid-cols-subgrid sm:items-center sm:gap-x-5"
+                  >
+                    <span className="justify-self-start rounded-full border-2 border-brand-ink bg-brand-lime-soft px-3.5 py-1 text-center text-base font-black leading-snug sm:justify-self-stretch">
+                      {point.who}
+                    </span>
+                    <span className="text-xl font-bold leading-snug xl:text-[22px]">
+                      <Clauses text={point.problem} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
 
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-              {freeConsultation.helpPoints.map((point: string) => (
-                <div key={point} className="flex items-center gap-3 text-sm text-white/60 group-hover:text-white/80 transition-colors">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500/60 group-hover:text-emerald-500 transition-colors shrink-0" />
-                  <span>{point}</span>
+            {/* The modal sits outside Reveal so its full-screen overlay is never inside a moving box. */}
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-4 lg:justify-start">
+              <WeChatModal wechatId="Azdev0189" source="consulting">
+                <div className="relative">
+                  <div className={`${buttonLimeClass} md:px-8 md:py-4 md:text-xl`}>
+                    {content.ask.cta} <ArrowUpRight className="h-5 w-5" />
+                  </div>
+                  <Sticker tone="yellow" className="absolute -right-6 -top-4 rotate-6">
+                    {content.ask.free}
+                  </Sticker>
                 </div>
-              ))}
+              </WeChatModal>
             </div>
           </div>
 
-          {/* CTA Side */}
-          <div className="md:w-72 bg-emerald-500/5 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center p-8 md:p-10 group-hover:bg-emerald-500/10 transition-colors">
-            <div className="text-center space-y-4">
-              <p className="text-[11px] font-bold text-emerald-400/80 uppercase tracking-[0.2em]">
-                Limited Availability
-              </p>
-              <div className="inline-flex items-center gap-2 text-white font-bold group-hover:text-emerald-400 transition-colors">
-                立即咨询 <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </div>
-            </div>
-          </div>
+          <Reveal delay={0.15}>
+            <CallScene />
+          </Reveal>
         </div>
-        </WeChatModal>
-      </div>
+      </Band>
 
-      {/* Other Paid Services Grid - 3-column */}
-      <div className="grid gap-6 md:grid-cols-3">
-        {paidServices.map((service, index) => {
-          const Icon = icons[index + 1];
-          const isHot = service.isHot;
+      {/* Why the help is free: the reasons, and the idea of passing it on */}
+      <Band tone="yellow">
+        <SectionHeading title={content.why.title} />
+        {/* The reasons get the wider side, so each one sits on a single line on a desktop */}
+        <div className="mt-10 grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
+          <div className="grid gap-4">
+            {content.why.reasons.map((reason, index) => {
+              const Icon = reasonIcons[index % reasonIcons.length];
+              return (
+                <Reveal key={reason} delay={index * 0.07}>
+                  <div className={`${cardClass} flex items-center gap-4 p-5 md:p-6`}>
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-brand-ink ${reasonTones[index % reasonTones.length]}`}
+                    >
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <p className="text-balance text-lg font-bold leading-relaxed md:text-xl">
+                      <Clauses text={reason} />
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
 
-          const isHandbook = index === 0;
+          <Reveal delay={0.1}>
+            <div className="w-full lg:[zoom:1.15] xl:[zoom:1.35] 2xl:[zoom:1.45]">
+              <PassItOnScene />
+            </div>
+            <p className="mt-8 text-center text-lg font-black md:text-xl">{content.why.passItOn}</p>
+          </Reveal>
+        </div>
+      </Band>
 
-          const cardClassName = `group relative flex flex-col overflow-hidden rounded-[40px] border transition-all duration-700 p-8 md:p-10 hover:-translate-y-2
-            ${isHot
-              ? "bg-linear-to-b from-orange-500/10 to-transparent border-orange-500/40 hover:border-orange-500/60 shadow-[0_0_80px_rgba(249,115,22,0.1)] ring-1 ring-orange-500/20"
-              : isHandbook
-              ? "bg-linear-to-b from-violet-500/10 to-transparent border-violet-500/30 hover:border-violet-500/50 shadow-[0_0_80px_rgba(139,92,246,0.08)] ring-1 ring-violet-500/15"
-              : "bg-white/2 border-white/5 hover:bg-white/4 hover:border-white/20"
-            }`;
+      {/* Paid services */}
+      {showPaidServices && (
+      <Band tone="blue">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {paidServices.map((service, index) => {
+            const Icon = icons[index + 1];
+            const isHot = service.isHot;
+            const isHandbook = index === 0;
+            const look = isHot ? hotLook : isHandbook ? handbookLook : plainLook;
+            const wait = index * 0.08;
 
-          const CardContent = (
-            <>
-              {/* Special effects for Hot Card */}
-              {isHot && (
-                <>
-                  <div className="absolute -right-20 -top-20 h-64 w-64 bg-orange-500/15 blur-[100px] pointer-events-none group-hover:bg-orange-500/25 transition-colors duration-700" />
-                  <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-400 to-transparent opacity-50" />
-                </>
-              )}
+            const cardClassName = `group ${look.card} ${liftClass} flex h-full flex-col p-6 md:p-8`;
 
-              {/* Special effects for Handbook Card */}
-              {isHandbook && (
-                <>
-                  <div className="absolute -right-20 -top-20 h-64 w-64 bg-violet-500/15 blur-[100px] pointer-events-none group-hover:bg-violet-500/25 transition-colors duration-700" />
-                  <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-violet-400 to-transparent opacity-50" />
-                </>
-              )}
-
-
-              <div className="space-y-8 flex-1 relative z-10">
-                {/* Icon — standalone on top */}
-                <div className={`h-14 w-14 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110 group-hover:rotate-3
-                  ${isHot
-                    ? "bg-linear-to-br from-orange-400 to-rose-500 border-orange-400/40 text-white shadow-[0_0_25px_rgba(249,115,22,0.4)]"
-                    : isHandbook
-                    ? "bg-linear-to-br from-violet-500 to-indigo-600 border-violet-400/40 text-white shadow-[0_0_25px_rgba(139,92,246,0.4)]"
-                    : "bg-white/5 border-white/10 text-white/60"}
-                `}>
-                  <Icon className="h-7 w-7" />
-                </div>
-
-                <div className="space-y-3">
-                  {/* Title + badge inline */}
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    <h2 className="text-xl font-bold text-white tracking-tight">
-                      {service.title}
-                    </h2>
+            const CardContent = (
+              <>
+                <div className="flex-1 space-y-6">
+                  {/* Icon on the left, badge in the opposite corner: fits at every card width */}
+                  <div className="flex items-start justify-between gap-3">
+                    <PopIcon className={look.icon} delay={0.25 + wait}>
+                      <Icon className="h-7 w-7" />
+                    </PopIcon>
                     {isHot ? (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide text-white bg-linear-to-r from-orange-500 to-rose-600 shadow-[0_2px_10px_rgba(249,115,22,0.35)]">
-                        强烈推荐
-                      </span>
+                      <Wobble>
+                        <Sticker tone={look.badge} className="whitespace-nowrap">
+                          强烈推荐
+                        </Sticker>
+                      </Wobble>
                     ) : isHandbook ? (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wide text-white bg-linear-to-r from-violet-500 to-indigo-600 shadow-[0_2px_10px_rgba(139,92,246,0.35)]">
+                      <Sticker tone={look.badge} className="rotate-2 whitespace-nowrap">
                         零基础入门
-                      </span>
+                      </Sticker>
                     ) : (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-widest border bg-white/5 border-white/10 text-white/50">
+                      <Sticker tone={look.badge} className="rotate-2 whitespace-nowrap">
                         {service.tag}
-                      </span>
+                      </Sticker>
                     )}
                   </div>
-                  <p className="text-sm leading-relaxed text-white/60 group-hover:text-white/80 transition-colors">
-                    {service.description}
-                  </p>
-                  {service.suitableFor && service.suitableFor.length > 0 && (
-                    <div className="pt-3 space-y-2">
-                      <p className={`text-xs font-bold uppercase tracking-widest ${isHot ? 'text-orange-400/70' : isHandbook ? 'text-violet-400/70' : 'text-white/30'}`}>
-                        适合人群
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {service.suitableFor.map((item: string) => (
-                          <span
-                            key={item}
-                            className={`inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg ${
-                              isHot
-                                ? 'bg-orange-500/15 text-orange-200'
-                                : isHandbook
-                                ? 'bg-violet-500/15 text-violet-200'
-                                : 'bg-white/8 text-white/70'
-                            }`}
-                          >
-                            <Users2 className="h-3.5 w-3.5 shrink-0" />
-                            {item}
-                          </span>
-                        ))}
+
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-black tracking-tight">{service.title}</h2>
+                    <p className="text-base leading-relaxed text-brand-muted">{service.description}</p>
+                    {service.suitableFor && service.suitableFor.length > 0 && (
+                      <div className="space-y-2 pt-2">
+                        <p className="text-[13px] font-black uppercase tracking-widest text-brand-muted">适合人群</p>
+                        <div className="flex flex-wrap gap-2">
+                          {service.suitableFor.map((item: string) => (
+                            <span
+                              key={item}
+                              className={`inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-ink/15 px-3 py-1.5 text-sm font-bold ${look.pill}`}
+                            >
+                              <Users2 className="h-3.5 w-3.5 shrink-0" />
+                              {item}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
+
+                  <TickList
+                    points={service.helpPoints}
+                    tick={look.tick}
+                    delay={0.45 + wait}
+                    className="grid gap-3 border-t-2 border-dashed border-brand-ink/15 pt-5 md:grid-cols-2 md:gap-x-6 lg:grid-cols-1"
+                  />
                 </div>
 
-                <div className="space-y-3 pt-3 border-t border-white/5">
-                  <ul className="space-y-3">
-                    {service.helpPoints.map((point: string) => (
-                      <li key={point} className="flex items-start gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors">
-                        <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 transition-colors
-                          ${isHot
-                            ? "text-orange-400 group-hover:text-orange-300"
-                            : isHandbook
-                            ? "text-violet-400 group-hover:text-violet-300"
-                            : "text-white/30 group-hover:text-white/50"}
-                        `} />
-                        <span className={isHot || isHandbook ? "group-hover:text-white/80" : ""}>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className={`mt-8 w-full ${look.button}`}>
+                  {isHot ? "查看项目" : isHandbook ? "查看手册" : "联系咨询"}{" "}
+                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
-              </div>
-
-              <div className="mt-10">
-                <div className={`flex items-center justify-center gap-2 w-full py-4 rounded-[20px] text-sm font-black tracking-wide transition-all duration-500
-                  ${isHot
-                    ? "bg-linear-to-r from-orange-500 to-rose-600 text-white shadow-[0_10px_30px_rgba(249,115,22,0.3)] hover:shadow-[0_15px_40px_rgba(249,115,22,0.5)] group-hover:scale-[1.02]"
-                    : isHandbook
-                    ? "bg-linear-to-r from-violet-500 to-indigo-600 text-white shadow-[0_10px_30px_rgba(139,92,246,0.3)] hover:shadow-[0_15px_40px_rgba(139,92,246,0.5)] group-hover:scale-[1.02]"
-                    : "bg-white/5 text-white/60 group-hover:bg-white group-hover:text-black"
-                  }
-                `}>
-                  {isHot ? "查看项目" : isHandbook ? "查看手册" : "联系咨询"} <ArrowUpRight className="h-4 w-4" />
-                </div>
-              </div>
-            </>
-          );
-
-          // Hot card links to /blotz, handbook links to /handbook, others open WeChat modal
-          if (isHot) {
-            return (
-              <Link key={service.title} href="/blotz" className={cardClassName}>
-                {CardContent}
-              </Link>
+              </>
             );
-          }
 
-          if (isHandbook) {
+            // Hot card links to /blotz, handbook links to /handbook, others open WeChat modal
+            if (isHot) {
+              return (
+                <Reveal key={service.title} delay={wait} className="h-full">
+                  <Link href="/blotz" className={cardClassName}>
+                    {CardContent}
+                  </Link>
+                </Reveal>
+              );
+            }
+
+            if (isHandbook) {
+              return (
+                <Reveal key={service.title} delay={wait} className="h-full">
+                  <Link href="/handbook" className={cardClassName}>
+                    {CardContent}
+                  </Link>
+                </Reveal>
+              );
+            }
+
             return (
-              <Link key={service.title} href="/handbook" className={cardClassName}>
-                {CardContent}
-              </Link>
+              <WeChatModal key={service.title} wechatId="Azdev0189">
+                <Reveal delay={wait} className="h-full">
+                  <div className={cardClassName}>{CardContent}</div>
+                </Reveal>
+              </WeChatModal>
             );
-          }
-
-          return (
-            <WeChatModal key={service.title} wechatId="Azdev0189">
-              <div className={cardClassName}>
-                {CardContent}
-              </div>
-            </WeChatModal>
-          );
-        })}
-      </div>
+          })}
+        </div>
+      </Band>
+      )}
 
       {/* XHS Free Content Banner */}
-      <a
-        href="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 px-8 py-6 rounded-[24px] border border-rose-500/20 bg-rose-500/5 hover:bg-rose-500/8 hover:border-rose-500/35 transition-all duration-300"
-      >
-        <div className="flex items-start gap-4">
-          <img src="/xhs.png" alt="小红书" width={28} height={28} className="shrink-0 mt-0.5 opacity-80 group-hover:opacity-100 transition-opacity" />
-          <div className="space-y-2">
-            <p className="text-sm font-bold text-white/80 group-hover:text-white transition-colors">
-              小红书上有大量免费干货
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["面试准备", "自学路线", "找工作", "留学生转码", "简历技巧", "行业经验"].map((tag) => (
-                <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300/80">
-                  {tag}
+      <Band tone="paper" className="py-10! md:py-14!">
+        <Reveal>
+          <a
+            href={xhsProfile}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group ${cardClass} ${liftClass} flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between md:px-8`}
+          >
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-brand-ink bg-white transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-110">
+                  <Image src="/xhs.png" alt="小红书" width={28} height={28} className="rounded-md" />
                 </span>
-              ))}
+                <p className="text-balance text-lg font-black tracking-tight sm:text-xl">小红书上有大量免费干货</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {["面试准备", "自学路线", "找工作", "留学生转码", "简历技巧", "行业经验"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border-2 border-brand-ink/15 bg-brand-coral/10 px-3 py-1 text-[13px] font-black transition-transform duration-200 odd:-rotate-2 even:rotate-2 group-hover:odd:rotate-0 group-hover:even:rotate-0"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="shrink-0 inline-flex items-center gap-2 text-sm font-bold text-rose-300 group-hover:text-rose-200 transition-colors whitespace-nowrap">
-          免费查看 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </div>
-      </a>
+            <div className={`shrink-0 whitespace-nowrap ${buttonCoralClass}`}>
+              免费查看{" "}
+              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </div>
+          </a>
+        </Reveal>
+      </Band>
 
       {/* Testimonials - Scrolling Reviews */}
-      <div id="feedback" className="space-y-10 scroll-mt-32">
-        <div className="text-center space-y-4">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
-            {homeContent.feedback.hero.eyebrow}
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">
-            {homeContent.feedback.hero.title}
-          </h2>
-          <div className="flex items-center justify-center gap-3">
-            <span className="text-sm text-white/50">小红书累计</span>
-            <span className="text-sm font-bold text-white/80">56+ 条真实评价</span>
-          </div>
-        </div>
+      <Band tone="yellow" id="feedback" className="scroll-mt-24">
+        <SectionHeading
+          eyebrow={homeContent.feedback.hero.eyebrow}
+          tone="yellow"
+          title={homeContent.feedback.hero.title.replace("真实评价", "[真实评价]")}
+          center
+        />
+        <Reveal delay={0.1} className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+          <span className="text-base font-bold text-brand-muted">小红书累计</span>
+          <Sticker tone="paper" className="rotate-2">
+            <CountUp value="56+ 条真实评价" />
+          </Sticker>
+        </Reveal>
 
-        <TestimonialsCarousel feedbacks={homeContent.feedback.feedbacks} />
+        {/* On phones the row of reviews runs edge to edge */}
+        <Reveal delay={0.15} className="-mx-6 mt-10 md:mx-0">
+          <TestimonialsCarousel feedbacks={homeContent.feedback.feedbacks} />
+        </Reveal>
 
         {/* CTA to XHS Profile */}
-        <div className="flex justify-center">
-          <XhsModal profileUrl="https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-rose-500/20 bg-rose-500/5 text-sm font-bold text-white/70 hover:bg-rose-500/10 hover:text-white hover:border-rose-500/40 transition-all duration-300">
-              查看更多小红书评价 <ArrowUpRight className="h-4 w-4" />
-            </div>
+        <div className="mt-10 flex justify-center">
+          <XhsModal profileUrl={xhsProfile}>
+            <Reveal>
+              <div className={buttonGhostClass}>
+                查看更多小红书评价 <ArrowUpRight className="h-5 w-5" />
+              </div>
+            </Reveal>
           </XhsModal>
         </div>
-      </div>
-    </section>
+      </Band>
+    </>
   );
 }

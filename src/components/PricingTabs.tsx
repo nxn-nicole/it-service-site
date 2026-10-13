@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowUpRight, Check } from "lucide-react";
 import WeChatModal from "@/components/WeChatModal";
+import { Reveal, spring } from "@/components/kit";
+import { buttonGhostClass, buttonLimeClass, cardFrameClass } from "@/components/styles";
 
 interface Tier {
   name: string;
@@ -22,23 +25,39 @@ const products = [
   { id: "cloud",     label: "云服务手册", note: (tier: string) => `云服务手册 - ${tier}` },
 ];
 
+// Overshoots a little before settling, so the cards land with a small pop.
+const popEase = [0.34, 1.56, 0.64, 1] as const;
+
 export default function PricingTabs({ tiers }: PricingTabsProps) {
   const [active, setActive] = useState(0);
+  // Counts tab changes. The cards are keyed on it, so they pop each time.
+  const [picks, setPicks] = useState(0);
   const product = products[active];
+
+  const pick = (i: number) => {
+    if (i === active) return;
+    setActive(i);
+    setPicks((n) => n + 1);
+  };
 
   return (
     <div className="space-y-8">
-      {/* Tab toggle */}
-      <div className="flex items-center gap-2 p-1 rounded-full bg-white/4 border border-white/8 w-fit">
+      {/* Tab toggle: the lime thumb slides under the chosen one */}
+      <div className="relative grid w-full max-w-xs grid-cols-2 rounded-full border-2 border-brand-ink bg-white p-1 shadow-[0_4px_0_0_var(--color-brand-ink)]">
+        <motion.div
+          aria-hidden
+          className="absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full border-2 border-brand-ink bg-brand-lime"
+          initial={false}
+          animate={{ x: `${active * 100}%` }}
+          transition={spring}
+        />
         {products.map((p, i) => (
           <button
             key={p.id}
-            onClick={() => setActive(i)}
-            className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
-              active === i
-                ? "bg-violet-600 text-white shadow-[0_2px_12px_rgba(139,92,246,0.4)]"
-                : "text-white/40 hover:text-white/70"
-            }`}
+            type="button"
+            onClick={() => pick(i)}
+            aria-pressed={active === i}
+            className="relative z-10 cursor-pointer rounded-full px-3 py-2.5 text-[15px] font-black"
           >
             {p.label}
           </button>
@@ -47,60 +66,61 @@ export default function PricingTabs({ tiers }: PricingTabsProps) {
 
       {/* Tier cards */}
       <div className="grid gap-6 md:grid-cols-3">
-        {tiers.map((tier) => (
-          <div
-            key={tier.name}
-            className={`relative flex flex-col gap-8 rounded-[32px] border transition-all duration-300 overflow-hidden ${
-              tier.highlight
-                ? "border-violet-500/40 bg-violet-500/8 shadow-[0_0_60px_rgba(139,92,246,0.15)]"
-                : "border-white/8 bg-white/2"
-            }`}
-          >
-            {tier.highlight && tier.badge && (
-              <div className="w-full py-1.5 bg-linear-to-r from-violet-600/80 to-indigo-600/80 text-center text-[11px] font-black tracking-[0.15em] text-white/90 uppercase">
-                {tier.badge}
-              </div>
-            )}
+        {tiers.map((tier, i) => {
+          const featured = tier.highlight;
 
-            <div className={`flex flex-col gap-8 flex-1 ${tier.highlight && tier.badge ? "px-8 pb-8" : "p-8"}`}>
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <h3 className={`text-2xl font-bold ${tier.highlight ? "text-white" : "text-white/80"}`}>
-                  {tier.name}
-                </h3>
-                {tier.tag && (
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide ${
-                    tier.highlight
-                      ? "bg-violet-500/25 border border-violet-500/40 text-violet-300"
-                      : "bg-white/6 border border-white/12 text-white/45"
-                  }`}>
-                    {tier.tag}
-                  </span>
+          return (
+            <Reveal key={tier.name} delay={i * 0.07} className="h-full">
+              <motion.div
+                key={picks}
+                initial={picks === 0 ? false : { scale: 0.93, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.3, ease: popEase, delay: i * 0.05 }}
+                className={`${cardFrameClass} flex h-full flex-col overflow-hidden ${
+                  featured ? "bg-brand-lime-soft" : "bg-white"
+                }`}
+              >
+                {featured && tier.badge && (
+                  <div className="border-b-2 border-brand-ink bg-brand-lime py-2 text-center text-sm font-black tracking-[0.15em]">
+                    {tier.badge}
+                  </div>
                 )}
-              </div>
 
-              <ul className="flex-1 space-y-3">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-white/60">
-                    <CheckCircle2 className="h-4 w-4 text-violet-400 shrink-0 mt-0.5" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+                <div className="flex flex-1 flex-col gap-7 p-6 lg:p-8">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <h3 className="text-2xl font-black tracking-tight">{tier.name}</h3>
+                    {tier.tag && (
+                      <span
+                        className={`inline-flex items-center rounded-full border-2 border-brand-ink px-3 py-0.5 text-[13px] font-black ${
+                          featured ? "bg-brand-purple text-white" : "bg-brand-yellow"
+                        }`}
+                      >
+                        {tier.tag}
+                      </span>
+                    )}
+                  </div>
 
-              <WeChatModal wechatId="Azdev0189" source="handbook" note={product.note(tier.name)}>
-                <div
-                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[14px] font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer ${
-                    tier.highlight
-                      ? "bg-violet-600 hover:bg-violet-500 text-white shadow-[0_6px_24px_rgba(139,92,246,0.35)] hover:shadow-[0_10px_32px_rgba(139,92,246,0.5)]"
-                      : "border border-white/10 bg-white/5 hover:bg-white/8 text-white/70 hover:text-white"
-                  }`}
-                >
-                  {tier.cta} <ArrowUpRight className="h-4 w-4" />
+                  <ul className="flex-1 space-y-3">
+                    {tier.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-base leading-snug">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-brand-ink bg-brand-lime">
+                          <Check className="h-3 w-3" strokeWidth={4} />
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <WeChatModal wechatId="Azdev0189" source="handbook" note={product.note(tier.name)}>
+                    <div className={`${featured ? buttonLimeClass : buttonGhostClass} w-full`}>
+                      {tier.cta} <ArrowUpRight className="h-5 w-5" />
+                    </div>
+                  </WeChatModal>
                 </div>
-              </WeChatModal>
-            </div>
-          </div>
-        ))}
+              </motion.div>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );
