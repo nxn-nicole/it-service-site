@@ -18,7 +18,7 @@ import { Timeline } from "@/components/Timeline";
 import { Hero } from "./join/Hero";
 import { RealProjectScene, SmallClassScene, TailoredScene, WhiteboardScene } from "./TeachingScenes";
 import { Band, CountUp, Reveal, SectionHeading, Sticker, Title } from "@/components/kit";
-import { buttonLimeClass, cardFrameClass, cardClass, liftClass } from "@/components/styles";
+import { buttonClass, buttonLimeClass, cardFrameClass, cardClass, liftClass } from "@/components/styles";
 
 const xhsProfile = "https://www.xiaohongshu.com/user/profile/615c36cd0000000002023df7";
 
@@ -114,16 +114,18 @@ export default function IntroductionPage() {
           </p>
         </Reveal>
 
-        {/* The one thing to do next: ask. A speech bubble floats beside the button and opens up on hover. */}
+        {/* Two things to do next. The speech bubble belongs to the first: it hangs under that
+            button and opens when either of the two is hovered. On a phone the bubble sits
+            between the buttons, so it stays next to the one it is about. */}
         <Reveal delay={0.1} className="mt-8 flex justify-center lg:justify-start">
-          <Link href="/courses" className="group flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-6">
-            <span className={`${buttonLimeClass} shrink-0`}>
+          <div className="group/cta grid justify-items-center gap-x-4 gap-y-5 sm:grid-cols-[auto_auto] sm:justify-items-start">
+            <Link href="/courses" className={`help-hot ${buttonLimeClass}`}>
               {content.help.cta} <ArrowUpRight className="h-5 w-5" />
-            </span>
+            </Link>
 
             {/* The invisible copy holds the bubble's place, so opening it never moves the page.
                 Screens without a mouse have no hover: there the bubble is simply open. */}
-            <span className="relative block">
+            <Link href="/courses" tabIndex={-1} className="help-hot relative block sm:col-span-2 sm:row-start-2">
               <span
                 aria-hidden
                 className="invisible block whitespace-nowrap border-2 px-4 py-3 text-base font-black md:text-lg [@media(hover:none)]:hidden"
@@ -131,12 +133,12 @@ export default function IntroductionPage() {
                 {content.help.title}
               </span>
               <span className="animate-float absolute left-0 top-0 block w-max max-w-[86vw] rounded-2xl border-2 border-brand-ink bg-white px-4 py-3 text-left shadow-[0_4px_0_0_var(--color-brand-ink)] [@media(hover:none)]:static">
-                {/* The tail points at the button: up on phones, left on wider screens */}
-                <span className="absolute -top-[8px] left-1/2 h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l-2 border-t-2 border-brand-ink bg-white sm:-left-[8px] sm:top-[18px] sm:translate-x-0 sm:border-b-2 sm:border-t-0" />
+                {/* The tail points up at the button: under its middle */}
+                <span className="absolute -top-[8px] left-1/2 h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l-2 border-t-2 border-brand-ink bg-white sm:left-16 sm:translate-x-0" />
                 <span className="block whitespace-nowrap text-base font-black md:text-lg">{content.help.title}</span>
                 {/* Opens in both directions at once. The words sit at a fixed width, so the lines
                     are already where they will end up and nothing reflows while it opens. */}
-                <span className="grid grid-cols-[0fr] grid-rows-[0fr] opacity-0 transition-[grid-template-columns,grid-template-rows,opacity] duration-300 ease-out group-hover:grid-cols-[1fr] group-hover:grid-rows-[1fr] group-hover:opacity-100 [@media(hover:none)]:grid-cols-[1fr] [@media(hover:none)]:grid-rows-[1fr] [@media(hover:none)]:opacity-100">
+                <span className="grid grid-cols-[0fr] grid-rows-[0fr] opacity-0 transition-[grid-template-columns,grid-template-rows,opacity] duration-300 ease-out group-has-[.help-hot:hover]/cta:grid-cols-[1fr] group-has-[.help-hot:hover]/cta:grid-rows-[1fr] group-has-[.help-hot:hover]/cta:opacity-100 [@media(hover:none)]:grid-cols-[1fr] [@media(hover:none)]:grid-rows-[1fr] [@media(hover:none)]:opacity-100">
                   <span className="min-h-0 min-w-0 overflow-hidden">
                     <span className="block w-[15.5rem] max-w-[72vw] pt-1.5 text-[15px] font-bold leading-snug text-brand-muted">
                       {/* Break only after punctuation, never in the middle of a phrase */}
@@ -149,8 +151,12 @@ export default function IntroductionPage() {
                   </span>
                 </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+
+            <Link href="/blotz" className={`${buttonClass} sm:col-start-2 sm:row-start-1`}>
+              {content.help.project} <ArrowUpRight className="h-5 w-5" />
+            </Link>
+          </div>
         </Reveal>
       </Hero>
 
